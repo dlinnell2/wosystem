@@ -18,13 +18,15 @@ const woSeed = [
     assignedTo: "Elmer",
     location: "Dream",
     submittedBy: "Donald",
-    status: "New"
+    status: "New",
+    category: "Woodwork"
   },{
       description: "Test number 2",
       assignedTo: "Lane",
       location: "Nexus Primary",
       submittedBy: "Claudia",
-      status: "In Progress"
+      status: "In Progress",
+      category: "Flooring"
   }
 ];
 
