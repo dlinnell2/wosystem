@@ -10,6 +10,7 @@ MVP includes
 WO Schema
 - id
 - date created
+- location
 - description
 - assigned to
 - submitted by
