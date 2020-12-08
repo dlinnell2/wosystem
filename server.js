@@ -12,7 +12,7 @@ app.get('api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/example");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/wosystem");
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
