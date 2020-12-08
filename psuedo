@@ -6,3 +6,14 @@ MVP includes
 - action taken
 - time taken
 - assignments
+
+WO Schema
+- id
+- date created
+- description
+- assigned to
+- submitted by
+- status
+- action taken
+- labor hours
+- notes
