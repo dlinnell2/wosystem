@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../components/index"
+import "./WOList.css"
 
 class WOList extends Component {
     state = {
-        order: [2, 0, 4, 6, 5, 1],
+        order: [1,2,3,4,5,6],
         wos: []
     };
 
