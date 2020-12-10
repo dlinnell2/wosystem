@@ -8,6 +8,17 @@ class WOList extends Component {
     
   };
 
+  componentDidMount(){
+      this.pullWOs();
+  }
+
+  pullWOs = () => {
+    API.checkDb()
+    .then((res) => {
+        console.log(res.data)
+    })
+  }
+
   render() {
     return (
       <Container fluid>
