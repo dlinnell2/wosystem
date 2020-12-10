@@ -1,1 +1,1 @@
-export * from "./WOHeaders";
+export {default} from "./WOHeaders";

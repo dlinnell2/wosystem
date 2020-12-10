@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import WOHeader from "../components/"
 
 class WOList extends Component {
   state = {
@@ -12,10 +11,7 @@ class WOList extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col>Column 1</Col>
-          <Col>Column 2</Col>
-        </Row>
+        <WOHeader />
       </Container>
     );
   }
