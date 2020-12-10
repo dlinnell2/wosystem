@@ -1,2 +1,2 @@
-export {default} from "./WOHeaders";
-export * from "./WOItems"
+export {default as WOHeaders} from "./WOHeaders";
+export {default as WOItems} from "./WOItems"

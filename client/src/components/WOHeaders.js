@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 
-class WOHeader extends React.Component {
+class WOHeaders extends React.Component {
 
     constructor(props) {
         super()
@@ -27,4 +27,4 @@ class WOHeader extends React.Component {
     }
 }
 
-export default WOHeader
+export default WOHeaders

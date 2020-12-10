@@ -29,18 +29,9 @@ var WOSchema = new Schema({
     category: String,
     laborHours: [
             {
-                employee: {
-                    type: String,
-                    required: true
-                },
-                date: {
-                    type: String,
-                    required: true
-                },
-                hours: {
-                    type: Number,
-                    required: true
-                }
+                employee: String,
+                date: String,
+                hours: String,
             }
         ]
 
