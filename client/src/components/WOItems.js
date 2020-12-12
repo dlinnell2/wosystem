@@ -1,11 +1,15 @@
 import React from "react"
-import Col from "react-bootstrap/Col"
+import { Row, Col } from "react-bootstrap"
 
 class WOItems extends React.Component {
 
     constructor(props) {
         super()
 
+    }
+
+    state = {
+        items:["test1", "test2"]
     }
 
     createWOItems = () => (
@@ -18,7 +22,9 @@ class WOItems extends React.Component {
 
         return(
             <div>
+                <Row>
                 {this.createWOItems()}
+                </Row>
             </div>
         )
     }

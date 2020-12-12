@@ -6,7 +6,7 @@ import "./WOList.css"
 
 class WOList extends Component {
     state = {
-        order: [1,2,3,4,5,6],
+        order: [1, 2, 3, 4, 5, 6],
         wos: []
     };
 
@@ -26,9 +26,7 @@ class WOList extends Component {
     displayOrders = () => {
         return (
             this.state.wos.map((order, index) => (
-                <Row>
-                    <WOItems order={order} />
-                </Row>
+                <WOItems order={order} />
             ))
         )
     }
