@@ -31,7 +31,7 @@ class WOList extends Component {
     displayOrders = () => {
         return (
             this.state.wos.map((order, index) => (
-                <WOItems order={order} />
+                <WOItems order={order} key={index} />
             ))
         )
     }

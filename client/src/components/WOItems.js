@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Button } from "react-bootstrap"
 
 class WOItems extends React.Component {
 
@@ -9,10 +9,11 @@ class WOItems extends React.Component {
     }
 
     state = {
-        items:["test1", "test2"]
+        items: ["test1", "test2"]
     }
 
     createWOItems = () => (
+
         Object.values(this.props.order).map((item, index) => (
             <Col key={index} className="wotable">{item}</Col>
         ))
@@ -20,10 +21,13 @@ class WOItems extends React.Component {
 
     render() {
 
-        return(
+        return (
             <div>
                 <Row>
-                {this.createWOItems()}
+                    <Col>
+                        <Button variant="outline-primary" block>Edit</Button>
+                    </Col>
+                    {this.createWOItems()}
                 </Row>
             </div>
         )
