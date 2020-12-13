@@ -9,7 +9,7 @@ class WOHeaders extends React.Component {
     }
 
     state = {
-        headers: ["Description", "Assigned To", "Location", "Submitted By", "Status", "Category"]
+        headers: ["Description", "Assigned To", "Location", "Submitted By", "Status", "Category", "Labor Hours"]
     }
 
     createHeaders = () => {

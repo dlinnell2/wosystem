@@ -19,11 +19,8 @@ class WOList extends Component {
             .then((res) => {
                 let stateWos = [];
                 res.data.forEach((order) => {
-                    if (order.laborHours.length < 1){
-                        delete order.laborHours;
-                        stateWos.push(order);
-                    }
                     delete order._id;
+                    stateWos.push(order);
                 })
                 this.setState({
                     wos: stateWos
