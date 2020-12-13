@@ -17,13 +17,8 @@ class WOList extends Component {
     pullWOs = () => {
         API.checkDb()
             .then((res) => {
-                let stateWos = [];
-                res.data.forEach((order) => {
-                    delete order._id;
-                    stateWos.push(order);
-                })
                 this.setState({
-                    wos: stateWos
+                    wos: res.data
                 })
             })
     }
