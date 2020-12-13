@@ -20,7 +20,6 @@ const woSeed = [
     submittedBy: "Donald",
     status: "New",
     category: "Woodwork",
-    id:1
   },{
       description: "Test number 2",
       assignedTo: "Lane",
@@ -28,7 +27,6 @@ const woSeed = [
       submittedBy: "Claudia",
       status: "In Progress",
       category: "Flooring",
-      id:2
   }
 ];
 

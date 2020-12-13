@@ -22,7 +22,7 @@ class WOHeaders extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="outline-primary" block>Edit</Button>
+                    <Button variant="success" block>New</Button>
                 </Col>
                 {this.createHeaders()}
             </Row>
