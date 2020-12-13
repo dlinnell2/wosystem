@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
 class WOHeaders extends React.Component {
 
@@ -9,7 +9,7 @@ class WOHeaders extends React.Component {
     }
 
     state = {
-        headers: ["Description", "Assigned To", "Location", "Submitted By", "Status", "Category", "Labor Hours"]
+        headers: ["ID", "Description", "Assigned To", "Location", "Submitted By", "Status", "Category", "Labor Hours"]
     }
 
     createHeaders = () => {
@@ -21,6 +21,9 @@ class WOHeaders extends React.Component {
     render() {
         return (
             <Row>
+                <Col>
+                    <Button variant="outline-primary" block>Edit</Button>
+                </Col>
                 {this.createHeaders()}
             </Row>
         )

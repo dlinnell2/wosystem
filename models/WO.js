@@ -24,6 +24,10 @@ var WOSchema = new Schema({
         type: String,
         required: true
     },
+    id: {
+        type: Number,
+        required: true
+    },
     actionsTaken: String,
     notes: String,
     category: String,
@@ -40,7 +44,6 @@ var WOSchema = new Schema({
     timestamps: true
 });
 
-
-var WO = mongoose.model("WO", WOSchema);
+const WO = mongoose.model('WO', WOSchema);
 
 module.exports = WO;

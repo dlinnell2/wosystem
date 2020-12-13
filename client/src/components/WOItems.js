@@ -14,12 +14,12 @@ class WOItems extends React.Component {
 
     createWOItems = () => {
 
-        let thisOrder = this.props.order;
-        delete thisOrder._id;
+        let order = Object.assign({},this.props.order);
+        order._id = order._id.slice(-5);
         console.log(this.props.order)
 
         return (
-            Object.values(thisOrder).map((item, index) => (
+            Object.values(order).map((item, index) => (
                 <Col key={index} className="wotable">{item}</Col>
             ))
         )
@@ -28,14 +28,12 @@ class WOItems extends React.Component {
     render() {
 
         return (
-            <div>
                 <Row>
                     <Col>
                         <Button variant="outline-primary" block>Edit</Button>
                     </Col>
                     {this.createWOItems()}
                 </Row>
-            </div>
         )
     }
 }
