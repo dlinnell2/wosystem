@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const dbController = require("../../controllers/dbController")
+const dbRoutes = require("./db")
 
-router.route("/db")
-    .get(dbController.find);
+//database routes
+router.use("/db", dbRoutes);
 
 module.exports = router;

@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
 
-    find: function (req, res) {
+    getList: function (req, res) {
         db.WO
             .find({})
             .then((dbModel) => res.json(dbModel))

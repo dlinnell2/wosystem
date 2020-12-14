@@ -15,7 +15,7 @@ class WOList extends Component {
     }
 
     pullWOs = () => {
-        API.checkDb()
+        API.pullList()
             .then((res) => {
                 this.setState({
                     wos: res.data
