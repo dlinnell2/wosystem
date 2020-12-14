@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Form } from 'react-bootstrap'
 
 class AddWO extends Component {
     state = {
@@ -10,7 +10,13 @@ class AddWO extends Component {
 
     render() {
         return (
-            <h4>Add WO page</h4>
+            <Container>
+                <Form>
+                    <Form.Group controlID="addWorkOrderForm">
+                        <Form.Label>Add a new work order</Form.Label>
+                    </Form.Group>
+                </Form>
+            </Container>
         );
     }
 }

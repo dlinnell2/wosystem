@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Button } from "react-bootstrap";
-import AddWO from "../pages/AddWO"
+import AddWO from "../../pages/AddWO"
 
 class WOHeaders extends React.Component {
 
