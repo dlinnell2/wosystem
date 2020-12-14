@@ -1,5 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Button } from "react-bootstrap";
+import AddWO from "../pages/AddWO"
 
 class WOHeaders extends React.Component {
 
@@ -22,7 +24,7 @@ class WOHeaders extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="success" block>New</Button>
+                    <Button variant="success" href="/add" block>New</Button>
                 </Col>
                 {this.createHeaders()}
             </Row>
