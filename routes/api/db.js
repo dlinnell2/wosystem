@@ -5,11 +5,8 @@ const dbController = require("../../controllers/dbController");
 router.route("/getAll")
   .get(dbController.getList)
 
-// Matches with "/api/books/:id"
-//router
-  //.route("/:id")
-  //.get(booksController.findById)
-  //.put(booksController.update)
-  //.delete(booksController.remove);
+// Matches with "/addNewWO"
+router.route("/addNewWO")
+  .post(dbController.addNewWO)
 
 module.exports = router;
