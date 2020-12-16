@@ -4,16 +4,28 @@ import { Container, Row, Col, Form } from 'react-bootstrap'
 
 class AddWO extends Component {
     state = {
-        order: [1, 2, 3, 4, 5, 6],
-        wos: []
+        description:""
     };
+
+    handleInputChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        });
+    }
 
     render() {
         return (
             <Container>
                 <Form>
-                    <Form.Group controlID="addWorkOrderForm">
-                        <Form.Label>Add a new work order</Form.Label>
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control 
+                        placeholder="Enter your description" 
+                        name="description"
+                        value={this.state.description}
+                        onChange = {this.handleInputChange}
+                        />
                     </Form.Group>
                 </Form>
             </Container>
