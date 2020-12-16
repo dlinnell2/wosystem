@@ -7,7 +7,8 @@ class AddWO extends Component {
         description: "",
         submittedBy: "",
         location: "",
-        category: ""
+        category: "",
+        status: ""
 
     };
 
@@ -19,6 +20,10 @@ class AddWO extends Component {
     }
 
     addNewWO = (e) => {
+
+        this.setState({
+            status: "Submitting order"
+        })
         let data = {
             description: this.state.description,
             assignedTo: "Donald",
@@ -30,13 +35,15 @@ class AddWO extends Component {
 
         API.addNewWO(data)
             .then(dbRes => {
-                console.log(dbRes);
-                this.setState({
-                    description: "",
-                    submittedBy: "",
-                    location: "",
-                    category: ""
-                })
+                setTimeout(() => {
+                    this.setState({
+                        description: "",
+                        submittedBy: "",
+                        location: "",
+                        category: "",
+                        status: "Order submitted"
+                    });
+                }, 500);
             })
 
     }
@@ -91,8 +98,14 @@ class AddWO extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col sm={2}>
                             <Button variant="success" onClick={this.addNewWO}>Submit your order</Button>
+                        </Col>
+                        <Col sm={2}>
+                            <Button variant="primary" href="/">Return to list</Button>
+                        </Col>
+                        <Col sm={8}>
+                            <h4>{this.state.status}</h4>
                         </Col>
                     </Row>
                 </Form>

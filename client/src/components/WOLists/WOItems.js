@@ -9,7 +9,11 @@ class WOItems extends React.Component {
     }
 
     state = {
-        categoriesToShow: ["_id", "description", "assignedTo", "location", "submittedBy", "status", "category", "laborHours"]
+        categoriesToShow: ["id", "description", "assignedTo", "location", "submittedBy", "status", "category", "laborHours"]
+    }
+
+    editOrder = (orderID) => {
+        console.log(orderID)
     }
 
     createWOItems = () => {
@@ -20,7 +24,7 @@ class WOItems extends React.Component {
                 .map(key => obj[key]);
 
         let order = {...this.props.order}
-        order._id=order._id.slice(-5);
+        order.id=order._id.slice(-5);
 
         let filteredOrder = Object.filter(order);
 
@@ -34,7 +38,7 @@ class WOItems extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="outline-primary" block>Edit</Button>
+                    <Button variant="outline-primary" block onClick={this.editOrder(this.props.order._id)}>Edit</Button>
                 </Col>
                 {this.createWOItems()}
             </Row>
