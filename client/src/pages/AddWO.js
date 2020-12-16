@@ -19,8 +19,26 @@ class AddWO extends Component {
     }
 
     addNewWO = (e) => {
-        //e.preventDefault()
-        console.log('clicked')
+        let data = {
+            description: this.state.description,
+            assignedTo: "Donald",
+            location: this.state.location,
+            submittedBy: this.state.submittedBy,
+            status: "New",
+            category: this.state.category
+        }
+
+        API.addNewWO(data)
+            .then(dbRes => {
+                console.log(dbRes);
+                this.setState({
+                    description: "",
+                    submittedBy: "",
+                    location: "",
+                    category: ""
+                })
+            })
+
     }
 
     render() {

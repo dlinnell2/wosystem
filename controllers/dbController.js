@@ -10,7 +10,7 @@ module.exports = {
     },
 
     addNewWO: function(req, res) {
-        console.log('dbController')
+        console.log(req.body)
         db.WO
             .create(req.body)
             .then((dbModel) => res.json(dbModel))

@@ -24,10 +24,6 @@ var WOSchema = new Schema({
         type: String,
         required: true
     },
-    id: {
-        type: Number,
-        required: true
-    },
     actionsTaken: String,
     notes: String,
     category: String,
