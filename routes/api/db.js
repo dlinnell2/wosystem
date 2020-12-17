@@ -9,4 +9,6 @@ router.route("/getAll")
 router.route("/addNewWO")
   .post(dbController.addNewWO)
 
+router.route("/getOne")
+  .get(dbController.getOne)
 module.exports = router;

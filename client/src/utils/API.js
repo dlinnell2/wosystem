@@ -5,8 +5,15 @@ export default {
         return axios.get('api/db/getAll')
     },
 
-    addNewWO : (data) => {
-        console.log("client side api")
+    addNewWO: (data) => {
         return axios.post('api/db/addNewWO', data)
+    },
+
+    getOne: (data) => {
+        return axios.get('api/db/getOne', {
+            params: {
+                id: data
+            }
+        })
     }
 }

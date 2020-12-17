@@ -10,10 +10,17 @@ module.exports = {
     },
 
     addNewWO: function(req, res) {
-        console.log(req.body)
         db.WO
             .create(req.body)
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
+    },
+
+    getOne: function(req, res) {
+        console.log(req.params)
+        db.WO  
+            .findById(req.params.id)
+            .then((dbModel) => res.json(dbModel))
+            .catch((err) => res.status(422).json(err))
     }
 };

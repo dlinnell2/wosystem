@@ -13,11 +13,16 @@ class EditWO extends Component {
 
     state = {
         order: [1, 2, 3, 4, 5, 6],
-        wos: []
+        wos: [],
+        orderID: ""
     };
 
     componentDidMount() {
-        console.log(this)
+        let data = Object.values(this.props.location.state)[0];
+        API.getOne(data)
+        .then((res) => {
+            console.log(res)
+        })
     }
 
     render() {
