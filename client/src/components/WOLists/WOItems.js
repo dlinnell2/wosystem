@@ -1,5 +1,6 @@
-import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
+import React from "react";
+import { Row, Col, Button } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class WOItems extends React.Component {
 
@@ -44,7 +45,12 @@ class WOItems extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="outline-primary" block>Edit</Button>
+                    <Link to={{
+                        pathname: "/edit",
+                        state: { orderId: this.props.order._id }
+                    }}>
+                        <Button variant="outline-primary" block>Edit</Button>
+                    </Link>
                 </Col>
                 {this.createWOItems()}
             </Row>
