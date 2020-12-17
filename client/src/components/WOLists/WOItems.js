@@ -14,14 +14,24 @@ class WOItems extends React.Component {
 
     createWOItems = () => {
 
+        //creating deep copy of order on props so that it can be changed, creating new key with shorter id value
+        let order = { ...this.props.order }
+        order.id = order._id.slice(-5);
+
+        //creating an object to reference, iterating through categories array in state, associating the array item as key with the index as value
+        let referenceObject = {}
+        this.state.categoriesToShow.forEach((item, i) => {
+            referenceObject[item] = i
+        });
+
+        //defining a filter function for object to use. Creating array of object keys, filtering by identifying if that key exists in the reference array in state, sorting by indexes held in reference object and then pulling appropriate value from order object to be returned in new array
         Object.filter = (obj) =>
             Object.keys(obj)
                 .filter(key => this.state.categoriesToShow.indexOf(key) >= 0)
+                .sort((a, b) => referenceObject[a] - referenceObject[b])
                 .map(key => obj[key]);
 
-        let order = {...this.props.order}
-        order.id=order._id.slice(-5);
-
+        //running object filer on order copy, then mapping to return components
         let filteredOrder = Object.filter(order);
 
         return filteredOrder.map((item, index) => (
