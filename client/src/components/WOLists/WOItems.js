@@ -12,10 +12,6 @@ class WOItems extends React.Component {
         categoriesToShow: ["id", "description", "assignedTo", "location", "submittedBy", "status", "category", "laborHours"]
     }
 
-    editOrder = (orderID) => {
-        console.log(orderID)
-    }
-
     createWOItems = () => {
 
         Object.filter = (obj) =>
@@ -38,7 +34,7 @@ class WOItems extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="outline-primary" block onClick={this.editOrder(this.props.order._id)}>Edit</Button>
+                    <Button variant="outline-primary" block>Edit</Button>
                 </Col>
                 {this.createWOItems()}
             </Row>

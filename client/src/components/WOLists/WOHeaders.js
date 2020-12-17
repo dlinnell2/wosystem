@@ -24,7 +24,9 @@ class WOHeaders extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Button variant="success" href="/add" block>New</Button>
+                    <Link to="/add">
+                        <Button variant="success" block>New</Button>
+                    </Link>
                 </Col>
                 {this.createHeaders()}
             </Row>
