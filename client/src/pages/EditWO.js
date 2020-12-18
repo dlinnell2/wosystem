@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import "./WOList.css"
 
@@ -21,6 +21,8 @@ class EditWO extends Component {
         API.getOne(id)
         .then((res) => {
             let order = {...res.data};
+            order.id=order._id.slice(-5)
+            console.log(order)
             this.setState({
                 woInfo:order,
                 orderID:this.props.match.params.id
@@ -31,7 +33,20 @@ class EditWO extends Component {
     render() {
         return (
             <Container fluid>
-                <h2>Welcome to Edit page</h2>
+                <Row>
+                    <Col lg={8}>
+                        <Form.Group>
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="text" placeholder={this.state.woInfo.description} readOnly />
+                        </Form.Group>
+                    </Col>
+                    <Col lg={4}>
+                        <Form.Group>
+                            <Form.Label>Work Order ID</Form.Label>
+                            <Form.Control type="text" placeholder={this.state.woInfo.id} readOnly />
+                        </Form.Group>
+                    </Col>
+                </Row>
             </Container>
         );
     }
