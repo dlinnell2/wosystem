@@ -14,7 +14,7 @@ class App extends Component {
           <Route path="/add">
             <AddWO />
           </Route>
-          <Route path="/edit">
+          <Route path="/edit/:id">
             <EditWO />
           </Route>
           <Route path="/">

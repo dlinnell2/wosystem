@@ -16,8 +16,7 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
 
-    getOne: function(req, res) {
-        console.log(req.params)
+    findById: function(req, res) {
         db.WO  
             .findById(req.params.id)
             .then((dbModel) => res.json(dbModel))

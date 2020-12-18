@@ -2,18 +2,14 @@ import axios from 'axios';
 
 export default {
     pullList: () => {
-        return axios.get('api/db/getAll')
+        return axios.get('/api/db/getAll')
     },
 
     addNewWO: (data) => {
-        return axios.post('api/db/addNewWO', data)
+        return axios.post('/api/db/addNewWO', data)
     },
 
-    getOne: (data) => {
-        return axios.get('api/db/getOne', {
-            params: {
-                id: data
-            }
-        })
+    getOne: (id) => {
+        return axios.get('/api/db/getOne/' + id)
     }
 }

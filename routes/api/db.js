@@ -9,6 +9,6 @@ router.route("/getAll")
 router.route("/addNewWO")
   .post(dbController.addNewWO)
 
-router.route("/getOne")
-  .get(dbController.getOne)
+router.route("/getOne/:id")
+  .get(dbController.findById)
 module.exports = router;

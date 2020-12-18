@@ -45,10 +45,7 @@ class WOItems extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Link to={{
-                        pathname: "/edit",
-                        state: { orderId: this.props.order._id }
-                    }}>
+                    <Link to={"/edit/" + this.props.order._id}>
                         <Button variant="outline-primary" block>Edit</Button>
                     </Link>
                 </Col>

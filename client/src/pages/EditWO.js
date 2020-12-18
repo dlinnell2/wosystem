@@ -12,16 +12,19 @@ class EditWO extends Component {
     }
 
     state = {
-        order: [1, 2, 3, 4, 5, 6],
-        wos: [],
+        woInfo:{},
         orderID: ""
     };
 
     componentDidMount() {
-        let data = Object.values(this.props.location.state)[0];
-        API.getOne(data)
+        let id = this.props.match.params.id;
+        API.getOne(id)
         .then((res) => {
-            console.log(res)
+            let order = {...res.data};
+            this.setState({
+                woInfo:order,
+                orderID:this.props.match.params.id
+            })
         })
     }
 
