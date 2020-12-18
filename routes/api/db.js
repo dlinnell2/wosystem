@@ -11,4 +11,5 @@ router.route("/addNewWO")
 
 router.route("/getOne/:id")
   .get(dbController.findById)
+  .put(dbController.findByIdAndUpdate)
 module.exports = router;

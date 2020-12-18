@@ -1,3 +1,7 @@
 .wotable {
     border: 2px solid black;
 }
+
+.editCard {
+    margin-bottom: 10px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Container, Row, Col, Form, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
 import "./WOList.css"
@@ -18,7 +18,8 @@ class EditWO extends Component {
         location: "",
         assignedTo: "",
         status: "",
-        category:""
+        category: "",
+        message: ""
 
     };
 
@@ -26,17 +27,7 @@ class EditWO extends Component {
         let id = this.props.match.params.id;
         API.getOne(id)
             .then((res) => {
-                let order = { ...res.data };
-                order.id = order._id.slice(-5)
-                console.log(order)
-                this.setState({
-                    woInfo: order,
-                    orderID: this.props.match.params.id,
-                    location: order.location,
-                    assignedTo: order.assignedTo,
-                    status: order.status,
-                    category: order.category
-                })
+                this.formatOrder(res, "")
             })
     }
 
@@ -51,13 +42,42 @@ class EditWO extends Component {
         });
     }
 
+    updateOrder = () => {
+        let id = this.state.orderID;
+        let data = {
+            location: this.state.location,
+            assignedTo: this.state.assignedTo,
+            status: this.state.status,
+            category: this.state.category
+        }
+
+        API.editOne(id, data)
+            .then(res => {
+                this.formatOrder(res, "Order updated")
+            })
+    }
+
+    formatOrder = (res, message) => {
+        let order = { ...res.data };
+        order.id = order._id.slice(-5)
+        this.setState({
+            woInfo: order,
+            orderID: this.props.match.params.id,
+            location: order.location,
+            assignedTo: order.assignedTo,
+            status: order.status,
+            category: order.category,
+            message: message
+        })
+    }
+
     render() {
 
         let order = { ...this.state.woInfo };
 
         return (
             <Container fluid>
-                <Card>
+                <Card className="editCard">
                     <Card.Header>Work Order Info</Card.Header>
                     <Card.Body>
                         <Row>
@@ -96,7 +116,7 @@ class EditWO extends Component {
                         </Row>
                     </Card.Body>
                 </Card>
-                <Card>
+                <Card className="editCard">
                     <Card.Header>Edit the info</Card.Header>
                     <Card.Body>
                         <Row>
@@ -143,6 +163,13 @@ class EditWO extends Component {
                         </Row>
                     </Card.Body>
                 </Card>
+                <Row>
+                    <Col sm={2}>
+                        <Button variant="success" onClick={this.updateOrder}>Update Order</Button>
+                    </Col>
+                    <Col sm={2} />
+                    <Col sm={8}>{this.state.message}</Col>
+                </Row>
             </Container>
         );
     }
