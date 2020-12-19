@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { DateTime } from "luxon";
 import "./WOList.css"
 
-class EditWO extends Component {
+class WODetail extends Component {
 
     constructor(props) {
         super()
@@ -163,9 +163,23 @@ class EditWO extends Component {
                         </Row>
                     </Card.Body>
                 </Card>
+                <Card className="editCard">
+                    <Card.Header>Labor Hours</Card.Header>
+                    <Row>
+                        <Col sm={4}>
+                        <Form.Group>
+                            <Form.Label>Labor Hours</Form.Label>
+                            <Form.Control
+                                name="laborHoursName"
+                                value={this.state.laborHoursName}
+                            />
+                        </Form.Group>
+                        </Col>
+                    </Row>
+                </Card>
                 <Row>
                     <Col sm={2}>
-                        <Button variant="success" onClick={this.updateOrder}>Update Order</Button>
+                        <Button variant="success" onClick={this.updateOrder}>Save Changes</Button>
                     </Col>
                     <Col sm={2} />
                     <Col sm={8}>{this.state.message}</Col>
@@ -175,4 +189,4 @@ class EditWO extends Component {
     }
 }
 
-export default withRouter(EditWO);
+export default withRouter(WODetail);

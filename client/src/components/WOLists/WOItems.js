@@ -45,8 +45,8 @@ class WOItems extends React.Component {
         return (
             <Row>
                 <Col>
-                    <Link to={"/edit/" + this.props.order._id}>
-                        <Button variant="outline-primary" block>Edit</Button>
+                    <Link to={"/detail/" + this.props.order._id}>
+                        <Button variant="outline-primary" block>Detail</Button>
                     </Link>
                 </Col>
                 {this.createWOItems()}

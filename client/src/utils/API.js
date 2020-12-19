@@ -10,10 +10,10 @@ export default {
     },
 
     getOne: (id) => {
-        return axios.get('/api/db/getOne/' + id)
+        return axios.get('/api/db/detail/' + id)
     },
 
     editOne: (id, data) => {
-        return axios.put('/api/db/getOne/' + id, data)
+        return axios.put('/api/db/detail/' + id, data)
     }
 }

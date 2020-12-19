@@ -9,7 +9,7 @@ router.route("/getAll")
 router.route("/addNewWO")
   .post(dbController.addNewWO)
 
-router.route("/getOne/:id")
+router.route("/detail/:id")
   .get(dbController.findById)
   .put(dbController.findByIdAndUpdate)
 module.exports = router;
