@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 var Schema = mongoose.Schema;
 
@@ -40,6 +41,7 @@ var WOSchema = new Schema({
     timestamps: true
 });
 
+WOSchema.plugin(AutoIncrement, {inc_field: 'id'})
 const WO = mongoose.model('WO', WOSchema);
 
 module.exports = WO;
