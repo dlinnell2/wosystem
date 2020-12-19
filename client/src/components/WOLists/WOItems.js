@@ -17,7 +17,6 @@ class WOItems extends React.Component {
 
         //creating deep copy of order on props so that it can be changed, creating new key with shorter id value
         let order = { ...this.props.order }
-        order.id = order._id.slice(-5);
 
         //creating an object to reference, iterating through categories array in state, associating the array item as key with the index as value
         let referenceObject = {}

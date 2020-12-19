@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
-import { BasicInfo, EditableInfo } from "../components/WODetail"
+import { BasicInfo, EditableInfo, TextArea } from "../components/WODetail"
 
 class WODetail extends Component {
 
@@ -19,6 +19,8 @@ class WODetail extends Component {
         assignedTo: "",
         status: "",
         category: "",
+        actionTaken: "",
+        notes: "",
         message: ""
 
     };
@@ -49,7 +51,9 @@ class WODetail extends Component {
             location: this.state.location,
             assignedTo: this.state.assignedTo,
             status: this.state.status,
-            category: this.state.category
+            category: this.state.category,
+            actionTaken: this.state.actionTaken,
+            notes: this.state.notes
         }
 
         API.editOne(id, data)
@@ -60,7 +64,6 @@ class WODetail extends Component {
 
     formatOrder = (res, message) => {
         let order = { ...res.data };
-        order.id = order._id.slice(-5)
         this.setState({
             woInfo: order,
             orderID: this.props.match.params.id,
@@ -68,46 +71,69 @@ class WODetail extends Component {
             assignedTo: order.assignedTo,
             status: order.status,
             category: order.category,
+            actionTaken: order.actionTaken,
+            notes: order.notes,
             message: message
         })
+    }
+
+    createTextAreas = () => {
+
+        let data = [
+            {
+                header: "Action Taken",
+                name: "actionTaken",
+                value: this.state.actionTaken,
+            }, {
+                header: "Notes",
+                name: "notes",
+                value: this.state.notes,
+            }
+        ]
+
+        return (
+            data.map((item, index) => (
+                <TextArea
+                    key={index}
+                    header={item.header}
+                    name={item.name}
+                    value={item.value}
+                    handleInputChange={this.handleInputChange}
+                />
+            ))
+        )
     }
 
     render() {
 
         return (
             <Container fluid>
-                <BasicInfo 
-                    order = {this.state.woInfo}
-                    formatDate = {this.formatDate}
+                <BasicInfo
+                    order={this.state.woInfo}
+                    formatDate={this.formatDate}
                 />
                 <EditableInfo
-                    handleInputChange = {this.handleInputChange}
-                    location = {this.state.location}
-                    assignedTo = {this.state.assignedTo}
-                    status = {this.state.status}
-                    category = {this.state.location}
+                    handleInputChange={this.handleInputChange}
+                    location={this.state.location}
+                    assignedTo={this.state.assignedTo}
+                    status={this.state.status}
+                    category={this.state.location}
                 />
                 <Card className="editCard">
                     <Card.Header>Labor Hours</Card.Header>
                     <Row>
                         <Col sm={4}>
-                        <Form.Group>
-                            <Form.Label>Labor Hours</Form.Label>
-                            <Form.Control
-                                name="laborHoursName"
-                                value={this.state.laborHoursName}
-                            />
-                        </Form.Group>
+                            <Form.Group>
+                                <Form.Label>Labor Hours</Form.Label>
+                                <Form.Control
+                                    name="laborHoursName"
+                                    value={this.state.laborHoursName}
+                                />
+                            </Form.Group>
                         </Col>
                     </Row>
                 </Card>
-                <Row>
-                    <Col sm={2}>
-                        <Button variant="success" onClick={this.updateOrder}>Save Changes</Button>
-                    </Col>
-                    <Col sm={2} />
-                    <Col sm={8}>{this.state.message}</Col>
-                </Row>
+                {this.createTextAreas()}
             </Container>
         );
     }

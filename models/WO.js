@@ -25,7 +25,7 @@ var WOSchema = new Schema({
         type: String,
         required: true
     },
-    actionsTaken: String,
+    actionTaken: String,
     notes: String,
     category: String,
     laborHours: [
