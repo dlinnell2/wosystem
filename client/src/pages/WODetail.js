@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
-import { BasicInfo, EditableInfo, TextArea } from "../components/WODetail"
+import { BasicInfo, EditableInfo, TextArea, LaborHours } from "../components/WODetail"
 
 class WODetail extends Component {
 
@@ -21,6 +21,7 @@ class WODetail extends Component {
         category: "",
         actionTaken: "",
         notes: "",
+        laborHours: [],
         message: ""
 
     };
@@ -53,7 +54,8 @@ class WODetail extends Component {
             status: this.state.status,
             category: this.state.category,
             actionTaken: this.state.actionTaken,
-            notes: this.state.notes
+            notes: this.state.notes,
+            laborHours: this.state.laborHours
         }
 
         API.editOne(id, data)
@@ -73,6 +75,7 @@ class WODetail extends Component {
             category: order.category,
             actionTaken: order.actionTaken,
             notes: order.notes,
+            laborHours: order.laborHours,
             message: message
         })
     }
@@ -119,20 +122,7 @@ class WODetail extends Component {
                     status={this.state.status}
                     category={this.state.location}
                 />
-                <Card className="editCard">
-                    <Card.Header>Labor Hours</Card.Header>
-                    <Row>
-                        <Col sm={4}>
-                            <Form.Group>
-                                <Form.Label>Labor Hours</Form.Label>
-                                <Form.Control
-                                    name="laborHoursName"
-                                    value={this.state.laborHoursName}
-                                />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                </Card>
+                <LaborHours />
                 {this.createTextAreas()}
             </Container>
         );

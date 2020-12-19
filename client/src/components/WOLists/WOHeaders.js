@@ -16,7 +16,7 @@ class WOHeaders extends React.Component {
 
     createHeaders = () => {
         return this.state.headers.map((header, index) => (
-            <Col key={index} className="wotable">{header}</Col>
+            <Col key={index} className="woHeader">{header}</Col>
         ))
     }
 

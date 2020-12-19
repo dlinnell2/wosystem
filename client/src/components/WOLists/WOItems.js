@@ -35,7 +35,7 @@ class WOItems extends React.Component {
         let filteredOrder = Object.filter(order);
 
         return filteredOrder.map((item, index) => (
-            <Col key={index} className="wotable">{item}</Col>
+            <Col key={index} className="woList">{item}</Col>
         ))
     }
 
