@@ -43,6 +43,7 @@ class WODetail extends Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
+        console.log(name, value)
         this.setState({
             [name]: value
         });
@@ -117,11 +118,10 @@ class WODetail extends Component {
             hours: this.state.laborTime
         }
 
-        if (data) {
-            this.setState({
-                laborHours: this.state.laborHours.concat(data)
-            })
-        }
+        console.log(data)
+        this.setState({
+            laborHours: this.state.laborHours.concat(data)
+        })
 
         return new Promise((resolve, reject) => {
             resolve();
@@ -134,7 +134,7 @@ class WODetail extends Component {
             <Container fluid>
                 <Row>
                     <Col>
-                    <Button variant="success" onClick={this.updateOrder}>Save Updates</Button>
+                        <Button variant="success" onClick={this.updateOrder}>Save Updates</Button>
                     </Col>
                 </Row>
                 <BasicInfo
