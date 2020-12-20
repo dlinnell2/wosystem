@@ -9,6 +9,12 @@ const LaborHours = props => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const sendLaborHours = () => {
+        props.addLaborHours().then( () => {
+            handleClose()
+        })
+    }
+
     return (
 
         <>
@@ -63,9 +69,10 @@ const LaborHours = props => {
                             />
                         </Form.Group>
                     </Form>
-                    <Button variant="success">Add</Button>
+                    <Button variant="success" onClick={sendLaborHours}>Add</Button>
                 </Modal.Body>
             </Modal>
+
         </>
     )
 }

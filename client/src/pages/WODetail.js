@@ -22,9 +22,9 @@ class WODetail extends Component {
         actionTaken: "",
         notes: "",
         laborHours: [],
-        laborName:"",
-        laborDate:"",
-        laborTime:"",
+        laborName: "",
+        laborDate: "",
+        laborTime: "",
         message: ""
 
     };
@@ -117,12 +117,14 @@ class WODetail extends Component {
             hours: this.state.laborTime
         }
 
-        this.setState({
-            laborHours = this.state.laborHours.concat(data)
-        })
+        if (data) {
+            this.setState({
+                laborHours: this.state.laborHours.concat(data)
+            })
+        }
 
-        return new Promise((resolve,reject)=> {
-
+        return new Promise((resolve, reject) => {
+            resolve();
         })
     }
 
@@ -146,6 +148,8 @@ class WODetail extends Component {
                     laborName={this.state.laborName}
                     laborDate={this.state.laborDate}
                     laborTime={this.state.laborTime}
+                    addLaborHours={this.addLaborHours}
+                    laborHours={this.state.laborHours}
                 />
                 {this.createTextAreas()}
             </Container>
