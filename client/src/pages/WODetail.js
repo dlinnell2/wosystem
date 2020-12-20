@@ -132,6 +132,11 @@ class WODetail extends Component {
 
         return (
             <Container fluid>
+                <Row>
+                    <Col>
+                    <Button variant="success" onClick={this.updateOrder}>Save Updates</Button>
+                    </Col>
+                </Row>
                 <BasicInfo
                     order={this.state.woInfo}
                     formatDate={this.formatDate}
