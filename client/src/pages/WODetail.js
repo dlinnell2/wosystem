@@ -107,6 +107,10 @@ class WODetail extends Component {
         )
     }
 
+    addLaborHours = () =>{
+        
+    }
+
     render() {
 
         return (

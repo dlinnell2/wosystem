@@ -1,25 +1,29 @@
-import React, { Component } from "react";
-import { Row, Col, Form, Card } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Row, Col, Form, Card, Button } from 'react-bootstrap';
 import "./wodetail.css"
 
-class LaborHours extends Component {
+const LaborHours = props => {
 
-    constructor(props) {
-        super()
+    return (
 
-    }
-
-    render() {
-
-        return (
+        <>
             <Card className="detailCard">
                 <Card.Header>Labor Hours</Card.Header>
                 <Card.Body>
-                    <h4>Labor hours</h4>
+                    <Row>
+                        <Col>
+                            <Button variant="outline-secondary" className="button" size="sm">Add New</Button>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>Name</Col>
+                        <Col>Date</Col>
+                        <Col>Hours</Col>
+                    </Row>
                 </Card.Body>
             </Card>
-        )
-    }
+        </>
+    )
 }
 
 export default LaborHours
