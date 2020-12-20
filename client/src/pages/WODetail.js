@@ -111,6 +111,19 @@ class WODetail extends Component {
 
     addLaborHours = () => {
 
+        let data = {
+            employee: this.state.laborName,
+            date: this.state.laborDate,
+            hours: this.state.laborTime
+        }
+
+        this.setState({
+            laborHours = this.state.laborHours.concat(data)
+        })
+
+        return new Promise((resolve,reject)=> {
+
+        })
     }
 
     render() {

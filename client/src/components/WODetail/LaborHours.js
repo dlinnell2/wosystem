@@ -63,6 +63,7 @@ const LaborHours = props => {
                             />
                         </Form.Group>
                     </Form>
+                    <Button variant="success">Add</Button>
                 </Modal.Body>
             </Modal>
         </>
