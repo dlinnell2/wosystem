@@ -22,6 +22,9 @@ class WODetail extends Component {
         actionTaken: "",
         notes: "",
         laborHours: [],
+        laborName:"",
+        laborDate:"",
+        laborTime:"",
         message: ""
 
     };
@@ -39,7 +42,6 @@ class WODetail extends Component {
     }
 
     handleInputChange = (e) => {
-        console.log(e.target)
         const { name, value } = e.target;
         this.setState({
             [name]: value
@@ -107,8 +109,8 @@ class WODetail extends Component {
         )
     }
 
-    addLaborHours = () =>{
-        
+    addLaborHours = () => {
+
     }
 
     render() {
@@ -126,7 +128,12 @@ class WODetail extends Component {
                     status={this.state.status}
                     category={this.state.location}
                 />
-                <LaborHours />
+                <LaborHours
+                    handleInputChange={this.handleInputChange}
+                    laborName={this.state.laborName}
+                    laborDate={this.state.laborDate}
+                    laborTime={this.state.laborTime}
+                />
                 {this.createTextAreas()}
             </Container>
         );
