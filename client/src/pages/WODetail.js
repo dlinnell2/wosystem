@@ -25,7 +25,8 @@ class WODetail extends Component {
         laborName: "",
         laborDate: "",
         laborTime: "",
-        message: ""
+        message: "",
+        variant: "secondary"
 
     };
 
@@ -43,10 +44,17 @@ class WODetail extends Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value)
-        this.setState({
-            [name]: value
-        });
+
+        if (this.state.variant === "success") {
+            this.setState({
+                [name]: value
+            });
+        } else {
+            this.setState({
+                [name]: value,
+                variant: "success"
+            })
+        }
     }
 
     updateOrder = () => {
@@ -134,7 +142,7 @@ class WODetail extends Component {
             <Container fluid>
                 <Row>
                     <Col>
-                        <Button variant="success" onClick={this.updateOrder}>Save Updates</Button>
+                        <Button variant={this.state.variant} onClick={this.updateOrder}>Save Updates</Button>
                     </Col>
                 </Row>
                 <BasicInfo
