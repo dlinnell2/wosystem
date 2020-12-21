@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../components/WOLists/index"
-import "./WOList.css"
+import "./woStyling.css"
 
 class WOList extends Component {
     state = {

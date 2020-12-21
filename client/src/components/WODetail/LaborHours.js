@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Card, Button, Modal } from 'react-bootstrap';
-import "./wodetail.css"
 
 const LaborHours = props => {
 

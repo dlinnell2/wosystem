@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col, Form, Card } from 'react-bootstrap';
-import "./wodetail.css"
 
 const EditableInfo = props => (
     <Card className="detailCard">

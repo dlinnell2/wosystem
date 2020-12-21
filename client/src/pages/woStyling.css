@@ -1,0 +1,25 @@
+.woHeader {
+    border: 2px solid black;
+}
+
+.woList {
+    border: 2px solid black;
+}
+
+.listButton {
+    margin-bottom: 5px;
+}
+
+.buttonColumn {
+    display: flex;
+    align-items: center;
+} 
+
+.detailCard {
+    margin-bottom: 7px;
+}
+
+.detailButton {
+    margin-bottom: 5px;
+    margin-right: 5px
+}

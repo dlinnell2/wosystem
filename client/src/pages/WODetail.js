@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { DateTime } from "luxon";
 import { BasicInfo, EditableInfo, TextArea, LaborHours } from "../components/WODetail"
 import { LinkButton } from "../components/General"
-import { BrowserRouter as Link } from "react-router-dom";
+import "./woStyling.css"
 
 class WODetail extends Component {
 
@@ -147,13 +147,13 @@ class WODetail extends Component {
                         <Button
                             variant={this.state.variant}
                             onClick={this.updateOrder}
-                            className="button"
+                            className="detailButton"
                             size="sm">Save Updates</Button>
 
                         <LinkButton
                             to="/"
                             variant="primary"
-                            className="button"
+                            className="detailButton"
                             size="sm">Return to list</LinkButton>
                     </Col>
                 </Row>

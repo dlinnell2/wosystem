@@ -24,8 +24,8 @@ class WOHeaders extends React.Component {
     render() {
         return (
             <Row>
-                <Col>
-                    <LinkButton to="/add" variant="success" block>
+                <Col className="buttonColumn">
+                    <LinkButton to="/add" variant="success" block className="listButton">
                         New
                     </LinkButton>
                 </Col>

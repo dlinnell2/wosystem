@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkButton } from "../components/General"
+import "./woStyling.css"
 
 class AddWO extends Component {
     state = {
