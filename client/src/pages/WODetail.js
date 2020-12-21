@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
 import { BasicInfo, EditableInfo, TextArea, LaborHours } from "../components/WODetail"
+import { LinkButton } from "../components/General"
 import { BrowserRouter as Link } from "react-router-dom";
 
 class WODetail extends Component {
@@ -149,12 +150,11 @@ class WODetail extends Component {
                             className="button"
                             size="sm">Save Updates</Button>
 
-                        <Link to="/">
-                            <Button
-                                variant="primary"
-                                size="sm"
-                                className="button">Return to list</Button>
-                        </Link>
+                        <LinkButton
+                            to="/"
+                            variant="primary"
+                            className="button"
+                            size="sm">Return to list</LinkButton>
                     </Col>
                 </Row>
                 <BasicInfo
