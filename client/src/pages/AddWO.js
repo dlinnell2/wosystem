@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { LinkButton } from "../components/General"
 
 class AddWO extends Component {
     state = {
@@ -98,11 +99,11 @@ class AddWO extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={2}>
+                        <Col sm={3}>
                             <Button variant="success" onClick={this.addNewWO}>Submit your order</Button>
                         </Col>
                         <Col sm={2}>
-                            <Button variant="primary" href="/">Return to list</Button>
+                            <LinkButton variant="primary" to="/">Return to list</LinkButton>
                         </Col>
                         <Col sm={8}>
                             <h4>{this.state.status}</h4>
