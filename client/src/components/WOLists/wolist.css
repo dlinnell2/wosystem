@@ -1,0 +1,8 @@
+.button {
+    margin-bottom: 5px;
+}
+
+.buttonColumn {
+    display: flex;
+    align-items: center;
+  } 

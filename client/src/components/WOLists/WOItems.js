@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { LinkButton } from "../General"
+import "./wolist.css"
 
 class WOItems extends React.Component {
 
@@ -51,9 +52,12 @@ class WOItems extends React.Component {
 
         return (
             <Row>
-                <Col>
-                    <LinkButton to={"/detail/" + this.props.order._id} variant="outline-primary" block>
-                        Detail
+                <Col className="buttonColumn"> 
+                    <LinkButton 
+                    to={"/detail/" + this.props.order._id}
+                    variant="outline-primary"
+                    block
+                    className="button">Detail
                     </LinkButton>
                 </Col>
                 {this.createWOItems()}
