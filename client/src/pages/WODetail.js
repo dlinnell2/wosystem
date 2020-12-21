@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
 import { BasicInfo, EditableInfo, TextArea, LaborHours } from "../components/WODetail"
+import { BrowserRouter as Link } from "react-router-dom";
 
 class WODetail extends Component {
 
@@ -141,8 +142,19 @@ class WODetail extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col>
-                        <Button variant={this.state.variant} onClick={this.updateOrder}>Save Updates</Button>
+                    <Col sm={4}>
+                        <Button
+                            variant={this.state.variant}
+                            onClick={this.updateOrder}
+                            className="button"
+                            size="sm">Save Updates</Button>
+
+                        <Link to="/">
+                            <Button
+                                variant="primary"
+                                size="sm"
+                                className="button">Return to list</Button>
+                        </Link>
                     </Col>
                 </Row>
                 <BasicInfo
