@@ -95,10 +95,10 @@ const LaborHours = props => {
                                     />
                                 </Col>
                                 <Col sm={1}>
-                                    <Button variant="light">+</Button>
+                                    <Button variant="light" onClick={() => props.adjustLaborTime(true)}>+</Button>
                                 </Col>
                                 <Col sm={1}>
-                                    <Button variant="light">-</Button>
+                                    <Button variant="light" onClick={() => props.adjustLaborTime(false)}>-</Button>
                                 </Col>
                             </Row>
                         </Form.Group>
