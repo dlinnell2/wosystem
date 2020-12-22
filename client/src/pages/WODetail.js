@@ -26,7 +26,7 @@ class WODetail extends Component {
         laborHours: [],
         laborName: "",
         laborDate: "",
-        laborTime: "",
+        laborTime: "1.00",
         message: "",
         variant: "secondary"
 

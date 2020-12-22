@@ -26,7 +26,7 @@ const LaborHours = props => {
 
     const createEntryColumns = entry => {
         let keyArray = Object.keys(entry);
-        
+
         if (Object.keys(entry)[0] === "_id") {
             keyArray.shift();
         }
@@ -86,11 +86,21 @@ const LaborHours = props => {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Hours worked</Form.Label>
-                            <Form.Control
-                                name="laborTime"
-                                value={props.laborTime}
-                                onChange={props.handleInputChange}
-                            />
+                            <Row>
+                                <Col sm={4}>
+                                    <Form.Control
+                                        name="laborTime"
+                                        value={parseFloat(props.laborTime).toFixed(2)}
+                                        onChange={props.handleInputChange}
+                                    />
+                                </Col>
+                                <Col sm={1}>
+                                    <Button variant="light">+</Button>
+                                </Col>
+                                <Col sm={1}>
+                                    <Button variant="light">-</Button>
+                                </Col>
+                            </Row>
                         </Form.Group>
                     </Form>
                     <Button variant="success" onClick={sendLaborHours}>Add</Button>
