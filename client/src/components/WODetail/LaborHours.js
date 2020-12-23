@@ -90,7 +90,7 @@ const LaborHours = props => {
                                 <Col sm={4}>
                                     <Form.Control
                                         name="laborTime"
-                                        value={parseFloat(props.laborTime).toFixed(2)}
+                                        value={props.laborTime}
                                         onChange={props.handleInputChange}
                                     />
                                 </Col>

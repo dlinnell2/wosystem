@@ -46,7 +46,6 @@ class WODetail extends Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name,value)
         if (this.state.variant === "success") {
             this.setState({
                 [name]: value
@@ -140,7 +139,6 @@ class WODetail extends Component {
 
     adjustLaborTime = (evaluation) => {
         let hours = parseFloat(this.state.laborTime);
-        console.log(hours)
         if (evaluation) {
             hours += parseFloat(0.25)
             this.setState({
