@@ -10,13 +10,13 @@ const BasicInfo = props => (
                 <Col lg={8}>
                     <Form.Group>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" placeholder={props.order.description} readOnly />
+                        <Form.Control type="text" placeholder={props.order.description} readOnly plaintext/>
                     </Form.Group>
                 </Col>
                 <Col lg={4}>
                     <Form.Group>
                         <Form.Label>Work Order ID</Form.Label>
-                        <Form.Control type="text" placeholder={props.order.id} readOnly />
+                        <Form.Control type="text" placeholder={props.order.id} readOnly plaintext/>
                     </Form.Group>
                 </Col>
             </Row>
@@ -24,19 +24,61 @@ const BasicInfo = props => (
                 <Col>
                     <Form.Group>
                         <Form.Label>Submitted By</Form.Label>
-                        <Form.Control type="text" placeholder={props.order.submittedBy} readOnly />
+                        <Form.Control type="text" placeholder={props.order.submittedBy} readOnly plaintext/>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group>
                         <Form.Label>Creation Date</Form.Label>
-                        <Form.Control type="text" placeholder={props.formatDate(props.order.createdAt)} readOnly />
+                        <Form.Control type="text" placeholder={props.formatDate(props.order.createdAt)} readOnly plaintext/>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group>
                         <Form.Label>Last Updated</Form.Label>
-                        <Form.Control type="text" placeholder={props.formatDate(props.order.updatedAt)} readOnly />
+                        <Form.Control type="text" placeholder={props.formatDate(props.order.updatedAt)} readOnly plaintext/>
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Form.Group>
+                        <Form.Label>Assigned To</Form.Label>
+                        <Form.Control
+                            name="assignedTo"
+                            value={props.assignedTo}
+                            onChange={props.handleInputChange}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group>
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control
+                            name="location"
+                            value={props.location}
+                            onChange={props.handleInputChange}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group>
+                        <Form.Label>Status</Form.Label>
+                        <Form.Control
+                            name="status"
+                            value={props.status}
+                            onChange={props.handleInputChange}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group>
+                        <Form.Label>Work Category</Form.Label>
+                        <Form.Control
+                            name="category"
+                            value={props.category}
+                            onChange={props.handleInputChange}
+                        />
                     </Form.Group>
                 </Col>
             </Row>

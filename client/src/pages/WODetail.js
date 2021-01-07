@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
-import { BasicInfo, EditableInfo, TextArea, LaborHours } from "../components/WODetail"
+import { BasicInfo, TextArea, LaborHours } from "../components/WODetail"
 import { LinkButton } from "../components/General"
 import "./woStyling.css"
 
@@ -174,8 +174,6 @@ class WODetail extends Component {
                 <BasicInfo
                     order={this.state.woInfo}
                     formatDate={this.formatDate}
-                />
-                <EditableInfo
                     handleInputChange={this.handleInputChange}
                     location={this.state.location}
                     assignedTo={this.state.assignedTo}
