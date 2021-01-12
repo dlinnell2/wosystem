@@ -27,7 +27,8 @@ var AssetSchema = new Schema({
         }
     ],
     parent: String,
-    installDate: String 
+    installDate: String,
+    inService: Boolean 
 
 }, {
     timestamps: true
