@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkButton } from "../components/General"
 import "./woStyling.css"
 
-class AddWO extends Component {
+class AddAsset extends Component {
     state = {
         name: "",
         type: "",
@@ -58,11 +58,11 @@ class AddWO extends Component {
                     <Row>
                         <Col>
                             <Form.Group>
-                                <Form.Label>Please provide the information requested below</Form.Label>
+                                <Form.Label>Please enter the asset information below. </Form.Label>
                                 <Form.Control
-                                    placeholder="Enter work needed"
-                                    name="description"
-                                    value={this.state.description}
+                                    placeholder="Enter Asset Name"
+                                    name="name"
+                                    value={this.state.name}
                                     onChange={this.handleInputChange}
                                 />
                             </Form.Group>
@@ -72,9 +72,9 @@ class AddWO extends Component {
                         <Col>
                             <Form.Group>
                                 <Form.Control
-                                    placeholder="Your Name"
-                                    name="submittedBy"
-                                    value={this.state.submittedBy}
+                                    placeholder="Asset Type"
+                                    name="type"
+                                    value={this.state.type}
                                     onChange={this.handleInputChange}
                                 />
                             </Form.Group>
@@ -82,19 +82,19 @@ class AddWO extends Component {
                         <Col>
                             <Form.Group>
                                 <Form.Control
-                                    placeholder="Your Location"
+                                    placeholder="Asset Subcategory"
+                                    name="subcategory"
+                                    value={this.state.subcategory}
+                                    onChange={this.handleInputChange}
+                                />
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group>
+                                <Form.Control
+                                    placeholder="Asset Location"
                                     name="location"
                                     value={this.state.location}
-                                    onChange={this.handleInputChange}
-                                />
-                            </Form.Group>
-                        </Col>
-                        <Col>
-                            <Form.Group>
-                                <Form.Control
-                                    placeholder="Work Category"
-                                    name="category"
-                                    value={this.state.category}
                                     onChange={this.handleInputChange}
                                 />
                             </Form.Group>
@@ -117,4 +117,4 @@ class AddWO extends Component {
     }
 }
 
-export default AddWO;
+export default AddAsset;
