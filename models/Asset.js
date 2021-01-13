@@ -12,6 +12,10 @@ var AssetSchema = new Schema({
         type: String,
         required: true
     },
+    assetSubcategory: {
+        type: String,
+        required: true
+    },
     location: {
         type: String,
         required: true
