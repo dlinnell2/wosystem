@@ -28,8 +28,9 @@ class WODetail extends Component {
         laborDate: "",
         laborTime: "1.00",
         message: "",
-        variant: "secondary"
-
+        variant: "secondary",
+        assets: [],
+        assetId: ""
     };
 
     componentDidMount() {
@@ -133,6 +134,21 @@ class WODetail extends Component {
         })
 
         return new Promise((resolve, reject) => {
+            resolve();
+        })
+    }
+
+    addAsset = () => {
+        
+        let data = {
+            assetId: this.state.assetId
+        }
+
+        this.setState({
+            assets: this.state.assets.concat(data)
+        })
+
+        return new Promise ((resolve, reject) => {
             resolve();
         })
     }

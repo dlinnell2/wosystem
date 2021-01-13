@@ -34,7 +34,10 @@ var WOSchema = new Schema({
                 date: String,
                 hours: String,
             }
-        ]
+        ],
+    assets: [
+        {assetId:String}
+    ]
 
 
 }, {
