@@ -9,7 +9,7 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
 
-    addNewWO: function(req, res) {
+    addNew: function(req, res) {
         db.Asset
             .create(req.body)
             .then((dbModel) => res.json(dbModel))

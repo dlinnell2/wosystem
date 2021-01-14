@@ -4,15 +4,15 @@ var Schema = mongoose.Schema;
 
 var AssetSchema = new Schema({
 
-    assetName: {
+    name: {
         type: String,
         required: true
     },
-    assetType: {
+    type: {
         type: String,
         required: true
     },
-    assetSubcategory: {
+    subcategory: {
         type: String,
         required: true
     },

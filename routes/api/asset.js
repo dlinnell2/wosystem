@@ -7,10 +7,10 @@ router.route("/getAll")
 
 // Matches with "/addNewWO"
 router.route("/add")
-  .post(assetController.addNewWO)
+  .post(assetController.addNew)
 
 router.route("/:id")
   .get(assetController.findById)
   .put(assetController.findByIdAndUpdate)
-  
+
 module.exports = router;

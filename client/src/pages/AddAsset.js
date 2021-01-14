@@ -22,7 +22,7 @@ class AddAsset extends Component {
         });
     }
 
-    addNewWO = (e) => {
+    addNew = (e) => {
 
         this.setState({
             status: "Submitting asset"
@@ -33,6 +33,8 @@ class AddAsset extends Component {
             subcategory: this.state.subcategory,
             location: this.state.location,
         }
+
+        console.log(data)
 
         API.add(data)
             .then(dbRes => {
@@ -100,7 +102,7 @@ class AddAsset extends Component {
                     </Row>
                     <Row>
                         <Col sm={2}>
-                            <Button variant="success" onClick={this.addNewWO}>Submit your order</Button>
+                            <Button variant="success" onClick={this.addNew}>Submit your order</Button>
                         </Col>
                         <Col sm={2}>
                             <LinkButton variant="primary" to="/">Return to list</LinkButton>
