@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import API from "../utils/WOAPI";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkButton } from "../components/General"
 import "./woStyling.css"
@@ -35,7 +35,7 @@ class AddWO extends Component {
             category: this.state.category
         }
 
-        API.addNewWO(data)
+        API.add(data)
             .then(dbRes => {
                 setTimeout(() => {
                     this.setState({

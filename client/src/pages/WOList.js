@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import API from "../utils/WOAPI";
 import { Container, Row, Col } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../components/WOLists/index"
 import "./woStyling.css"
@@ -15,7 +15,7 @@ class WOList extends Component {
     }
 
     pullWOs = () => {
-        API.pullList()
+        API.getAll()
             .then((res) => {
                 this.setState({
                     wos: res.data

@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const dbRoutes = require("./db")
+const woRoutes = require("./wo")
 
-//database routes
-router.use("/db", dbRoutes);
+//wo routes
+router.use("/wo", woRoutes);
+
+//asset routes
 
 module.exports = router;

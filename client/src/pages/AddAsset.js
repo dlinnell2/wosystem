@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import API from "../utils/AssetAPI";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkButton } from "../components/General"
 import "./woStyling.css"
@@ -25,7 +25,7 @@ class AddAsset extends Component {
     addNewWO = (e) => {
 
         this.setState({
-            status: "Submitting order"
+            status: "Submitting asset"
         })
         let data = {
             description: this.state.description,
@@ -36,15 +36,16 @@ class AddAsset extends Component {
             category: this.state.category
         }
 
-        API.addNewWO(data)
+        API.add(data)
             .then(dbRes => {
+                console.log(dbRes)
                 setTimeout(() => {
                     this.setState({
                         description: "",
                         submittedBy: "",
                         location: "",
                         category: "",
-                        status: "Order submitted"
+                        status: "Asset submitted"
                     });
                 }, 500);
             })
@@ -101,7 +102,7 @@ class AddAsset extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={3}>
+                        <Col sm={2}>
                             <Button variant="success" onClick={this.addNewWO}>Submit your order</Button>
                         </Col>
                         <Col sm={2}>

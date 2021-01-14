@@ -19,3 +19,14 @@ WO Schema
 - labor hours
 - notes
 - category
+
+Api routes
+
+Every API hits DB, no need for /db/
+routes for WO, Asset, Location, user
+
+api/wo/getAll
+api/wo/:id - for both get and put
+api/wo/add
+
+those four routes for all, adjusting /wo, /asset, /location, /user

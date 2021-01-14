@@ -22,12 +22,12 @@ var AssetSchema = new Schema({
     },
     orders: [
         {
-            type: String
+            orderId: String
         }
     ],
     components: [
         {
-            type: String
+            componentId: String
         }
     ],
     parent: String,
