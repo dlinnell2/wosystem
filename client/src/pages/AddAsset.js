@@ -28,12 +28,10 @@ class AddAsset extends Component {
             status: "Submitting asset"
         })
         let data = {
-            description: this.state.description,
-            assignedTo: "Donald",
+            name: this.state.name,
+            type: this.state.type,
+            subcategory: this.state.subcategory,
             location: this.state.location,
-            submittedBy: this.state.submittedBy,
-            status: "New",
-            category: this.state.category
         }
 
         API.add(data)
@@ -41,11 +39,10 @@ class AddAsset extends Component {
                 console.log(dbRes)
                 setTimeout(() => {
                     this.setState({
-                        description: "",
-                        submittedBy: "",
+                        name: "",
+                        type: "",
+                        subcategory: "",
                         location: "",
-                        category: "",
-                        status: "Asset submitted"
                     });
                 }, 500);
             })
