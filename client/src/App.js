@@ -10,20 +10,25 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route path="/addOrder">
-          <AddWO />
-        </Route>
-        <Route path="/detail/:id">
-          <WODetail />
-        </Route>
-        <Route path="/addAsset">
-          <AddAsset />
-        </Route>
-        <Route path="/">
-          <WOList />
-        </Route>
-      </Switch>
+      <div>
+        <Navbar bg="dark" variant="dark" expand="sm">
+          <Navbar.Brand href="/">Home</Navbar.Brand>
+        </Navbar>
+        <Switch>
+          <Route path="/addOrder">
+            <AddWO />
+          </Route>
+          <Route path="/detail/:id">
+            <WODetail />
+          </Route>
+          <Route path="/addAsset">
+            <AddAsset />
+          </Route>
+          <Route path="/">
+            <WOList />
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }
