@@ -45,6 +45,7 @@ class AddAsset extends Component {
                         type: "",
                         subcategory: "",
                         location: "",
+                        status: "Asset submitted"
                     });
                 }, 500);
             })
