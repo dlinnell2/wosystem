@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import API from "../utils/WOAPI";
+import API from "../../utils/WOAPI";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
-import { BasicInfo, TextArea, LaborHours } from "../components/WODetail"
-import { LinkButton } from "../components/General"
+import { BasicInfo, TextArea, LaborHours } from "../../components/WODetail"
+import { LinkButton } from "../../components/General"
 import "./woStyling.css"
 
 class WODetail extends Component {

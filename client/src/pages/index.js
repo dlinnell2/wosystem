@@ -1,4 +1,2 @@
-export { default as WOList } from "./WOList.js";
-export { default as AddWO } from "./AddWO.js";
+export { AddWO, WODetail, WOList } from "./Orders";
 export { default as AddAsset } from "./AddAsset.js";
-export { default as WODetail } from "./WODetail.js"
