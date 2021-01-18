@@ -2,9 +2,16 @@ import React, { Component } from "react";
 import API from "../../utils/WOAPI";
 import { Container, Row, Col } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../../components/WOLists/index"
+import { withRouter } from "react-router-dom"
 import "./woStyling.css"
 
 class WOList extends Component {
+
+    constructor(props) {
+        super()
+
+    }
+
     state = {
         order: [1, 2, 3, 4, 5, 6],
         wos: []
@@ -32,6 +39,7 @@ class WOList extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <Container fluid>
                 <WOHeaders />
@@ -41,4 +49,4 @@ class WOList extends Component {
     }
 }
 
-export default WOList;
+export default withRouter(WOList);

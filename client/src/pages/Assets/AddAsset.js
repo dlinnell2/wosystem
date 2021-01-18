@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import API from "../utils/AssetAPI";
+import API from "../../utils/AssetAPI";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { LinkButton } from "../components/General"
+import { LinkButton } from "../../components/General"
 
 class AddAsset extends Component {
     state = {

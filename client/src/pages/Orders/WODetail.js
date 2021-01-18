@@ -169,7 +169,7 @@ class WODetail extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         return (
             <Container fluid>
                 <Row>
