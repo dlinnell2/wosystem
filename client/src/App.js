@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { WOList, AddWO, WODetail, AddAsset } from './pages'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Route, Switch, Redirect } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap'
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
         <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
           <Navbar.Brand>WO System</Navbar.Brand>
           <Nav>
-            <Nav.Link href="/">Orders</Nav.Link>
+            <Nav.Link href="/orders">Orders</Nav.Link>
             <Nav.Link href="/asset">Assets</Nav.Link>
             <Nav.Link href="/user">Users</Nav.Link>
             <Nav.Link href="/location">Locations</Nav.Link>
@@ -31,7 +31,7 @@ class App extends Component {
             <AddAsset />
           </Route>
           <Route path="/">
-            <WOList />
+            <Redirect to="/orders" />
           </Route>
         </Switch>
       </div>
