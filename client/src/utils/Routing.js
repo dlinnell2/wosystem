@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Route, Switch, useParams, useRouteMatch } from "react-router-dom";
 import { AddWO, WODetail, WOList } from "../pages"
+import routes from "./routeConfig"
 
 const Routing = props => {
 
     let children = ["/orders", "/assets", "/users", "/locations"]
-    let grandchildren = ["add", "detail/:id", "/"]
+    let grandchildren = ["/add", "/detail/:id", "/"]
+
+    console.log(routes)
 
     return (
         <Switch>
