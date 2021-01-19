@@ -12,13 +12,13 @@ const Routing = props => {
             {children.map((child) =>
                 <Route path={child}>
                     <Switch>
-                        <Route path="/add">
+                        <Route path="/orders/add">
                             <AddWO />
                         </Route>
-                        <Route path="/detail/:id">
+                        <Route path="/orders/detail/:id">
                             <WODetail />
                         </Route>
-                        <Route path="/">
+                        <Route path="/orders">
                             <WOList />
                         </Route>
                     </Switch>
