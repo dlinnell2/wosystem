@@ -4,7 +4,8 @@ import './App.css';
 import { WOList, AddWO, WODetail, AddAsset } from './pages'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Route, Switch, Redirect } from "react-router-dom";
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap';
+import { OrdersRoute } from './utils/routing'
 
 class App extends Component {
 
@@ -21,6 +22,9 @@ class App extends Component {
           </Nav>
         </Navbar>
         <Switch>
+          <Route path="/orders">
+            <OrdersRoute />
+          </Route>
           <Route path="/addOrder">
             <AddWO />
           </Route>

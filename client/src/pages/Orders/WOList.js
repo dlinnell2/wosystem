@@ -39,7 +39,6 @@ class WOList extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Container fluid>
                 <WOHeaders />
