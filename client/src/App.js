@@ -5,11 +5,12 @@ import { WOList, AddWO, WODetail, AddAsset } from './pages'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Route, Switch, Redirect } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
-import { OrdersRoute } from './utils/routing'
+import { Routing} from './utils'
 
 class App extends Component {
 
   render() {
+
     return (
       <div>
         <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
@@ -21,23 +22,7 @@ class App extends Component {
             <Nav.Link href="/location">Locations</Nav.Link>
           </Nav>
         </Navbar>
-        <Switch>
-          <Route path="/orders">
-            <OrdersRoute />
-          </Route>
-          <Route path="/addOrder">
-            <AddWO />
-          </Route>
-          <Route path="/detail/:id">
-            <WODetail />
-          </Route>
-          <Route path="/addAsset">
-            <AddAsset />
-          </Route>
-          <Route path="/">
-            <Redirect to="/orders" />
-          </Route>
-        </Switch>
+        <Routing />
       </div>
     );
   }
