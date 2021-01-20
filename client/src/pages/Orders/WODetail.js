@@ -34,6 +34,7 @@ class WODetail extends Component {
     };
 
     componentDidMount() {
+        console.log(this.props)
         let id = this.props.match.params.id;
         API.getOne(id)
             .then((res) => {
