@@ -11,22 +11,20 @@ const Routing = props => {
 
     return (
         <Switch>
-            {Object.keys(routes).map((route, i) => {
-                console.log(routes.route)
-                return (
-                    < Route path={route.path} key={i} >
-                        <Switch>
-                            {console.log(route.children)}
-                            {Object.keys(route.children).map((child, i) =>
-                                <Route path={`${route.path}${child.path}`}>
-                                    <child.component />
-                                </Route>
-                            )}
-                        </Switch>
-                    </Route>
-                )
+            {Object.values(routes).map((route, i) =>
+                < Route path={route.path} key={i} >
+                    <Switch>
+                        {console.log(route.children)}
+                        {Object.values(route.children).map((child, i) =>
+                            <Route path={`${route.path}${child.path}`}>
+                                <child.component />
+                            </Route>
+                        )}
+                    </Switch>
+                </Route>
 
-            })}
+
+            )}
         </Switch >
     )
 }
