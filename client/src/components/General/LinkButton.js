@@ -14,6 +14,7 @@ const LinkButton = (props) => {
     // ⬆ filtering out props that `button` doesn’t know what to do with.
     ...rest
   } = props
+
   return (
     <Button
       {...rest} // `children` is just another prop!
