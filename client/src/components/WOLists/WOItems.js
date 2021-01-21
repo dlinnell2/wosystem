@@ -48,12 +48,11 @@ class WOItems extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Row>
                 <Col className="buttonColumn">
                     <LinkButton
-                        to={"/order/detail/" + this.props.order._id}
+                        to={"/orders/detail/" + this.props.order._id}
                         variant="outline-primary"
                         block
                         className="detailButton">Detail

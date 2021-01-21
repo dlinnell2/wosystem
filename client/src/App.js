@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { WOList, AddWO, WODetail, AddAsset } from './pages'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Route, Switch, Redirect } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';

@@ -5,6 +5,12 @@ import { LinkButton } from "../../components/General"
 import "./woStyling.css"
 
 class AddWO extends Component {
+    
+    constructor(props) {
+        super()
+
+    }
+
     state = {
         description: "",
         submittedBy: "",
@@ -51,6 +57,7 @@ class AddWO extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <Container>
                 <Form>

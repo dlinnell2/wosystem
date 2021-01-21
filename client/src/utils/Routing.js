@@ -7,10 +7,10 @@ const Routing = props => (
 
     <Switch>
         {Object.values(routes).map((route, i) =>
-            < Route path={route.path} key={i} >
+            <Route path={route.path} key={i}>
                 <Switch>
-                    {Object.values(route.children).map((child, i) =>
-                        <Route path={`${route.path}${child.path}`}>
+                    {Object.values(route.children).map((child, i) => 
+                        <Route path={`${route.path}${child.path}`} key={i}>
                             <child.component />
                         </Route>
                     )}
