@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { AddWO, WODetail, WOList } from "../pages"
 import routes from "./routeConfig"
 
@@ -19,6 +19,9 @@ const Routing = props => (
 
 
         )}
+        <Route path='/'>
+            <Redirect to='/orders' />
+        </Route>
     </Switch >
 )
 

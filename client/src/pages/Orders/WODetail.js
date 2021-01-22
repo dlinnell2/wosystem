@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/WOAPI";
+import API from "../../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
@@ -35,7 +35,7 @@ class WODetail extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
-        API.getOne(id)
+        API.getOne('orders', id)
             .then((res) => {
                 this.formatOrder(res, "")
             })
@@ -71,7 +71,7 @@ class WODetail extends Component {
             laborHours: this.state.laborHours
         }
 
-        API.editOne(id, data)
+        API.editOne('orders', id, data)
             .then(res => {
                 this.formatOrder(res, "Order updated")
             })
@@ -89,7 +89,8 @@ class WODetail extends Component {
             actionTaken: order.actionTaken,
             notes: order.notes,
             laborHours: order.laborHours,
-            message: message
+            message: message,
+            variant: 'secondary'
         })
     }
 
@@ -128,7 +129,6 @@ class WODetail extends Component {
             hours: this.state.laborTime
         }
 
-        console.log(data)
         this.setState({
             laborHours: this.state.laborHours.concat(data)
         })
@@ -185,6 +185,7 @@ class WODetail extends Component {
                             className="detailButton"
                             size="sm">Return to list</LinkButton>
                     </Col>
+                    <Col sm={2}>{this.state.message}</Col>
                 </Row>
                 <BasicInfo
                     order={this.state.woInfo}
@@ -193,7 +194,7 @@ class WODetail extends Component {
                     location={this.state.location}
                     assignedTo={this.state.assignedTo}
                     status={this.state.status}
-                    category={this.state.location}
+                    category={this.state.category}
                 />
                 <LaborHours
                     handleInputChange={this.handleInputChange}

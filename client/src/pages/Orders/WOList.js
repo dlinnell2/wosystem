@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/WOAPI";
+import API from "../../utils/API";
 import { Container, Row, Col } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../../components/WOLists/index"
 import { withRouter } from "react-router-dom"
@@ -22,7 +22,7 @@ class WOList extends Component {
     }
 
     pullWOs = () => {
-        API.getAll()
+        API.getAll("orders")
             .then((res) => {
                 this.setState({
                     wos: res.data

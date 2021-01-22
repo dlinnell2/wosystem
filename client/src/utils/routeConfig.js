@@ -1,4 +1,4 @@
-import { WODetail, AddWO, WOList } from "../pages";
+import { WODetail, AddWO, WOList, AddAsset } from "../pages";
 
 export default  {
     orders: {
@@ -15,6 +15,15 @@ export default  {
             list: {
                 path: '/',
                 component: WOList
+            }
+        }
+    },
+    assets: {
+        path: '/assets',
+        children: {
+            add: {
+                path: '/add',
+                component: AddAsset
             }
         }
     }
