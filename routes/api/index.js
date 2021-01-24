@@ -6,7 +6,7 @@ const assetRoutes = require("./asset")
 router.use("/orders", woRoutes);
 
 //asset routes
-router.use("/asset", assetRoutes);
+router.use("/assets", assetRoutes);
 
 //asset routes
 

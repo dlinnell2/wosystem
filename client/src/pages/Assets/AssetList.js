@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
+import { AssetHeaders, AssetItems } from '../../components/AssetList/index';
+import './assetStyling.css'
 
 class WOList extends Component {
 
@@ -15,22 +17,22 @@ class WOList extends Component {
     };
 
     componentDidMount() {
-        this.pullWOs();
+        this.pullAssets();
     }
 
     pullAssets = () => {
         API.getAll("assets")
             .then((res) => {
                 this.setState({
-                    wos: res.data
+                    assets: res.data
                 })
             })
     }
 
     displayOrders = () => {
         return (
-            this.state.wos.map((order, index) => (
-                <WOItems order={order} key={index} />
+            this.state.assets.map((asset, index) => (
+                <AssetItems asset={asset} key={index} />
             ))
         )
     }
@@ -38,7 +40,7 @@ class WOList extends Component {
     render() {
         return (
             <Container fluid>
-                <WOHeaders />
+                <AssetHeaders />
                 {this.displayOrders()}
             </Container>
         );
