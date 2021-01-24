@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Button } from "react-bootstrap";
 import { LinkButton } from "../General"
-import AddWO from "../../pages/Orders/AddWO"
 
 class WOHeaders extends React.Component {
 
