@@ -180,7 +180,7 @@ class WODetail extends Component {
                             size="sm">Save Updates</Button>
 
                         <LinkButton
-                            to="/"
+                            to="/orders/"
                             variant="primary"
                             className="detailButton"
                             size="sm">Return to list</LinkButton>

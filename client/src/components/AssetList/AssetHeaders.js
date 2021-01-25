@@ -10,7 +10,7 @@ class AssetHeaders extends React.Component {
     }
 
     state = {
-        headers: ["Name", "Type", "Subcategory", "Location", "In Service"]
+        headers: ["Name", "Type", "Subcategory", "Location", "Status"]
     }
 
     createHeaders = () => {
