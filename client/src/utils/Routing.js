@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
-import { AddWO, WODetail, WOList } from "../pages"
 import routes from "./routeConfig"
 
 const Routing = props => (

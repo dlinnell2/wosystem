@@ -1,2 +1,2 @@
 export { AddWO, WODetail, WOList } from "./Orders";
-export { AddAsset, AssetList } from "./Assets";
+export { AddAsset, AssetList, AssetDetail } from "./Assets";

@@ -7,9 +7,16 @@ class AssetDetail extends Component {
         super()
     }
 
+    componentDidMount() {
+        let id = this.props.match.params.id;
+        API.getOne('assets', id)
+            .then((res) => {
+                console.log(res)
+            })
+    }
 
     render() {
-        return(
+        return (
             <h2>Detail</h2>
         )
     }
