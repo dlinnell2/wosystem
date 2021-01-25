@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { LinkButton } from "../../components/General"
+import { BasicInfo } from "../../components/AssetDetail"
 import "./assetStyling.css"
 
 class AssetDetail extends Component {
@@ -10,16 +11,21 @@ class AssetDetail extends Component {
         super()
     }
 
-    state ={
+    state = {
         variant: 'secondary',
-        message: ''
+        message: '',
+        name: '',
+        location: ''
     }
 
     componentDidMount() {
         let id = this.props.match.params.id;
         API.getOne('assets', id)
             .then((res) => {
-                console.log(res)
+                this.setState({
+                    name: res.data.name,
+                    location: res.data.location
+                })
             })
     }
 
@@ -41,6 +47,10 @@ class AssetDetail extends Component {
                     </Col>
                     <Col sm={2}>{this.state.message}</Col>
                 </Row>
+                <BasicInfo
+                    name={this.state.name}
+                    location={this.state.location}
+                />
             </Container>
         )
     }
