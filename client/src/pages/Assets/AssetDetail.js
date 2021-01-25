@@ -29,6 +29,20 @@ class AssetDetail extends Component {
             })
     }
 
+    handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (this.state.variant === "success") {
+            this.setState({
+                [name]: value
+            });
+        } else {
+            this.setState({
+                [name]: value,
+                variant: "success"
+            })
+        }
+    }
+
     render() {
         return (
             <Container fluid>
@@ -50,6 +64,7 @@ class AssetDetail extends Component {
                 <BasicInfo
                     name={this.state.name}
                     location={this.state.location}
+                    handleInputChange={this.handleInputChange}
                 />
             </Container>
         )
