@@ -30,7 +30,7 @@ class WODetail extends Component {
         message: "",
         variant: "secondary",
         assets: [],
-        assetId: ""
+        assetId: "",
     };
 
     componentDidMount() {

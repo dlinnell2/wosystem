@@ -13,9 +13,12 @@ class AssetDetail extends Component {
 
     state = {
         variant: 'secondary',
+        asset: {},
         message: '',
         name: '',
-        location: ''
+        location: '',
+        type:'',
+        subcategory:''
     }
 
     componentDidMount() {
@@ -23,8 +26,7 @@ class AssetDetail extends Component {
         API.getOne('assets', id)
             .then((res) => {
                 this.setState({
-                    name: res.data.name,
-                    location: res.data.location
+                    asset:res.data
                 })
             })
     }
@@ -32,14 +34,22 @@ class AssetDetail extends Component {
     handleInputChange = (e) => {
         const { name, value } = e.target;
         if (this.state.variant === "success") {
-            this.setState({
-                [name]: value
-            });
+            this.setState(prevState => {
+                let asset = {...prevState.asset};
+                asset.name = value;                 
+                return { 
+                    asset: asset 
+                };
+              })
         } else {
-            this.setState({
-                [name]: value,
-                variant: "success"
-            })
+            this.setState(prevState => {
+                let asset = {...prevState.asset};
+                asset.name = value;                 
+                return { 
+                    asset: asset,
+                    variant:'success'
+                };
+              })
         }
     }
 
@@ -62,8 +72,7 @@ class AssetDetail extends Component {
                     <Col sm={2}>{this.state.message}</Col>
                 </Row>
                 <BasicInfo
-                    name={this.state.name}
-                    location={this.state.location}
+                    asset={this.state.asset}
                     handleInputChange={this.handleInputChange}
                 />
             </Container>
