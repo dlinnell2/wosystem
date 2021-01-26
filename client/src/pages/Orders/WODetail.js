@@ -15,7 +15,7 @@ class WODetail extends Component {
     }
 
     state = {
-        woInfo: {},
+        order: {},
         orderID: "",
         location: "",
         assignedTo: "",
@@ -80,7 +80,7 @@ class WODetail extends Component {
     formatOrder = (res, message) => {
         let order = { ...res.data };
         this.setState({
-            woInfo: order,
+            order: order,
             orderID: this.props.match.params.id,
             location: order.location,
             assignedTo: order.assignedTo,

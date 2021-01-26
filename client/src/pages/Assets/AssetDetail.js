@@ -15,10 +15,6 @@ class AssetDetail extends Component {
         variant: 'secondary',
         asset: {},
         message: '',
-        name: '',
-        location: '',
-        type:'',
-        subcategory:''
     }
 
     componentDidMount() {
