@@ -28,11 +28,14 @@ class AssetDetail extends Component {
     }
 
     handleInputChange = (e) => {
+        console.log(e.target)
         const { name, value } = e.target;
+        console.log(name)
         if (this.state.variant === "success") {
             this.setState(prevState => {
                 let asset = {...prevState.asset};
-                asset.name = value;                 
+                asset.name = value; 
+                console.log(asset)                
                 return { 
                     asset: asset 
                 };
@@ -40,7 +43,8 @@ class AssetDetail extends Component {
         } else {
             this.setState(prevState => {
                 let asset = {...prevState.asset};
-                asset.name = value;                 
+                asset.name = value;    
+                console.log(asset)             
                 return { 
                     asset: asset,
                     variant:'success'

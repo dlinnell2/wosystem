@@ -47,10 +47,12 @@ class WODetail extends Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
+        console.log(e.target)
         if (this.state.variant === "success") {
             this.setState(prevState => {
                 let order = { ...prevState.order };
                 order.name = value;
+                console.log(order)
                 return {
                     order: order
                 };
@@ -59,6 +61,7 @@ class WODetail extends Component {
             this.setState(prevState => {
                 let order = { ...prevState.order };
                 order.name = value;
+                console.log(order)
                 return {
                     order: order,
                     variant: 'success'
@@ -191,10 +194,6 @@ class WODetail extends Component {
                     order={this.state.order}
                     formatDate={this.formatDate}
                     handleInputChange={this.handleInputChange}
-                    location={this.state.location}
-                    assignedTo={this.state.assignedTo}
-                    status={this.state.status}
-                    category={this.state.category}
                 />
                 <LaborHours
                     handleInputChange={this.handleInputChange}
