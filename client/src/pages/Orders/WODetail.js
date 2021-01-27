@@ -48,30 +48,30 @@ class WODetail extends Component {
     handleInputChange = (e) => {
         const { name, value } = e.target;
         if (this.state.variant === "success") {
-            this.setState({
-                [name]: value
-            });
+            this.setState(prevState => {
+                let order = { ...prevState.order };
+                order.name = value;
+                return {
+                    order: order
+                };
+            })
         } else {
-            this.setState({
-                [name]: value,
-                variant: "success"
+            this.setState(prevState => {
+                let order = { ...prevState.order };
+                order.name = value;
+                return {
+                    order: order,
+                    variant: 'success'
+                };
             })
         }
     }
 
     updateOrder = () => {
-        let id = this.state.orderID;
-        let data = {
-            location: this.state.location,
-            assignedTo: this.state.assignedTo,
-            status: this.state.status,
-            category: this.state.category,
-            actionTaken: this.state.actionTaken,
-            notes: this.state.notes,
-            laborHours: this.state.laborHours
-        }
+        let id = this.props.match.params.id;
+        let order = {...this.state.order}
 
-        API.editOne('orders', id, data)
+        API.editOne('orders', id, order)
             .then(res => {
                 this.formatOrder(res, "Order updated")
             })
@@ -81,14 +81,6 @@ class WODetail extends Component {
         let order = { ...res.data };
         this.setState({
             order: order,
-            orderID: this.props.match.params.id,
-            location: order.location,
-            assignedTo: order.assignedTo,
-            status: order.status,
-            category: order.category,
-            actionTaken: order.actionTaken,
-            notes: order.notes,
-            laborHours: order.laborHours,
             message: message,
             variant: 'secondary'
         })
@@ -100,11 +92,11 @@ class WODetail extends Component {
             {
                 header: "Action Taken",
                 name: "actionTaken",
-                value: this.state.actionTaken,
+                value: this.state.order.actionTaken,
             }, {
                 header: "Notes",
                 name: "notes",
-                value: this.state.notes,
+                value: this.state.order.notes,
             }
         ]
 
@@ -129,8 +121,12 @@ class WODetail extends Component {
             hours: this.state.laborTime
         }
 
-        this.setState({
-            laborHours: this.state.laborHours.concat(data)
+        this.setState(prevState => {
+            let order = { ...prevState.order };
+            order.laborHours = order.laborHours.concat(data);
+            return {
+                order: order,
+            };
         })
 
         return new Promise((resolve, reject) => {
@@ -139,16 +135,20 @@ class WODetail extends Component {
     }
 
     addAsset = () => {
-        
+
         let data = {
             assetId: this.state.assetId
         }
 
-        this.setState({
-            assets: this.state.assets.concat(data)
+        this.setState(prevState => {
+            let order = { ...prevState.order };
+            order.assets = order.assets.concat(data);
+            return {
+                order: order,
+            };
         })
 
-        return new Promise ((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             resolve();
         })
     }
@@ -158,12 +158,12 @@ class WODetail extends Component {
         if (evaluation) {
             hours += parseFloat(0.25)
             this.setState({
-                laborTime:hours
+                laborTime: hours
             })
         } else {
             hours -= parseFloat(0.25)
             this.setState({
-                laborTime:hours
+                laborTime: hours
             })
         }
     }
@@ -188,7 +188,7 @@ class WODetail extends Component {
                     <Col sm={2}>{this.state.message}</Col>
                 </Row>
                 <BasicInfo
-                    order={this.state.woInfo}
+                    order={this.state.order}
                     formatDate={this.formatDate}
                     handleInputChange={this.handleInputChange}
                     location={this.state.location}
@@ -202,7 +202,7 @@ class WODetail extends Component {
                     laborDate={this.state.laborDate}
                     laborTime={this.state.laborTime}
                     addLaborHours={this.addLaborHours}
-                    laborHours={this.state.laborHours}
+                    order={this.state.order}
                     adjustLaborTime={this.adjustLaborTime}
                 />
                 {this.createTextAreas()}

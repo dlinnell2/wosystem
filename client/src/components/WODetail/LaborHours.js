@@ -15,13 +15,15 @@ const LaborHours = props => {
     }
 
     const createEntryRow = () => {
-        return (
-            props.laborHours.map((entry, index) => (
-                <Row key={index}>
-                    {createEntryColumns(entry)}
-                </Row>
-            ))
-        )
+        if (props.order.laborHours) {
+            return (
+                props.order.laborHours.map((entry, index) => (
+                    <Row key={index}>
+                        {createEntryColumns(entry)}
+                    </Row>
+                ))
+            )
+        }
     }
 
     const createEntryColumns = entry => {

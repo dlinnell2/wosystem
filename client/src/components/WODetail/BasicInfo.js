@@ -46,7 +46,7 @@ const BasicInfo = props => (
                         <Form.Label>Assigned To</Form.Label>
                         <Form.Control
                             name="assignedTo"
-                            value={props.assignedTo}
+                            value={props.order.assignedTo}
                             onChange={props.handleInputChange}
                         />
                     </Form.Group>
@@ -56,7 +56,7 @@ const BasicInfo = props => (
                         <Form.Label>Location</Form.Label>
                         <Form.Control
                             name="location"
-                            value={props.location}
+                            value={props.order.location}
                             onChange={props.handleInputChange}
                         />
                     </Form.Group>
@@ -66,7 +66,7 @@ const BasicInfo = props => (
                         <Form.Label>Status</Form.Label>
                         <Form.Control
                             name="status"
-                            value={props.status}
+                            value={props.order.status}
                             onChange={props.handleInputChange}
                         />
                     </Form.Group>
@@ -76,7 +76,7 @@ const BasicInfo = props => (
                         <Form.Label>Work Category</Form.Label>
                         <Form.Control
                             name="category"
-                            value={props.category}
+                            value={props.order.category}
                             onChange={props.handleInputChange}
                         />
                     </Form.Group>
