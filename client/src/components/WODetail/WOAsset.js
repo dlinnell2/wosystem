@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Card, Button, Modal } from 'react-bootstrap';
+import AddAssetList from './AddAssetList';
 
-const LaborHours = props => {
+const WOAsset = props => {
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const sendLaborHours = () => {
+    /* const sendLaborHours = () => {
         props.addLaborHours().then(() => {
             handleClose()
         })
-    }
+    } */
 
     const createEntryRow = () => {
         return (
@@ -58,52 +59,15 @@ const LaborHours = props => {
                         <Col>Type</Col>
                         <Col>Subcategory</Col>
                     </Row>
-                    {createEntryRow()}
                 </Card.Body>
             </Card>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>New Labor Entry</Modal.Title>
+                    <Modal.Title>Add New Asset</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
-                        <Form.Group>
-                            <Form.Label>Employee Name</Form.Label>
-                            <Form.Control
-                                name="laborName"
-                                value={props.laborName}
-                                onChange={props.handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Date</Form.Label>
-                            <Form.Control
-                                name="laborDate"
-                                value={props.laborDate}
-                                onChange={props.handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Hours worked</Form.Label>
-                            <Row>
-                                <Col sm={4}>
-                                    <Form.Control
-                                        name="laborTime"
-                                        value={props.laborTime}
-                                        onChange={props.handleInputChange}
-                                    />
-                                </Col>
-                                <Col sm={1}>
-                                    <Button variant="light" onClick={() => props.adjustLaborTime(true)}>+</Button>
-                                </Col>
-                                <Col sm={1}>
-                                    <Button variant="light" onClick={() => props.adjustLaborTime(false)}>-</Button>
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                    </Form>
-                    <Button variant="success" onClick={sendLaborHours}>Add</Button>
+                    <AddAssetList />
                 </Modal.Body>
             </Modal>
 
@@ -111,4 +75,4 @@ const LaborHours = props => {
     )
 }
 
-export default LaborHours
+export default WOAsset

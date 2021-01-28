@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { withRouter } from "react-router";
 import { DateTime } from "luxon";
-import { BasicInfo, TextArea, LaborHours } from "../../components/WODetail"
+import { BasicInfo, TextArea, LaborHours, WOAsset } from "../../components/WODetail"
 import { LinkButton } from "../../components/General"
 import "./woStyling.css"
 
@@ -191,6 +191,7 @@ class WODetail extends Component {
                     order={this.state.order}
                     adjustLaborTime={this.adjustLaborTime}
                 />
+                <WOAsset />
                 {this.createTextAreas()}
             </Container>
         );
