@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap'
+import './nav.css'
 
-const Navigation = props => (
-    <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
-        <Navbar.Brand>WO System</Navbar.Brand>
-        <Nav>
-            <Nav.Link href="/orders">Orders</Nav.Link>
-            <Nav.Link href="/assets">Assets</Nav.Link>
-            <Nav.Link href="/users">Users</Nav.Link>
-            <Nav.Link href="/locations">Locations</Nav.Link>
-        </Nav>
-    </Navbar>
-)
+const Navigation = props => {
+
+    console.log(props)
+
+    return (
+        <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
+            <Navbar.Brand>WO System</Navbar.Brand>
+            <Nav>
+                <LinkContainer to='/orders' activeClassName='activeNave'>
+                    <Nav.Link>Orders</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/assets' activeClassName='activeNave'>
+                    <Nav.Link>Assets</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/users' activeClassName='activeNave'>
+                    <Nav.Link>Users</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/locations' activeClassName='activeNave'>
+                    <Nav.Link>Locations</Nav.Link>
+                </LinkContainer>
+            </Nav>
+        </Navbar>
+    )
+}
 
 export default Navigation
