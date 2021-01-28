@@ -36,7 +36,12 @@ var WOSchema = new Schema({
             }
         ],
     assets: [
-        {assetId:String}
+        {
+            assetId:String,
+            name: String,
+            type: String,
+            subcategory: String
+        }
     ]
 
 

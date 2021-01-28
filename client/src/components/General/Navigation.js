@@ -11,16 +11,16 @@ const Navigation = props => {
         <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
             <Navbar.Brand>WO System</Navbar.Brand>
             <Nav>
-                <LinkContainer to='/orders' activeClassName='activeNave'>
+                <LinkContainer to='/orders' activeClassName='activeNav'>
                     <Nav.Link>Orders</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='/assets' activeClassName='activeNave'>
+                <LinkContainer to='/assets' activeClassName='activeNav'>
                     <Nav.Link>Assets</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='/users' activeClassName='activeNave'>
+                <LinkContainer to='/users' activeClassName='activeNav'>
                     <Nav.Link>Users</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='/locations' activeClassName='activeNave'>
+                <LinkContainer to='/locations' activeClassName='activeNav'>
                     <Nav.Link>Locations</Nav.Link>
                 </LinkContainer>
             </Nav>

@@ -16,21 +16,11 @@ class WODetail extends Component {
 
     state = {
         order: {},
-        orderID: "",
-        location: "",
-        assignedTo: "",
-        status: "",
-        category: "",
-        actionTaken: "",
-        notes: "",
-        laborHours: [],
         laborName: "",
         laborDate: "",
         laborTime: "1.00",
         message: "",
         variant: "secondary",
-        assets: [],
-        assetId: "",
     };
 
     componentDidMount() {

@@ -16,7 +16,7 @@ const LaborHours = props => {
 
     const createEntryRow = () => {
         return (
-            props.laborHours.map((entry, index) => (
+            props.order.assets.map((entry, index) => (
                 <Row key={index}>
                     {createEntryColumns(entry)}
                 </Row>
@@ -42,7 +42,7 @@ const LaborHours = props => {
 
         <>
             <Card className="detailCard">
-                <Card.Header>Labor Hours</Card.Header>
+                <Card.Header>Assets</Card.Header>
                 <Card.Body>
                     <Row>
                         <Col>
@@ -55,8 +55,8 @@ const LaborHours = props => {
                     </Row>
                     <Row>
                         <Col>Name</Col>
-                        <Col>Date</Col>
-                        <Col>Hours</Col>
+                        <Col>Type</Col>
+                        <Col>Subcategory</Col>
                     </Row>
                     {createEntryRow()}
                 </Card.Body>

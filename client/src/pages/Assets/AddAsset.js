@@ -9,7 +9,6 @@ class AddAsset extends Component {
         type: "",
         subcategory: "",
         location: "",
-        child: false,
         components: []
 
     };
