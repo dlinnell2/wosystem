@@ -5,18 +5,22 @@ const AddAssetList = props => {
 
     const [assets, updateAssets] = useState([])
 
-    useEffect(() => { getAssets() },[assets])
+    useEffect(() => { getAssets() },[])
 
     const getAssets = () => {
+        console.log('ping')
         API.getAll('assets')
             .then((res) => {
                 updateAssets(res.data)
-                console.log('pinging')
             })
     }
 
     return (
-        <p>hello</p>
+        <div>
+            {assets.map((a,id) => (
+                <p>Hello</p>
+            ))}
+            </div>
     )
 
 }
