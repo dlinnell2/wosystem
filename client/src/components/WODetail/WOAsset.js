@@ -62,7 +62,7 @@ const WOAsset = props => {
                 </Card.Body>
             </Card>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton>
                     <Modal.Title>Add New Asset</Modal.Title>
                 </Modal.Header>
