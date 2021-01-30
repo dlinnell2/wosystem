@@ -24,9 +24,9 @@ const AddAssetList = props => {
             </Row>
             {assets.map((asset, index) => (
                 <Row id={index}>
-                    <Col>{asset.name}</Col>
-                    <Col>{asset.type}</Col>
-                    <Col>{asset.subcategory}</Col>
+                    <Col id={`name${index}`}>{asset.name}</Col>
+                    <Col id={`type${index}`}>{asset.type}</Col>
+                    <Col id={`sub${index}`}>{asset.subcategory}</Col>
                 </Row>
             ))}
         </Container>
