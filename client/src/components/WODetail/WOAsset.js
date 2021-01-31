@@ -67,7 +67,9 @@ const WOAsset = props => {
                     <Modal.Title>Add New Asset</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddAssetList />
+                    <AddAssetList
+                        addAsset={props.addAsset}
+                    />
                 </Modal.Body>
             </Modal>
 

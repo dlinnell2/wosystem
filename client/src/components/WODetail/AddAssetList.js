@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../utils/API';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const AddAssetList = props => {
 
@@ -25,6 +25,9 @@ const AddAssetList = props => {
             </Row>
             {assets.map((asset, index) => (
                 <Row id={index}>
+                    <Col>
+                        <Button variant='success' id={asset._id} onClick={() => props.addAsset(asset)} block>Add</Button>
+                    </Col>
                     <Col id={`name${index}`} className='woList'>{asset.name}</Col>
                     <Col id={`type${index}`} className='woList'>{asset.type}</Col>
                     <Col id={`sub${index}`} className='woList'>{asset.subcategory}</Col>

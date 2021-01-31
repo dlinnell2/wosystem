@@ -124,13 +124,11 @@ class WODetail extends Component {
         })
     }
 
-    addAsset = () => {
+    addAsset = (asset) => {
 
-        let data = {
-            assetId: this.state.assetId
-        }
+        console.log(asset)
 
-        this.setState(prevState => {
+        /* this.setState(prevState => {
             let order = { ...prevState.order };
             order.assets = order.assets.concat(data);
             return {
@@ -140,7 +138,7 @@ class WODetail extends Component {
 
         return new Promise((resolve, reject) => {
             resolve();
-        })
+        }) */
     }
 
     adjustLaborTime = (evaluation) => {
@@ -191,7 +189,9 @@ class WODetail extends Component {
                     order={this.state.order}
                     adjustLaborTime={this.adjustLaborTime}
                 />
-                <WOAsset />
+                <WOAsset 
+                    addAsset={this.addAsset}
+                />
                 {this.createTextAreas()}
             </Container>
         );
