@@ -26,7 +26,7 @@ const AddAssetList = props => {
             {assets.map((asset, index) => (
                 <Row id={index}>
                     <Col>
-                        <Button variant='success' id={asset._id} onClick={() => props.addAsset(asset)} block>Add</Button>
+                        <Button variant='success' id={asset._id} onClick={() => props.sendAsset(asset)} block>Add</Button>
                     </Col>
                     <Col id={`name${index}`} className='woList'>{asset.name}</Col>
                     <Col id={`type${index}`} className='woList'>{asset.type}</Col>

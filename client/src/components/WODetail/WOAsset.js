@@ -9,11 +9,11 @@ const WOAsset = props => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    /* const sendLaborHours = () => {
-        props.addLaborHours().then(() => {
+    const sendAsset = (asset) => {
+        props.addAsset(asset).then(() => {
             handleClose()
         })
-    } */
+    }
 
     const createEntryRow = () => {
         return (
@@ -68,7 +68,7 @@ const WOAsset = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <AddAssetList
-                        addAsset={props.addAsset}
+                        sendAsset={sendAsset}
                     />
                 </Modal.Body>
             </Modal>
