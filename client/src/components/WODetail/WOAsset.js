@@ -30,7 +30,7 @@ const WOAsset = props => {
     const createEntryColumns = entry => {
         let keyArray = Object.keys(entry);
 
-        if (Object.keys(entry)[0] === "_id") {
+        if (Object.keys(entry)[0] === "assetId") {
             keyArray.shift();
         }
 
