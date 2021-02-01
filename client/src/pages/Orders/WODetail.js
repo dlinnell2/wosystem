@@ -40,26 +40,37 @@ class WODetail extends Component {
         if (this.state.variant === "success") {
             this.setState(prevState => {
                 let order = { ...prevState.order };
-                order[name] = value;
-                return {
-                    order: order
-                };
+                if (order.hasOwnProperty(name)) {
+                    order[name] = value;
+                    return {
+                        order: order
+                    };
+                } else {
+                    return {
+                        [name]: value
+                    }
+                }
             })
         } else {
             this.setState(prevState => {
                 let order = { ...prevState.order };
-                order[name] = value;
-                return {
-                    order: order,
-                    variant: 'success'
-                };
+                if (order.hasOwnProperty(name)) {
+                    order[name] = value;
+                    return {
+                        order: order
+                    };
+                } else {
+                    return {
+                        [name]: value
+                    }
+                }
             })
         }
     }
 
     updateOrder = () => {
         let id = this.props.match.params.id;
-        let order = {...this.state.order}
+        let order = { ...this.state.order }
 
         API.editOne('orders', id, order)
             .then(res => {
@@ -194,7 +205,7 @@ class WODetail extends Component {
                     order={this.state.order}
                     adjustLaborTime={this.adjustLaborTime}
                 />
-                <WOAsset 
+                <WOAsset
                     addAsset={this.addAsset}
                 />
                 {this.createTextAreas()}
