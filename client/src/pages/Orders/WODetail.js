@@ -21,6 +21,8 @@ class WODetail extends Component {
         laborTime: "1.00",
         message: "",
         variant: "secondary",
+        updateAsset: false,
+        assetIds:[]
     };
 
     componentDidMount() {
@@ -57,11 +59,13 @@ class WODetail extends Component {
                 if (order.hasOwnProperty(name)) {
                     order[name] = value;
                     return {
-                        order: order
+                        order: order,
+                        variant: "success"
                     };
                 } else {
                     return {
-                        [name]: value
+                        [name]: value,
+                        variant: "success"
                     }
                 }
             })
@@ -72,10 +76,24 @@ class WODetail extends Component {
         let id = this.props.match.params.id;
         let order = { ...this.state.order }
 
-        API.editOne('orders', id, order)
-            .then(res => {
-                this.formatOrder(res, "Order updated")
+        if (this.state.updateAsset) {
+            API.editOne('orders', id, order)
+            .then(orderRes => {
+                this.state.assetIds.forEach( assetId => {
+                    API.editOne('assets', assetId, { $push: { orders: id }})
+                    .then(assetRes => {
+                        console.log(assetRes);
+                        this.formatOrder(orderRes, "Order updated")
+                    })
+                })
             })
+
+        } else {
+            API.editOne('orders', id, order)
+                .then(res => {
+                    this.formatOrder(res, "Order updated")
+                })
+        }
     }
 
     formatOrder = (res, message) => {
@@ -149,6 +167,9 @@ class WODetail extends Component {
             order.assets = order.assets.concat(data);
             return {
                 order: order,
+                updateAsset: true,
+                assetIds: this.state.assetIds.concat(asset._id),
+                variant: "success"
             };
         })
 
