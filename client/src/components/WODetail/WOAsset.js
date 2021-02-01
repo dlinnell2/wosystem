@@ -10,6 +10,7 @@ const WOAsset = props => {
     const handleShow = () => setShow(true);
 
     const sendAsset = (asset) => {
+        console.log(asset)
         props.addAsset(asset).then(() => {
             handleClose()
         })
