@@ -77,6 +77,7 @@ class WODetail extends Component {
         let order = { ...this.state.order }
 
         if (this.state.updateAsset) {
+            console.log(order)
             API.editOne('orders', id, order)
             .then(orderRes => {
                 this.state.assetIds.forEach( assetId => {
@@ -89,6 +90,7 @@ class WODetail extends Component {
             })
 
         } else {
+            console.log(order)
             API.editOne('orders', id, order)
                 .then(res => {
                     this.formatOrder(res, "Order updated")
