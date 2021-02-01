@@ -147,7 +147,6 @@ class WODetail extends Component {
         this.setState(prevState => {
             let order = { ...prevState.order };
             order.assets = order.assets.concat(data);
-            console.log(order)
             return {
                 order: order,
             };
@@ -208,6 +207,7 @@ class WODetail extends Component {
                 />
                 <WOAsset
                     addAsset={this.addAsset}
+                    order={this.state.order}
                 />
                 {this.createTextAreas()}
             </Container>

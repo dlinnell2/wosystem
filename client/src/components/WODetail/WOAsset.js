@@ -10,20 +10,21 @@ const WOAsset = props => {
     const handleShow = () => setShow(true);
 
     const sendAsset = (asset) => {
-        console.log(asset)
         props.addAsset(asset).then(() => {
             handleClose()
         })
     }
 
     const createEntryRow = () => {
-        return (
-            props.order.assets.map((entry, index) => (
-                <Row key={index}>
-                    {createEntryColumns(entry)}
-                </Row>
-            ))
-        )
+        if (props.order.assets) {
+            return (
+                props.order.assets.map((entry, index) => (
+                    <Row key={index}>
+                        {createEntryColumns(entry)}
+                    </Row>
+                ))
+            )
+        }
     }
 
     const createEntryColumns = entry => {
@@ -60,6 +61,7 @@ const WOAsset = props => {
                         <Col>Type</Col>
                         <Col>Subcategory</Col>
                     </Row>
+                    {createEntryRow()}
                 </Card.Body>
             </Card>
 
