@@ -142,17 +142,9 @@ class WODetail extends Component {
             hours: this.state.laborTime,
         }
 
-        let assetData = {
-            assetId: 'test',
-            name: 'test',
-            type: 'test',
-            subcategory: 'test'
-        }
-
         this.setState(prevState => {
             let order = { ...prevState.order };
             order.laborHours = order.laborHours.concat(data);
-            order.assets = order.assets.concat(assetData)
             return {
                 order: order,
                 variant: 'success'

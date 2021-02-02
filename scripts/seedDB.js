@@ -20,6 +20,12 @@ const woSeed = [
     submittedBy: "Donald",
     status: "New",
     category: "Woodwork",
+    assets: [{
+      assetId:'6',
+      name:'test',
+      type:'test',
+      subcategory:'test'
+    }]
   },{
       description: "Test number 2",
       assignedTo: "Lane",
