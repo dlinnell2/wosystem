@@ -10,7 +10,14 @@ const WOAsset = props => {
     const handleShow = () => setShow(true);
 
     const sendAsset = (asset) => {
-        props.addAsset(asset).then(() => {
+        let data = {
+            assetId: asset._id,
+            name: asset.name,
+            type: asset.type,
+            subcategory: asset.subcategory
+        }
+
+        props.addAsset(data).then(() => {
             handleClose()
         })
     }

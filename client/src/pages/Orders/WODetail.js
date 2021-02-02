@@ -156,14 +156,9 @@ class WODetail extends Component {
         })
     }
 
-    addAsset = (asset) => {
+    addAsset = (data) => {
 
-        let data = {
-            assetId: asset._id,
-            name: asset.name,
-            type: asset.type,
-            subcategory: asset.subcategory
-        }
+        console.log(data);
 
         this.setState(prevState => {
             let order = { ...prevState.order };
@@ -171,7 +166,7 @@ class WODetail extends Component {
             return {
                 order: order,
                 updateAsset: true,
-                assetIds: this.state.assetIds.concat(asset._id),
+                assetIds: this.state.assetIds.concat(data.assetId),
                 variant: "success"
             };
         })
