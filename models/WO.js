@@ -28,19 +28,19 @@ var WOSchema = new Schema({
     actionTaken: String,
     notes: String,
     category: String,
-    laborHours: [
-            {
-                employee: String,
-                date: String,
-                hours: String,
-            }
-        ],
     assets: [
         {
-            assetId:String,
+            assetId: String,
             name: String,
             type: String,
-            subcategory: String
+            subcategory: String,
+        }
+    ],
+    laborHours: [
+        {
+            employee: String,
+            date: String,
+            hours: String,
         }
     ]
 
@@ -49,7 +49,7 @@ var WOSchema = new Schema({
     timestamps: true
 });
 
-WOSchema.plugin(AutoIncrement, {inc_field: 'id'})
+WOSchema.plugin(AutoIncrement, { inc_field: 'id' })
 const WO = mongoose.model('WO', WOSchema);
 
 module.exports = WO;

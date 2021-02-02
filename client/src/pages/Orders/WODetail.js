@@ -81,7 +81,7 @@ class WODetail extends Component {
             API.editOne('orders', id, order)
             .then(orderRes => {
                 this.state.assetIds.forEach( assetId => {
-                    API.editOne('assets', assetId, { $push: { orders: id }})
+                    API.editOne('assets', assetId, { $push: { orders: {orderId:id} }})
                     .then(assetRes => {
                         console.log(assetRes);
                         this.formatOrder(orderRes, "Order updated")
@@ -139,14 +139,23 @@ class WODetail extends Component {
         let data = {
             employee: this.state.laborName,
             date: this.state.laborDate,
-            hours: this.state.laborTime
+            hours: this.state.laborTime,
+        }
+
+        let assetData = {
+            assetId: 'test',
+            name: 'test',
+            type: 'test',
+            subcategory: 'test'
         }
 
         this.setState(prevState => {
             let order = { ...prevState.order };
             order.laborHours = order.laborHours.concat(data);
+            order.assets = order.assets.concat(assetData)
             return {
                 order: order,
+                variant: 'success'
             };
         })
 
