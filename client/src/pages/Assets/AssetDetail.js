@@ -71,7 +71,9 @@ class AssetDetail extends Component {
                     asset={this.state.asset}
                     handleInputChange={this.handleInputChange}
                 />
-                <AssociatedOrders />
+                <AssociatedOrders 
+                    asset={this.state.asset}
+                />
             </Container>
         )
     }

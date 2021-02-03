@@ -1,8 +1,30 @@
 import React from 'react'
+import { Row, Col, Form, Card, Button } from 'react-bootstrap';
 
 const AssociatedOrders = props => {
+
+
     return (
-        <h2>Hello</h2>
+        <Card className='detailCard'>
+            <Card.Header>Associated Orders</Card.Header>
+            <Card.Body>
+                <Row>
+                    <Col />
+                    <Col>ID</Col>
+                    <Col>Description</Col>
+                    <Col>Status</Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Button
+                            variant='success'
+                            className='buttonColumn'
+                            size='sm'
+                        >Detail</Button>
+                    </Col>
+                </Row>
+            </Card.Body>
+        </Card>
     )
 }
 
