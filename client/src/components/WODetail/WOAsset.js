@@ -36,14 +36,10 @@ const WOAsset = props => {
     }
 
     const createEntryColumns = entry => {
-        let keyArray = Object.keys(entry);
-
-        if (Object.keys(entry)[0] === "assetId") {
-            keyArray.shift();
-        }
+        let assetArray = ['name', 'type', 'subcategory'];
 
         return (
-            keyArray.map((item, index) => (
+            assetArray.map((item, index) => (
                 <Col key={index}>{entry[item]}</Col>
             ))
         )

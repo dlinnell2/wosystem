@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { LinkButton } from "../../components/General"
-import { BasicInfo } from "../../components/AssetDetail"
+import { BasicInfo, AssociatedOrders } from "../../components/AssetDetail"
 import "./assetStyling.css"
 
 class AssetDetail extends Component {
@@ -28,13 +28,11 @@ class AssetDetail extends Component {
     }
 
     handleInputChange = (e) => {
-        console.log(e.target)
         const { name, value } = e.target;
         if (this.state.variant === "success") {
             this.setState(prevState => {
                 let asset = {...prevState.asset};
-                asset[name] = value; 
-                console.log(asset)                
+                asset[name] = value;               
                 return { 
                     asset: asset 
                 };
@@ -42,8 +40,7 @@ class AssetDetail extends Component {
         } else {
             this.setState(prevState => {
                 let asset = {...prevState.asset};
-                asset[name] = value;    
-                console.log(asset)             
+                asset[name] = value;               
                 return { 
                     asset: asset,
                     variant:'success'
@@ -74,6 +71,7 @@ class AssetDetail extends Component {
                     asset={this.state.asset}
                     handleInputChange={this.handleInputChange}
                 />
+                <AssociatedOrders />
             </Container>
         )
     }
