@@ -12,8 +12,10 @@ const WOAsset = props => {
     const sendAsset = (asset) => {
 
         let data = {
+            assetId: asset._id,
             name: asset.name,
-            subcategory: asset.subcategory
+            type: asset.type,
+            subcategory: asset.subcategory,
         }
 
         props.addAsset(data).then(() => {

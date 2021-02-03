@@ -30,8 +30,10 @@ var WOSchema = new Schema({
     category: String,
     assets: [
         {
+            assetId: Schema.Types.ObjectId,
             name: String,
-            subcategory: String
+            subcategory: String,
+            type:{type:String}
         }
     ],
     laborHours: [

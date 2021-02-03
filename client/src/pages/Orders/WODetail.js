@@ -159,7 +159,6 @@ class WODetail extends Component {
         this.setState(prevState => {
             let order = { ...prevState.order };
             order.assets = order.assets.concat(data);
-            console.log(order.assets)
             return {
                 order: order,
                 updateAsset: true,
