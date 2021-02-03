@@ -10,10 +10,9 @@ const WOAsset = props => {
     const handleShow = () => setShow(true);
 
     const sendAsset = (asset) => {
+
         let data = {
-            assetId: asset._id,
             name: asset.name,
-            type: asset.type,
             subcategory: asset.subcategory
         }
 
