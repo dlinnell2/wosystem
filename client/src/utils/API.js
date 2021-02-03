@@ -15,5 +15,9 @@ export default {
 
     editOne: (type, id, data) => {
         return axios.put(`/api/${type}/` + id, data)
+    },
+
+    getMany: (type, data) => {
+        return axios.get(`/api/${type}/getMany`, data)
     }
 }

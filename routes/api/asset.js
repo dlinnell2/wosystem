@@ -13,4 +13,7 @@ router.route("/:id")
   .get(assetController.findById)
   .put(assetController.findByIdAndUpdate)
 
+/* router.route("/getMany")
+  .get(assetController.getMany) */
+
 module.exports = router;

@@ -48,7 +48,7 @@ class AssetItems extends React.Component {
                         to={"/assets/detail/" + this.props.asset._id}
                         variant="outline-primary"
                         block
-                        className="detailButton">Detail
+                        className="listButton">Detail
                     </LinkButton>
                 </Col>
                 {this.createItems()}

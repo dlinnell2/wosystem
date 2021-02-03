@@ -5,6 +5,9 @@ const woController = require("../../controllers/WOController");
 router.route("/getAll")
   .get(woController.getList)
 
+router.route("/getMany")
+  .get(woController.getMany)
+
 // Matches with "/addNewWO"
 router.route("/add")
   .post(woController.addNewWO)
@@ -12,4 +15,5 @@ router.route("/add")
 router.route("/:id")
   .get(woController.findById)
   .put(woController.findByIdAndUpdate)
+
 module.exports = router;

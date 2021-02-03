@@ -30,11 +30,12 @@ class AddAsset extends Component {
             type: this.state.type,
             subcategory: this.state.subcategory,
             location: this.state.location,
+            inService: true
         }
 
         console.log(data)
 
-        API.add(data)
+        API.add('assets', data)
             .then(dbRes => {
                 console.log(dbRes)
                 setTimeout(() => {
@@ -104,7 +105,7 @@ class AddAsset extends Component {
                             <Button variant="success" onClick={this.addNew}>Submit your order</Button>
                         </Col>
                         <Col sm={2}>
-                            <LinkButton variant="primary" to="/">Return to list</LinkButton>
+                            <LinkButton variant="primary" to="/assets/">Return to list</LinkButton>
                         </Col>
                         <Col sm={8}>
                             <h4>{this.state.status}</h4>

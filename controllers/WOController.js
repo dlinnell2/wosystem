@@ -9,6 +9,13 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
 
+    getMany: function (req, res) {
+        db.WO
+            .find(req.body)
+            .then((dbModel) => res.json(dbModel))
+            .catch((err) => res.status(422).json(err))
+    },
+
     addNewWO: function(req, res) {
         db.WO
             .create(req.body)
