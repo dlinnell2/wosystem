@@ -20,17 +20,20 @@ class AssetDetail extends Component {
     componentDidMount() {
         let id = this.props.match.params.id;
         API.getOne('assets', id)
-            .then((res) => {
-                console.log(res)
+            .then((assetRes) => {
+
                 let orderIds = []
-                res.data.orders.forEach((order) => 
+                assetRes.data.orders.forEach((order) =>
                     orderIds.push(order.orderId)
                 )
 
-                console.log(orderIds)
-                this.setState({
-                    asset:res.data
-                })
+                API.getMany('orders', orderIds)
+                    .then((orderRes) => {
+                        this.setState({
+                            asset: assetRes.data
+                        })
+                    })
+
             })
     }
 
@@ -38,21 +41,21 @@ class AssetDetail extends Component {
         const { name, value } = e.target;
         if (this.state.variant === "success") {
             this.setState(prevState => {
-                let asset = {...prevState.asset};
-                asset[name] = value;               
-                return { 
-                    asset: asset 
+                let asset = { ...prevState.asset };
+                asset[name] = value;
+                return {
+                    asset: asset
                 };
-              })
+            })
         } else {
             this.setState(prevState => {
-                let asset = {...prevState.asset};
-                asset[name] = value;               
-                return { 
+                let asset = { ...prevState.asset };
+                asset[name] = value;
+                return {
                     asset: asset,
-                    variant:'success'
+                    variant: 'success'
                 };
-              })
+            })
         }
     }
 
@@ -78,7 +81,7 @@ class AssetDetail extends Component {
                     asset={this.state.asset}
                     handleInputChange={this.handleInputChange}
                 />
-                <AssociatedOrders 
+                <AssociatedOrders
                     asset={this.state.asset}
                 />
             </Container>

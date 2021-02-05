@@ -18,6 +18,6 @@ export default {
     },
 
     getMany: (type, data) => {
-        return axios.get(`/api/${type}/getMany`, data)
+        return axios.post(`/api/${type}/getMany`, data)
     }
 }
