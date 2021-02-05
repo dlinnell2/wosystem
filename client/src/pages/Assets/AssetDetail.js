@@ -21,6 +21,13 @@ class AssetDetail extends Component {
         let id = this.props.match.params.id;
         API.getOne('assets', id)
             .then((res) => {
+                console.log(res)
+                let orderIds = []
+                res.data.orders.forEach((order) => 
+                    orderIds.push(order.orderId)
+                )
+
+                console.log(orderIds)
                 this.setState({
                     asset:res.data
                 })
