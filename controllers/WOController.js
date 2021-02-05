@@ -10,7 +10,6 @@ module.exports = {
     },
 
     getMany: function (req, res) {
-        console.log(req.body)
         db.WO
             .find({'_id': { $in: req.body}})
             .then((dbModel) => res.json(dbModel))

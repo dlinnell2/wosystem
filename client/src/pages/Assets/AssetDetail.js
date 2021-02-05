@@ -15,6 +15,7 @@ class AssetDetail extends Component {
         variant: 'secondary',
         asset: {},
         message: '',
+        orderData: []
     }
 
     componentDidMount() {
@@ -30,7 +31,8 @@ class AssetDetail extends Component {
                 API.getMany('orders', orderIds)
                     .then((orderRes) => {
                         this.setState({
-                            asset: assetRes.data
+                            asset: assetRes.data,
+                            orderData: orderRes.data
                         })
                     })
 
@@ -83,6 +85,7 @@ class AssetDetail extends Component {
                 />
                 <AssociatedOrders
                     asset={this.state.asset}
+                    orderData={this.state.orderData}
                 />
             </Container>
         )
