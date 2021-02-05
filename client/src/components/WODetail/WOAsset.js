@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Card, Button, Modal } from 'react-bootstrap';
 import AddAssetList from './AddAssetList';
+import { LinkButton } from '../General'
 
 const WOAsset = props => {
 
@@ -25,9 +26,17 @@ const WOAsset = props => {
 
     const createEntryRow = () => {
         if (props.order.assets) {
+            console.log(props.order.assets)
             return (
                 props.order.assets.map((entry, index) => (
                     <Row key={index}>
+                        <Col>
+                            <LinkButton
+                                to={"/assets/detail/" + entry.assetId}
+                                variant="outline-primary"
+                                className="detailButton"
+                                size="sm">Detail</LinkButton>
+                        </Col>
                         {createEntryColumns(entry)}
                     </Row>
                 ))
