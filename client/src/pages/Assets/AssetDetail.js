@@ -61,6 +61,18 @@ class AssetDetail extends Component {
         }
     }
 
+    updateAsset = () => {
+        let id = this.props.match.params.id
+        let asset = {...this.state.asset}
+
+        API.editOne('assets', id, asset)
+            .then((res) => {
+                this.setState({
+                    asset:res.data
+                })
+            })
+    }
+
     render() {
         return (
             <Container fluid>
@@ -69,7 +81,8 @@ class AssetDetail extends Component {
                         <Button
                             variant={this.state.variant}
                             className="detailButton"
-                            size="sm">Save Updates</Button>
+                            size="sm"
+                            onClick={this.updateAsset}>Save Updates</Button>
 
                         <LinkButton
                             to="/assets/"

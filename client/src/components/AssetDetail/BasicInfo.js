@@ -29,7 +29,7 @@ const BasicInfo = props => (
                 </Col>
             </Row>
             <Row>
-                <Col lg={6}>
+                <Col lg={4}>
                     <Form.Group>
                         <Form.Label>Type</Form.Label>
                         <Form.Control
@@ -39,12 +39,22 @@ const BasicInfo = props => (
                         />
                     </Form.Group>
                 </Col>
-                <Col lg={6}>
+                <Col lg={4}>
                     <Form.Group>
                         <Form.Label>Subcategory</Form.Label>
                         <Form.Control
                             value={props.asset.subcategory || ''}
                             name='subcategory'
+                            onChange={props.handleInputChange}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col lg={4}>
+                    <Form.Group>
+                        <Form.Label>Install Date</Form.Label>
+                        <Form.Control
+                            value={props.asset.installDate || ''}
+                            name='installDate'
                             onChange={props.handleInputChange}
                         />
                     </Form.Group>
