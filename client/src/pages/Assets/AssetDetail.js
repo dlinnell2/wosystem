@@ -55,7 +55,8 @@ class AssetDetail extends Component {
                 asset[name] = value;
                 return {
                     asset: asset,
-                    variant: 'success'
+                    variant: 'success',
+                    message:''
                 };
             })
         }
@@ -68,7 +69,9 @@ class AssetDetail extends Component {
         API.editOne('assets', id, asset)
             .then((res) => {
                 this.setState({
-                    asset:res.data
+                    asset:res.data,
+                    variant:'secondary',
+                    message:"Asset Updated"
                 })
             })
     }

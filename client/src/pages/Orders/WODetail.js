@@ -60,12 +60,14 @@ class WODetail extends Component {
                     order[name] = value;
                     return {
                         order: order,
-                        variant: "success"
+                        variant: "success",
+                        message:''
                     };
                 } else {
                     return {
                         [name]: value,
-                        variant: "success"
+                        variant: "success",
+                        message:''
                     }
                 }
             })
