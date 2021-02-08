@@ -8,11 +8,30 @@ class LocationList extends Component {
 
     }
 
-    
+    state = {
+        locations:[]
+    }
+
+    componentDidMount() {
+        API.getAll('locations')
+        .then((res) => {
+            this.setState({
+                locations:res.data
+            })
+        })
+    }
+
+    locationRows = () => {
+        if (this.state.locations) {
+            return( this.state.locations.map((location) => (
+                <p>{location.name}</p>
+            )))
+        }
+    }
 
     render () {
         return (
-            <h2>Hello World</h2>
+            this.locationRows()
         )
     }
 }

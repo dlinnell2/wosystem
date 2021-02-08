@@ -8,8 +8,6 @@ import { Navigation } from './components/General'
 class App extends Component {
 
   render() {
-
-    console.log(this)
     return (
       <div>
         <Navigation />
