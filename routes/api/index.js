@@ -8,6 +8,8 @@ router.use("/orders", woRoutes);
 //asset routes
 router.use("/assets", assetRoutes);
 
-//asset routes
+//location routes
+
+router.use("/locations", locationRoutes)
 
 module.exports = router;

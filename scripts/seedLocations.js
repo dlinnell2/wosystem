@@ -14,44 +14,13 @@ mongoose.connect(
 
 const locationSeed = [
     {
-        name: "Houston",
-        parent: {},
-        children: []
-    },
-    {
-        name: "North",
-        parent: {},
-        children: []
-    },
-    {
-        name: "Nexus",
-        parent: {},
-        children: []
-    },
-    {
-        name: "Dream",
-        parent: {},
-        children: []
-    },
-    {
-        name: "3D",
-        parent: {},
-        children: []
-    },
-    {
-        name: "Generations",
-        parent: {},
-        children: []
-    },
-    {
-        name: "Nexus Primary",
-        parent: {},
-        children: []
-    },
-    {
-        name: "Nexus Middle",
-        parent: {},
-        children: []
+        name: "Houston"
+    },{
+        name: "Austin"
+    }, {
+        name: "San Antonio"
+    }, {
+        name: "Dallas"
     }
 ];
 
