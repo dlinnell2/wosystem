@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { AssetHeaders, AssetItems } from '../../components/AssetList/index';
 import './assetStyling.css'
 
-class WOList extends Component {
+class AssetList extends Component {
 
     constructor(props) {
         super()
@@ -47,4 +47,4 @@ class WOList extends Component {
     }
 }
 
-export default WOList;
+export default AssetList;
