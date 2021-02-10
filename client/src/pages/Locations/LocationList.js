@@ -9,7 +9,8 @@ class LocationList extends Component {
     }
 
     state = {
-        locations:[]
+        locations:[],
+        parent:''
     }
 
     componentDidMount() {

@@ -9,17 +9,13 @@ var LocationSchema = new Schema({
         required: true
     },
     parent: {
-        name:{
-            type:String,
-        },
-        id:{
-            type:String
-        }
+        name:String,
+        parentId:String
     },
     children: [
         {
             name: String,
-            id: String,
+            childId: String,
         }
     ]
 

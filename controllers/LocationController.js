@@ -4,7 +4,7 @@ module.exports = {
 
     getAll: function (req, res) {
         db.Location
-            .find({})
+            .find({parent:{$exists:false}})
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
