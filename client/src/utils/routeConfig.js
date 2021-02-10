@@ -42,6 +42,10 @@ export default  {
                 path:'/add',
                 component: AddLocation
             },
+            addChild: {
+                path:'/add/:id',
+                component: AddLocation
+            },
             /* detail: {
                 path:'/detail/:id',
                 component: LocationList

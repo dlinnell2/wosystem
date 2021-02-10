@@ -34,9 +34,18 @@ class LocationList extends Component {
 
     render() {
         return (
-            
-                this.locationRows()
-            
+            <>
+                <Row>
+                    <Col lg={2}>
+                        <LinkButton
+                            variant="success"
+                            to="/locations/add"
+                            block>Add New</LinkButton>
+                    </Col>
+                </Row>
+                {this.locationRows()}
+            </>
+
         )
     }
 }
