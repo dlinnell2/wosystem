@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routing } from './utils'
 import { Navigation } from './components/General'
+import Container from 'react-bootstrap/Container'
 
 class App extends Component {
 
@@ -11,7 +12,9 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        <Routing />
+        <Container fluid>
+          <Routing />
+        </Container>
       </div>
     );
   }

@@ -1,5 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import API from "../../utils/API";
+import { Container, Row, Col } from 'react-bootstrap';
+import { LinkButton } from '../../components/General'
 
 class LocationList extends Component {
 
@@ -9,30 +11,32 @@ class LocationList extends Component {
     }
 
     state = {
-        locations:[],
-        parent:''
+        locations: [],
+        parent: ''
     }
 
     componentDidMount() {
         API.getAll('locations')
-        .then((res) => {
-            this.setState({
-                locations:res.data
+            .then((res) => {
+                this.setState({
+                    locations: res.data
+                })
             })
-        })
     }
 
     locationRows = () => {
         if (this.state.locations) {
-            return( this.state.locations.map((location) => (
+            return (this.state.locations.map((location) => (
                 <p>{location.name}</p>
             )))
         }
     }
 
-    render () {
+    render() {
         return (
-            this.locationRows()
+            
+                this.locationRows()
+            
         )
     }
 }

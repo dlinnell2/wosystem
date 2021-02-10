@@ -39,10 +39,10 @@ class AssetList extends Component {
 
     render() {
         return (
-            <Container fluid>
+            <div>
                 <AssetHeaders />
                 {this.displayOrders()}
-            </Container>
+            </div>
         );
     }
 }
