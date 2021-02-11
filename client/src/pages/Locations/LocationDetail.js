@@ -27,6 +27,18 @@ class LocationDetail extends Component {
             })
     }
 
+    locationRows = () => {
+        if(this.state.subLocations.length){
+            return(
+                <h1>Wrong</h1>
+            )
+        } else {
+            return (
+                <h1>Right</h1>
+            )
+        }
+    }
+
     render() {
         return (
             <>
@@ -39,6 +51,7 @@ class LocationDetail extends Component {
                             className="listButton">Add New</LinkButton>
                     </Col>
                 </Row>
+                {this.locationRows()}
             </>
 
         )
