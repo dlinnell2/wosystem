@@ -10,7 +10,7 @@ export default {
     },
 
     getOne: (type, id) => {
-        return axios.get(`/api/${type}/` + id)
+        return axios.get(`/api/${type}/getOne/` + id)
     },
 
     editOne: (type, id, data) => {

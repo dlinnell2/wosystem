@@ -17,8 +17,10 @@ class LocationDetail extends Component {
     }
 
     componentDidMount() {
-        API.getAll('locations')
+        let id = this.props.match.params.id;
+        API.getOne('locations', id)
             .then((res) => {
+                console.log(res)
                 this.setState({
                     subLocations: res.data
                 })

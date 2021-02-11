@@ -5,10 +5,10 @@ const locationController = require("../../controllers/LocationController");
 router.route("/getAll")
   .get(locationController.getAll)
 
-/* router.route("/getMany")
-  .post(locationController.getMany)
+router.route("/getOne/:id")
+  .get(locationController.getOne)
 
-// Matches with "/addNewWO"
+/*// Matches with "/addNewWO"
 router.route("/add")
   .post(locationController.addNewWO)
 

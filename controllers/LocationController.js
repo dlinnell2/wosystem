@@ -9,6 +9,13 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
 
+    getOne: function (req, res){
+        db.Location
+        .find({parent:{parentId:req.params.id}})
+        .then((dbModel) => res.json(dbModel))
+        .catch((err) => res.status(422).json(err))
+    },
+
     getMany: function (req, res) {
         db.Location
             .find({'_id': { $in: req.body}})
