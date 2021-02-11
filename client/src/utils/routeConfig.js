@@ -1,15 +1,15 @@
-import { WODetail, AddWO, WOList, AddAsset, AssetDetail, AssetList, LocationList, AddLocation } from "../pages";
+import { WODetail, AddWO, WOList, AddAsset, AssetDetail, AssetList, LocationList, AddLocation, LocationDetail } from "../pages";
 
-export default  {
+export default {
     orders: {
         path: '/orders',
         children: {
             add: {
-                path:'/add',
+                path: '/add',
                 component: AddWO
             },
             detail: {
-                path:'/detail/:id',
+                path: '/detail/:id',
                 component: WODetail
             },
             list: {
@@ -22,11 +22,11 @@ export default  {
         path: '/assets',
         children: {
             add: {
-                path:'/add',
+                path: '/add',
                 component: AddAsset
             },
             detail: {
-                path:'/detail/:id',
+                path: '/detail/:id',
                 component: AssetDetail
             },
             list: {
@@ -39,17 +39,17 @@ export default  {
         path: '/locations',
         children: {
             add: {
-                path:'/add',
+                path: '/add',
                 component: AddLocation
             },
             addChild: {
-                path:'/add/:id',
+                path: '/add/:id',
                 component: AddLocation
             },
-            /* detail: {
-                path:'/detail/:id',
-                component: LocationList
-            }, */
+            detail: {
+                path: '/detail/:id',
+                component: LocationDetail
+            },
             list: {
                 path: '/',
                 component: LocationList

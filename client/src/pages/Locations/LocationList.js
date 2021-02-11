@@ -36,7 +36,7 @@ class LocationList extends Component {
                     <Col lg={2}>
                         <LinkButton
                             variant="primary"
-                            to={`/locations/${location._id}`}
+                            to={`/locations/detail/${location._id}`}
                             block>View Sublocations</LinkButton>
                     </Col>
                     <Col lg={2}>
