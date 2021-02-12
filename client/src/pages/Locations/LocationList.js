@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { LinkButton } from '../../components/General';
+import { LocationItems } from '../../components/LocationList'
 import './locationStyling.css'
 
 class LocationList extends Component {
@@ -28,24 +29,7 @@ class LocationList extends Component {
     locationRows = () => {
         if (this.state.locations) {
             return (this.state.locations.map((location) => (
-                <Row className="listItem">
-                    <Col lg={4}>
-                        <h5>{location.name}</h5>
-                    </Col>
-                    <Col lg={4} />
-                    <Col lg={2}>
-                        <LinkButton
-                            variant="primary"
-                            to={`/locations/detail/${location._id}`}
-                            block>View Sublocations</LinkButton>
-                    </Col>
-                    <Col lg={2}>
-                        <LinkButton
-                            variant="outline-primary"
-                            to={`/locations/edit/${location._id}`}
-                            block>Edit Location</LinkButton>
-                    </Col>
-                </Row>
+                <LocationItems location={location} />
             )))
         }
     }
