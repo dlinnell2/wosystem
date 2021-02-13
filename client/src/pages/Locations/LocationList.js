@@ -18,12 +18,20 @@ class LocationList extends Component {
     }
 
     componentDidMount() {
-        API.getAll('locations')
+        this.checkForId()
+    }
+
+    checkForId = () => {
+        if (this.props.match.params.id) {
+
+        } else {
+            API.getAll('locations')
             .then((res) => {
                 this.setState({
                     locations: res.data
                 })
             })
+        }
     }
 
     locationRows = () => {

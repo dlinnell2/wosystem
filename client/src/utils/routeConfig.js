@@ -38,19 +38,11 @@ export default {
     locations: {
         path: '/locations',
         children: {
-            add: {
-                path: '/add',
-                component: AddLocation
-            },
-            addChild: {
-                path: '/add/:id',
-                component: AddLocation
-            },
-            detail: {
-                path: '/detail/:id',
+            list: {
+                path: '/:id',
                 component: LocationDetail
             },
-            list: {
+            listTopLevel: {
                 path: '/',
                 component: LocationList
             }

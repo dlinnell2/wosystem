@@ -9,7 +9,7 @@ module.exports = {
             .catch((err) => res.status(422).json(err));
     },
 
-    getOne: function (req, res){
+    getChildren: function (req, res){
         db.Location
         .find({parent:{parentId:req.params.id}})
         .then((dbModel) => res.json(dbModel))
