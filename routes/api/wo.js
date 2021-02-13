@@ -6,7 +6,7 @@ router.route("/getAll")
   .get(woController.getList)
 
 router.route("/getMany")
-  .post(woController.getMany)
+  .get(woController.getMany)
 
 // Matches with "/addNewWO"
 router.route("/add")

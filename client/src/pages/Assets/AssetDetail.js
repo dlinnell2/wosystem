@@ -24,11 +24,15 @@ class AssetDetail extends Component {
             .then((assetRes) => {
 
                 let orderIds = []
-                assetRes.data.orders.forEach((order) =>
+                assetRes.data.orders.forEach((order) => {
                     orderIds.push(order.orderId)
-                )
+                })
 
-                API.getMany('orders', orderIds)
+                let queryString = '?array=' + orderIds.join('&array=')
+
+                console.log(queryString)
+
+                API.getMany('orders', queryString)
                     .then((orderRes) => {
                         this.setState({
                             asset: assetRes.data,

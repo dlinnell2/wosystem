@@ -11,7 +11,7 @@ module.exports = {
 
     getMany: function (req, res) {
         db.WO
-            .find({'_id': { $in: req.body}})
+            .find({'_id': { $in: req.query.array}})
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err))
     },

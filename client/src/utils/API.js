@@ -10,14 +10,14 @@ export default {
     },
 
     getOne: (type, id) => {
-        return axios.get(`/api/${type}/getOne/` + id)
+        return axios.get(`/api/${type}/` + id)
     },
 
     editOne: (type, id, data) => {
         return axios.put(`/api/${type}/` + id, data)
     },
 
-    getMany: (type, data) => {
-        return axios.post(`/api/${type}/getMany`, data)
+    getMany: (type, query) => {
+        return axios.get(`/api/${type}/getMany` + query)
     }
 }
