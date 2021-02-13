@@ -17,7 +17,7 @@ export default {
         return axios.put(`/api/${type}/` + id, data)
     },
 
-    getMany: (type, query) => {
-        return axios.get(`/api/${type}/getMany` + query)
+    getMany: (type, details) => {
+        return axios.get(`/api/${type}/getMany` + details)
     }
 }

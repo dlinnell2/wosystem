@@ -22,7 +22,7 @@ var AssetSchema = new Schema({
     },
     orders: [
         {
-            orderId: Schema.Types.ObjectId
+            orderId: Schema.Types.ObjectId,
         }
     ],
     components: [

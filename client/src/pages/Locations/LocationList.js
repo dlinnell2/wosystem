@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { LinkButton } from '../../components/General';
-import { LocationItems } from '../../components/LocationList'
+import { LocationItems, AddLocation } from '../../components/LocationList'
 import './locationStyling.css'
 
 class LocationList extends Component {
@@ -14,7 +14,16 @@ class LocationList extends Component {
 
     state = {
         locations: [],
-        parent: ''
+        parent: '',
+        locationName: '',
+        show: ''
+    }
+
+    handleInputChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        });
     }
 
     componentDidMount() {
@@ -59,6 +68,11 @@ class LocationList extends Component {
                         {this.locationRows()}
                     </Card.Body>
                 </Card>
+
+                <AddLocation 
+                    handleInputChange={this.handleInputChange}
+                    show={this.state.show}
+                    toggleModal={this.toggleModal}
             </>
 
         )

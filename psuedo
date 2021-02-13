@@ -1,32 +1,4 @@
-building out full wo system fuctionality
-MVP includes
-- full user view only
-- creation of wo
-- changing of status
-- action taken
-- time taken
-- assignments
-
-WO Schema
-- id
-- date created
-- location
-- description
-- assigned to
-- submitted by
-- status
-- action taken
-- labor hours
-- notes
-- category
-
-Api routes
-
-Every API hits DB, no need for /db/
-routes for WO, Asset, Location, user
-
-api/wo/getAll
-api/wo/:id - for both get and put
-api/wo/add
-
-those four routes for all, adjusting /wo, /asset, /location, /user
+adjust asset model to include all data that will be displayed on asset detail; way easier
+remove 'get many' from asset detail, no longer needed
+eventually only display the five newest work orders
+add 'get many' to location
