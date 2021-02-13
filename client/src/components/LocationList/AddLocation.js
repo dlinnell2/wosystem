@@ -1,6 +1,5 @@
 import React from 'react';
-import { Modal, Form } from 'react-bootstrap';
-import API from '../../utils/API'
+import { Modal, Form, Button } from 'react-bootstrap';
 
 const AddLocation = (props) => {
 

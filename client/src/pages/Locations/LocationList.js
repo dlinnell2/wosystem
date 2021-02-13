@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import { LinkButton } from '../../components/General';
 import { LocationItems, AddLocation } from '../../components/LocationList'
 import './locationStyling.css'
@@ -16,7 +16,7 @@ class LocationList extends Component {
         locations: [],
         parent: '',
         locationName: '',
-        show: ''
+        show: false
     }
 
     handleInputChange = (e) => {
@@ -28,6 +28,14 @@ class LocationList extends Component {
 
     componentDidMount() {
         this.checkForId()
+    }
+
+    toggleModal = () => {
+        let newShow = !this.state.show
+
+        this.setState({
+            show:newShow
+        })
     }
 
     checkForId = () => {
@@ -56,11 +64,11 @@ class LocationList extends Component {
             <>
                 <Row>
                     <Col lg={2}>
-                        <LinkButton
+                        <Button
                             variant="success"
-                            to="/locations/add"
+                            onClick={this.toggleModal}
                             block
-                            className="listButton">Add New</LinkButton>
+                            className="listButton">Add New</Button>
                     </Col>
                 </Row>
                 <Card>
@@ -73,6 +81,8 @@ class LocationList extends Component {
                     handleInputChange={this.handleInputChange}
                     show={this.state.show}
                     toggleModal={this.toggleModal}
+                    //addLocation={this.addLocation}
+                    />
             </>
 
         )
