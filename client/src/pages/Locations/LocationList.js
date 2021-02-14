@@ -27,7 +27,7 @@ class LocationList extends Component {
     }
 
     componentDidMount() {
-        this.checkForId()
+        this.pullInfo()
     }
 
     toggleModal = (e) => {
@@ -40,7 +40,7 @@ class LocationList extends Component {
         })
     }
 
-    checkForId = () => {
+    pullInfo = () => {
         if (this.props.match.params.id) {
 
         } else {
@@ -60,9 +60,16 @@ class LocationList extends Component {
             parent: this.state.parent ? this.state.parent : ''
         }
         API.add('locations', data)
-            .then((res) => {
-                console.log(res)
-                this.checkForId()
+            .then((addRes) => {
+                console.log()
+                if (this.state.parent) {
+                    API.editOne('locations', this.state.parent, `{$push{children:${addRes.data._id}}}`)
+                    .then((editRes) => {
+                        this.pullInfo()
+                    })
+                } else {
+                    this.pullInfo()
+                }
             })
     }
 

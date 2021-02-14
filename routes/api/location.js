@@ -12,8 +12,8 @@ router.route("/getMany")
 router.route("/add")
   .post(locationController.addNew)
 
-/*router.route("/:id")
+router.route("/:id")
   .get(locationController.findById)
-  .put(locationController.findByIdAndUpdate) */
+  .put(locationController.findByIdAndUpdate)
 
 module.exports = router;
