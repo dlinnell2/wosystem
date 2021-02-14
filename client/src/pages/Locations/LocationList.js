@@ -47,7 +47,8 @@ class LocationList extends Component {
             API.getAll('locations')
                 .then((res) => {
                     this.setState({
-                        locations: res.data
+                        locations: res.data,
+                        show:false
                     })
                 })
         }
@@ -61,6 +62,7 @@ class LocationList extends Component {
         API.add('locations', data)
             .then((res) => {
                 console.log(res)
+                this.checkForId()
             })
     }
 

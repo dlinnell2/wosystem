@@ -8,11 +8,11 @@ router.route("/getAll")
 router.route("/getMany")
   .get(locationController.getMany)
 
-/*// Matches with "/addNewWO"
+// Matches with "/add"
 router.route("/add")
-  .post(locationController.addNewWO)
+  .post(locationController.addNew)
 
-router.route("/:id")
+/*router.route("/:id")
   .get(locationController.findById)
   .put(locationController.findByIdAndUpdate) */
 
