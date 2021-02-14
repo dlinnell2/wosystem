@@ -59,12 +59,14 @@ class LocationList extends Component {
             name: this.state.locationName,
             parent: this.state.parent ? this.state.parent : ''
         }
+        console.log(data)
         API.add('locations', data)
             .then((addRes) => {
                 console.log()
                 if (this.state.parent) {
-                    API.editOne('locations', this.state.parent, `{$push{children:${addRes.data._id}}}`)
+                    API.editOne('locations', this.state.parent, {"$push":{"children":addRes.data._id}})
                     .then((editRes) => {
+                        console.log(editRes)
                         this.pullInfo()
                     })
                 } else {

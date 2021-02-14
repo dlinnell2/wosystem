@@ -13,7 +13,9 @@ export default {
         return axios.get(`/api/${type}/` + id)
     },
 
-    editOne: (type, id, data) => {
+    editOne: (type, id, data) => 
+    {
+        console.log(data)
         return axios.put(`/api/${type}/` + id, data)
     },
 

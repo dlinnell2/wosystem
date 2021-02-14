@@ -31,6 +31,7 @@ module.exports = {
     },
 
     findByIdAndUpdate: function(req, res) {
+        console.log(req.body)
         db.Location
             .findByIdAndUpdate(req.params.id, req.body,{new:true})
             .then((dbModel) => res.json(dbModel))
