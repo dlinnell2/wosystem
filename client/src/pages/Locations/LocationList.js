@@ -14,7 +14,7 @@ class LocationList extends Component {
 
     state = {
         locations: [],
-        parent: '',
+        parent: {},
         locationName: '',
         show: false
     }
@@ -34,7 +34,10 @@ class LocationList extends Component {
         let newShow = !this.state.show
 
         if (e.target.id) {
-            let newParent = e.target.id
+            let newParent = {
+                name: e.target.name,
+                parentId: e.target.id
+            }
 
             this.setState({
                 show: newShow,
@@ -65,13 +68,14 @@ class LocationList extends Component {
     addLocation = () => {
         let data = {
             name: this.state.locationName,
-            parent: this.state.parent ? this.state.parent : ''
+            parent: this.state.parent.name ? this.state.parent : ''
         }
+
         console.log(data)
+
         API.add('locations', data)
             .then((addRes) => {
-                console.log()
-                if (this.state.parent) {
+                if (this.state.parent.name) {
                     let editData = {
                         $push: {
                             children: {
@@ -83,7 +87,6 @@ class LocationList extends Component {
 
                     API.editOne('locations', this.state.parent, editData)
                         .then((editRes) => {
-                            console.log(editRes)
                             this.pullInfo()
                         })
 

@@ -21,6 +21,7 @@ const LocationItems = props => {
                             variant="primary"
                             onClick={props.toggleModal}
                             id={location._id}
+                            name={location.name}
                             block>Add Sublocation</Button>
                     </Col>
                 </>
@@ -34,6 +35,7 @@ const LocationItems = props => {
                             variant="primary"
                             onClick={props.toggleModal}
                             id={location._id}
+                            name={location.name}
                             block>Add Sublocation</Button>
                     </Col>
                 </>
