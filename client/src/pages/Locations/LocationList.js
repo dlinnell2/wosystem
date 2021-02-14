@@ -34,7 +34,7 @@ class LocationList extends Component {
         let newShow = !this.state.show
 
         this.setState({
-            show:newShow
+            show: newShow
         })
     }
 
@@ -43,18 +43,34 @@ class LocationList extends Component {
 
         } else {
             API.getAll('locations')
+                .then((res) => {
+                    this.setState({
+                        locations: res.data
+                    })
+                })
+        }
+    }
+
+    addLocation = () => {
+        let data = {
+            name: this.state.locationName,
+            parent: this.state.parent ? this.state.parent : ''
+        }
+        API.add('locations', data)
             .then((res) => {
+                console.log(res)
                 this.setState({
-                    locations: res.data
+                    show:false
                 })
             })
-        }
     }
 
     locationRows = () => {
         if (this.state.locations) {
             return (this.state.locations.map((location) => (
-                <LocationItems location={location} />
+                <LocationItems 
+                location={location} 
+                toggleModal={this.toggleModal}/>
             )))
         }
     }
@@ -77,12 +93,12 @@ class LocationList extends Component {
                     </Card.Body>
                 </Card>
 
-                <AddLocation 
+                <AddLocation
                     handleInputChange={this.handleInputChange}
                     show={this.state.show}
                     toggleModal={this.toggleModal}
-                    //addLocation={this.addLocation}
-                    />
+                    addLocation={this.addLocation}
+                />
             </>
 
         )
