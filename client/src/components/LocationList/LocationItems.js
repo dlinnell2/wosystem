@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import { LinkButton } from '../General'
 
 const LocationItems = props => {
 
@@ -12,16 +11,17 @@ const LocationItems = props => {
                 <>
                     <Col lg={4} />
                     <Col lg={2}>
-                        <LinkButton
+                        <Button
                             variant="primary"
-                            to={`/locations/detail/${location._id}`}
-                            block>Add Sublocation</LinkButton>
+                            onClick={props.toggleModal}
+                            id={location._id}
+                            block>Add Sublocation</Button>
                     </Col>
                     <Col lg={2}>
-                        <LinkButton
+                        <Button
                             variant="outline-primary"
-                            to={`/locations/edit/${location._id}`}
-                            block>View Sublocations</LinkButton>
+                            onClick={props.toggleModal}
+                            block>View Sublocations</Button>
                     </Col>
                 </>
             )
@@ -30,10 +30,11 @@ const LocationItems = props => {
                 <>
                     <Col lg={6} />
                     <Col lg={2}>
-                        <LinkButton
+                        <Button
                             variant="primary"
-                            to={`/locations/detail/${location._id}`}
-                            block>Add Sublocation</LinkButton>
+                            onClick={props.toggleModal}
+                            id={location._id}
+                            block>Add Sublocation</Button>
                     </Col>
                 </>
             )

@@ -30,11 +30,13 @@ class LocationList extends Component {
         this.checkForId()
     }
 
-    toggleModal = () => {
+    toggleModal = (e) => {
         let newShow = !this.state.show
+        let newParent = e.target.id
 
         this.setState({
-            show: newShow
+            show: newShow,
+            parent: newParent
         })
     }
 
@@ -59,9 +61,6 @@ class LocationList extends Component {
         API.add('locations', data)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    show:false
-                })
             })
     }
 
