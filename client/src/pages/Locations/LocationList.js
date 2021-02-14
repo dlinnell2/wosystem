@@ -32,12 +32,20 @@ class LocationList extends Component {
 
     toggleModal = (e) => {
         let newShow = !this.state.show
-        let newParent = e.target.id
 
-        this.setState({
-            show: newShow,
-            parent: newParent
-        })
+        if (e.target.id) {
+            let newParent = e.target.id
+
+            this.setState({
+                show: newShow,
+                parent: newParent
+            })
+        } else {
+            this.setState({
+                show:newShow
+            })
+        }
+
     }
 
     pullInfo = () => {
@@ -48,7 +56,7 @@ class LocationList extends Component {
                 .then((res) => {
                     this.setState({
                         locations: res.data,
-                        show:false
+                        show: false
                     })
                 })
         }
@@ -64,11 +72,21 @@ class LocationList extends Component {
             .then((addRes) => {
                 console.log()
                 if (this.state.parent) {
-                    API.editOne('locations', this.state.parent, {"$push":{"children":addRes.data._id}})
-                    .then((editRes) => {
-                        console.log(editRes)
-                        this.pullInfo()
-                    })
+                    let editData = {
+                        $push: {
+                            children: {
+                                name: addRes.data.name,
+                                childId: addRes.data._id
+                            }
+                        }
+                    }
+
+                    API.editOne('locations', this.state.parent, editData)
+                        .then((editRes) => {
+                            console.log(editRes)
+                            this.pullInfo()
+                        })
+
                 } else {
                     this.pullInfo()
                 }
@@ -78,9 +96,9 @@ class LocationList extends Component {
     locationRows = () => {
         if (this.state.locations) {
             return (this.state.locations.map((location) => (
-                <LocationItems 
-                location={location} 
-                toggleModal={this.toggleModal}/>
+                <LocationItems
+                    location={location}
+                    toggleModal={this.toggleModal} />
             )))
         }
     }

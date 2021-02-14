@@ -11,17 +11,17 @@ const LocationItems = props => {
                 <>
                     <Col lg={4} />
                     <Col lg={2}>
-                        <Button
+                    <Button
+                            variant="outline-success"
+                            onClick={props.toggleModal}
+                            block>View Sublocations</Button>
+                    </Col>
+                    <Col lg={2}>
+                    <Button
                             variant="primary"
                             onClick={props.toggleModal}
                             id={location._id}
                             block>Add Sublocation</Button>
-                    </Col>
-                    <Col lg={2}>
-                        <Button
-                            variant="outline-primary"
-                            onClick={props.toggleModal}
-                            block>View Sublocations</Button>
                     </Col>
                 </>
             )
