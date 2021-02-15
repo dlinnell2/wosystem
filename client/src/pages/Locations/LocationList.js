@@ -75,6 +75,7 @@ class LocationList extends Component {
 
         API.add('locations', data)
             .then((addRes) => {
+                console.log(addRes)
                 if (this.state.parent.name) {
                     let editData = {
                         $push: {
@@ -85,7 +86,7 @@ class LocationList extends Component {
                         }
                     }
 
-                    API.editOne('locations', this.state.parent, editData)
+                    API.editOne('locations', this.state.parent.parentId, editData)
                         .then((editRes) => {
                             this.pullInfo()
                         })
