@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+import { LinkButton } from '../../components/General'
 
 const LocationItems = props => {
 
@@ -11,10 +12,10 @@ const LocationItems = props => {
                 <>
                     <Col lg={4} />
                     <Col lg={2}>
-                    <Button
+                    <LinkButton
                             variant="outline-success"
-                            onClick={props.toggleModal}
-                            block>View Sublocations</Button>
+                            to={`/locations/${location._id}`}
+                            block>View Sublocations</LinkButton>
                     </Col>
                     <Col lg={2}>
                     <Button

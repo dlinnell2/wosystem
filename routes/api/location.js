@@ -5,7 +5,7 @@ const locationController = require("../../controllers/LocationController");
 router.route("/getAll")
   .get(locationController.getAll)
 
-router.route("/getMany")
+router.route("/getMany/:id")
   .get(locationController.getMany)
 
 // Matches with "/add"
