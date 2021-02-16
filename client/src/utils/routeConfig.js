@@ -40,7 +40,7 @@ export default {
         children: {
             list: {
                 path: '/:id',
-                component: LocationDetail
+                component: LocationList
             },
             listTopLevel: {
                 path: '/',

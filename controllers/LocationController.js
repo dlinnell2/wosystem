@@ -10,8 +10,9 @@ module.exports = {
     },
 
     getMany: function (req, res){
+        console.log(req.params)
         db.Location
-        .find({parent:{parentId:req.params.id}})
+        .find({'parent.parentId':req.params.id})
         .then((dbModel) => res.json(dbModel))
         .catch((err) => res.status(422).json(err))
     },
