@@ -31,6 +31,7 @@ class LocationList extends Component {
     }
 
     toggleModal = (e) => {
+        console.log(this.state.parent)
         let newShow = !this.state.show
 
         if (e.target.id) {
@@ -58,7 +59,8 @@ class LocationList extends Component {
                 console.log(res)
                 this.setState({
                     locations: res.data,
-                    show: false
+                    show: false,
+                    parent: res.data[0].parent
                 })
             })
 
