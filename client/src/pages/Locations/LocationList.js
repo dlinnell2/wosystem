@@ -31,7 +31,6 @@ class LocationList extends Component {
     }
 
     toggleModal = (e) => {
-        console.log(this.state.parent)
         let newShow = !this.state.show
 
         if (e.target.id) {
@@ -83,7 +82,6 @@ class LocationList extends Component {
 
         API.add('locations', data)
             .then((addRes) => {
-                console.log(addRes)
                 if (this.state.parent.name) {
                     let editData = {
                         $push: {

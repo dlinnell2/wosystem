@@ -10,9 +10,8 @@ module.exports = {
     },
 
     getMany: function (req, res){
-        console.log(req.params)
         db.Location
-        .find({'parent.parentId':req.params.id})
+        .find({'parent.parentId':req.params.id}, null, {sort:{name:1}})
         .then((dbModel) => res.json(dbModel))
         .catch((err) => res.status(422).json(err))
     },
@@ -32,7 +31,6 @@ module.exports = {
     },
 
     findByIdAndUpdate: function(req, res) {
-        console.log(req.body)
         db.Location
             .findByIdAndUpdate(req.params.id, req.body,{new:true})
             .then((dbModel) => res.json(dbModel))
