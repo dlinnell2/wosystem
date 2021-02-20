@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Row, Col, Card, Button } from 'react-bootstrap';
-import { LinkButton } from '../../components/General';
 import { LocationItems, AddLocation } from '../../components/LocationList'
 import './locationStyling.css'
 

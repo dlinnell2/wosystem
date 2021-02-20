@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { LinkButton } from "../../components/General"
 import { BasicInfo, AssociatedOrders } from "../../components/AssetDetail"
 import "./assetStyling.css"

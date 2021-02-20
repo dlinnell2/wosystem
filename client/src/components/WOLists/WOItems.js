@@ -1,6 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 import { LinkButton } from "../General"
 
 class WOItems extends React.Component {

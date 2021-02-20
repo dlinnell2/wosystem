@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container, Row, Col } from 'react-bootstrap';
 import { AssetHeaders, AssetItems } from '../../components/AssetList/index';
 import './assetStyling.css'
 

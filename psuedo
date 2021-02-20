@@ -1,4 +1,7 @@
-adjust asset model to include all data that will be displayed on asset detail; way easier
-remove 'get many' from asset detail, no longer needed
-eventually only display the five newest work orders
-add 'get many' to location
+user model includes
+
+first name
+last name
+email
+location
+role

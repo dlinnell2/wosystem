@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { WOHeaders, WOItems } from "../../components/WOLists/index"
 import { withRouter } from "react-router-dom"
 import "./woStyling.css"
