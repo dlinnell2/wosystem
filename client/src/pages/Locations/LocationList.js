@@ -45,7 +45,7 @@ class LocationList extends Component {
             })
         } else {
             this.setState({
-                show:newShow
+                show: newShow
             })
         }
 
@@ -54,14 +54,13 @@ class LocationList extends Component {
     pullInfo = () => {
         if (this.props.match.params.id) {
             API.getMany('locations', `/${this.props.match.params.id}`)
-            .then((res) => {
-                console.log(res)
-                this.setState({
-                    locations: res.data,
-                    show: false,
-                    parent: res.data[0].parent
+                .then((res) => {
+                    this.setState({
+                        locations: res.data,
+                        show: false,
+                        parent: res.data[0].parent
+                    })
                 })
-            })
 
         } else {
             API.getAll('locations')
@@ -124,6 +123,11 @@ class LocationList extends Component {
                             block
                             className="listButton">Add New</Button>
                     </Col>
+                    {this.props.match.params.id &&
+                        <Col lg={2}>
+                            <h5>{this.state.parent.name}</h5>
+                        </Col>
+                    }
                 </Row>
                 <Card>
                     <Card.Body>
