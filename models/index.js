@@ -3,5 +3,5 @@ module.exports = {
     User: require("./User"),
     Asset: require("./Asset"),
     Config: require("./Config"),
-    Location: require("./Location")
+    Location: require("./Location"),
   };

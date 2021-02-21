@@ -20,11 +20,10 @@ var UserSchema = new Schema({
         type: String,
         required: true
     },
-    pass: {
+    role: {
         type: String,
         required: true
     }
-
 
 }, {
     timestamps: true

@@ -103,10 +103,11 @@ class LocationList extends Component {
 
     locationRows = () => {
         if (this.state.locations) {
-            return (this.state.locations.map((location) => (
+            return (this.state.locations.map((location, index) => (
                 <LocationItems
                     location={location}
-                    toggleModal={this.toggleModal} />
+                    toggleModal={this.toggleModal}
+                    key={index} />
             )))
         }
     }
