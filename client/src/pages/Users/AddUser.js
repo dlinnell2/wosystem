@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkButton } from "../../components/General"
 
 class AddUser extends Component {
@@ -23,6 +23,10 @@ class AddUser extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    showLocations = () => {
+        console.log('click')
     }
 
     render() {
@@ -48,6 +52,30 @@ class AddUser extends Component {
                             onChange={this.handleInputChange}
                         />
                     </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Control
+                            placeholder="Email"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleInputChange}
+                        />
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group as={Col}>
+                        <Form.Control
+                            placeholder="Location"
+                            name="location"
+                            value={this.state.location}
+                            onChange={this.handleInputChange}
+                        />
+                    </Form.Group>
+                    <Col>
+                        <Button
+                            variant="primary"
+                            onClick={this.showLocations}
+                        >Select Location</Button>
+                    </Col>
                 </Form.Row>
             </Form>
         )
