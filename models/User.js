@@ -13,8 +13,14 @@ var UserSchema = new Schema({
         required: true
     },
     location: {
-        type: String,
-        required: true
+        name: {
+            type: String,
+            required: true
+        },
+        locationId: {
+            type: String,
+            required: true
+        }
     },
     email: {
         type: String,

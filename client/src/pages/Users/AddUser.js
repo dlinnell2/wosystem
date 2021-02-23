@@ -15,7 +15,10 @@ class AddUser extends Component {
         firstName: '',
         lastName: '',
         email: '',
-        location: '',
+        location: {
+            name: '',
+            locationId: ''
+        },
         role: '',
         show: false
     }
@@ -25,6 +28,12 @@ class AddUser extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    selectLocation = data => {
+        this.setState({
+            location:data
+        })
     }
 
     toggleModal = () => {
@@ -88,7 +97,8 @@ class AddUser extends Component {
 
                 <UserLocations
                  show={this.state.show}
-                 toggleModal={this.toggleModal} />
+                 toggleModal={this.toggleModal}
+                 selectLocation={this.selectLocation} />
             </>
         )
     }
