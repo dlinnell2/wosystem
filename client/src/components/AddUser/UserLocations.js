@@ -17,28 +17,34 @@ const UserLocations = (props) => {
             })
     }
 
+    const withSublocation = (location, index) => (
+        <Row key={index}>
+            <Col lg={'4'}>
+                <h5>{location.name}</h5>
+            </Col>
+            <Col lg={'2'} />
+            <Col lg={'3'}>
+                <Button
+                    variant="outline-success"
+                    block>Select Location</Button>
+            </Col>
+            <Col lg={'3'}>
+                <Button
+                    variant="success"
+                    block>View Sublocation</Button>
+            </Col>
+        </Row>
+    )
+
+    const withoutSublocation = location => {
+
+    }
+
     const createRows = () => {
         return (
             locations.map((location, index) => {
                 if (location.children.length) {
-                    return (
-                        <Row key={index}>
-                            <Col lg={'4'}>
-                                <h3>{location.name}</h3>
-                            </Col>
-                            <Col lg={'4'} />
-                            <Col lg={'2'}>
-                                <Button
-                                    variant="outline-success"
-                                    block>Select Location</Button>
-                            </Col>
-                            <Col lg={'2'}>
-                                <Button
-                                    variant="success"
-                                    block>View Sublocation</Button>
-                            </Col>
-                        </Row>
-                    )
+                    return withSublocation(location, index)
                 }
             })
         )
