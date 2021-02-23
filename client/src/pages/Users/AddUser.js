@@ -82,7 +82,7 @@ class AddUser extends Component {
                             <Form.Control
                                 placeholder="Location"
                                 name="location"
-                                value={this.state.location}
+                                value={this.state.location.name}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>

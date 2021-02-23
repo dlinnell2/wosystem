@@ -9,12 +9,18 @@ const UserLocations = (props) => {
 
     useEffect(() => { getLocations() }, [])
 
-    const getLocations = () => {
-        API.getAll('locations')
-            .then((res) => {
-                console.log(res.data)
-                updateLocations(res.data)
-            })
+    const getLocations = (locationId) => {
+        if (locationId) {
+            API.getMany('locations', `/${locationId}`)
+                .then((res) => {
+                    updateLocations(res.data)
+                })
+        } else {
+            API.getAll('locations')
+                .then((res) => {
+                    updateLocations(res.data)
+                })
+        }
     }
 
     const withSublocation = (location, index) => (
@@ -31,20 +37,33 @@ const UserLocations = (props) => {
             <Col lg={'3'}>
                 <Button
                     variant="success"
-                    block>View Sublocation</Button>
+                    onClick={getLocations(location._id)}
+                    block>View Sublocations</Button>
             </Col>
         </Row>
     )
 
-    const withoutSublocation = location => {
-
-    }
+    const withoutSublocation = (location, index) => (
+        <Row key={index}>
+            <Col lg={'4'}>
+                <h5>{location.name}</h5>
+            </Col>
+            <Col lg={'5'} />
+            <Col lg={'3'}>
+                <Button
+                    variant="outline-success"
+                    block>Select Location</Button>
+            </Col>
+        </Row>
+    )
 
     const createRows = () => {
         return (
             locations.map((location, index) => {
                 if (location.children.length) {
                     return withSublocation(location, index)
+                } else {
+                    return withoutSublocation(location, index)
                 }
             })
         )
