@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../utils/API';
-import { Modal, Form, Button } from 'react-bootstrap';
+import { Modal, Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 
 const UserLocations = (props) => {
@@ -23,7 +23,15 @@ const UserLocations = (props) => {
                 <Modal.Title>Select User Location</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h2>locations</h2>
+                <Container>
+                    {locations.map((location, index) => (
+                        <Row key={index}>
+                            <Col>
+                                <h3>{location.name}</h3>
+                            </Col>
+                        </Row>
+                    ))}
+                </Container>
             </Modal.Body>
         </Modal>
     )
