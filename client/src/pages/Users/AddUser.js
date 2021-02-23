@@ -27,10 +27,6 @@ class AddUser extends Component {
         });
     }
 
-    showLocations = () => {
-        this.toggleModal()
-    }
-
     toggleModal = () => {
         let newShow = !this.state.show
 
@@ -84,7 +80,7 @@ class AddUser extends Component {
                         <Col>
                             <Button
                                 variant="primary"
-                                onClick={this.showLocations}
+                                onClick={this.toggleModal}
                             >Select Location</Button>
                         </Col>
                     </Form.Row>

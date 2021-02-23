@@ -5,8 +5,6 @@ import './nav.css'
 
 const Navigation = props => {
 
-    console.log(props)
-
     return (
         <Navbar bg="dark" variant="dark" expand="sm" sticky="top" className="navbar">
             <Navbar.Brand>WO System</Navbar.Brand>
