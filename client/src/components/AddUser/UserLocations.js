@@ -32,6 +32,7 @@ const UserLocations = (props) => {
             <Col lg={'3'}>
                 <Button
                     variant="outline-success"
+                    onClick={() => props.selectLocation({name:location.name,locationId:location._id})}
                     block>Select Location</Button>
             </Col>
             <Col lg={'3'}>
@@ -52,6 +53,7 @@ const UserLocations = (props) => {
             <Col lg={'3'}>
                 <Button
                     variant="outline-success"
+                    onClick={() => props.selectLocation({name:location.name,locationId:location._id})}
                     block>Select Location</Button>
             </Col>
         </Row>

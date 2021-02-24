@@ -32,7 +32,8 @@ class AddUser extends Component {
 
     selectLocation = data => {
         this.setState({
-            location:data
+            location:data,
+            show: false
         })
     }
 
