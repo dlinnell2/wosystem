@@ -37,7 +37,7 @@ class AddUser extends Component {
         })
     }
 
-    selectRolw = role => {
+    selectRole = role => {
         this.setState({
             role: role
         })
@@ -111,8 +111,8 @@ class AddUser extends Component {
                                 as={InputGroup.Append}
                                 variant={'primary'}
                                 title='Select Role'>
-                                    <Dropdown.Item>Manager</Dropdown.Item>
-                                    <Dropdown.Item>Requester</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => this.selectRole('Manager')}>Manager</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => this.selectRole('Requester')}>Requester</Dropdown.Item>
                                 </DropdownButton>
                             </InputGroup>
                         </Col>
