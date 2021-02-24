@@ -84,7 +84,7 @@ class AddUser extends Component {
                                 placeholder="Location"
                                 name="location"
                                 value={this.state.location.name}
-                                onChange={this.handleInputChange}
+                                readOnly
                             />
                         </Form.Group>
                         <Col>
