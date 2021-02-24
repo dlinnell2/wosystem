@@ -37,7 +37,7 @@ const UserLocations = (props) => {
             <Col lg={'3'}>
                 <Button
                     variant="success"
-                    onClick={getLocations(location._id)}
+                    onClick={() => getLocations(location._id)}
                     block>View Sublocations</Button>
             </Col>
         </Row>
