@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
-import { Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Form, Button, InputGroup, Dropdown, DropdownButton } from 'react-bootstrap'
 import { LinkButton } from "../../components/General"
 import { UserLocations } from "../../components/AddUser"
 
@@ -32,8 +32,14 @@ class AddUser extends Component {
 
     selectLocation = data => {
         this.setState({
-            location:data,
+            location: data,
             show: false
+        })
+    }
+
+    selectRolw = role => {
+        this.setState({
+            role: role
         })
     }
 
@@ -93,13 +99,30 @@ class AddUser extends Component {
                                 onClick={this.toggleModal}
                             >Select Location</Button>
                         </Col>
+                        <Col>
+                            <InputGroup>
+                                <Form.Control
+                                    placeholder="Role"
+                                    name="role"
+                                    value={this.state.role}
+                                    readOnly
+                                />
+                                <DropdownButton
+                                as={InputGroup.Append}
+                                variant={'primary'}
+                                title='Select Role'>
+                                    <Dropdown.Item>Manager</Dropdown.Item>
+                                    <Dropdown.Item>Requester</Dropdown.Item>
+                                </DropdownButton>
+                            </InputGroup>
+                        </Col>
                     </Form.Row>
                 </Form>
 
                 <UserLocations
-                 show={this.state.show}
-                 toggleModal={this.toggleModal}
-                 selectLocation={this.selectLocation} />
+                    show={this.state.show}
+                    toggleModal={this.toggleModal}
+                    selectLocation={this.selectLocation} />
             </>
         )
     }
