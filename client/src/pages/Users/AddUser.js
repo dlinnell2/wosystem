@@ -51,6 +51,26 @@ class AddUser extends Component {
         })
     }
 
+    addUser = () => {
+        let data = { ...this.state }
+        delete data.show
+
+        API.add('users', data)
+            .then((res) => {
+                console.log(res)
+                this.setState({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    location: {
+                        name: '',
+                        locationId: ''
+                    },
+                    role: '',
+                })
+            })
+    }
+
     render() {
         return (
             <>
@@ -108,15 +128,16 @@ class AddUser extends Component {
                                     readOnly
                                 />
                                 <DropdownButton
-                                as={InputGroup.Append}
-                                variant={'primary'}
-                                title='Select Role'>
+                                    as={InputGroup.Append}
+                                    variant={'primary'}
+                                    title='Select Role'>
                                     <Dropdown.Item onClick={() => this.selectRole('Manager')}>Manager</Dropdown.Item>
                                     <Dropdown.Item onClick={() => this.selectRole('Requester')}>Requester</Dropdown.Item>
                                 </DropdownButton>
                             </InputGroup>
                         </Col>
                     </Form.Row>
+                    <Button variant="success" onClick={this.addUser}>Add</Button>
                 </Form>
 
                 <UserLocations
