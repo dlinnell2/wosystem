@@ -2,14 +2,14 @@ const db = require("../models");
 
 module.exports = {
 
-    /* getAll: function (req, res) {
-        db.Location
-            .find({parent:{$exists:false}})
+    getAll: function (req, res) {
+        db.User
+            .find({})
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
 
-    getMany: function (req, res){
+    /* getMany: function (req, res){
         db.Location
         .find({'parent.parentId':req.params.id}, null, {sort:{name:1}})
         .then((dbModel) => res.json(dbModel))

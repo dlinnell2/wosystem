@@ -57,7 +57,6 @@ class AddUser extends Component {
 
         API.add('users', data)
             .then((res) => {
-                console.log(res)
                 this.setState({
                     firstName: '',
                     lastName: '',
