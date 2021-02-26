@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import { Row, Col, Form, Button, Card } from 'react-bootstrap'
+import { LinkButton } from '../../components/General'
 import API from "../../utils/API"
 
 class UserList extends Component {
@@ -15,13 +17,37 @@ class UserList extends Component {
     componentDidMount() {
         API.getAll('users')
         .then((res) => {
-            console.log(res)
+            this.setState({
+                users:res.data
+            })
         })
+    }
+
+    userRows = () => {
+        if (this.state.users){
+            return (this.state.users.map((user, index) => (
+                console.log(user)
+            )))
+        }
     }
 
     render(){
         return(
-            <h1>Hello World</h1>
+            <>
+            <Row>
+                <Col lg={'2'}>
+                <LinkButton
+                to='/users/add'
+                variant='success'
+                block>Add New</LinkButton>
+                </Col>
+            </Row>
+            <Card>
+                <Card.Body>
+                    {this.userRows()}
+                </Card.Body>
+            </Card>
+            </>
         )
     }
 }
