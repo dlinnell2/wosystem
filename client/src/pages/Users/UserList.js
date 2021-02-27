@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { Row, Col, Form, Button, Card } from 'react-bootstrap'
 import { LinkButton } from '../../components/General'
+import { UserHeaders } from '../../components/UserList'
 import API from "../../utils/API"
 
 class UserList extends Component {
@@ -34,14 +35,7 @@ class UserList extends Component {
     render(){
         return(
             <>
-            <Row>
-                <Col lg={'2'}>
-                <LinkButton
-                to='/users/add'
-                variant='success'
-                block>Add New</LinkButton>
-                </Col>
-            </Row>
+            <UserHeaders />
             <Card>
                 <Card.Body>
                     {this.userRows()}
