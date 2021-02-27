@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { Row, Col, Form, Button, Card } from 'react-bootstrap'
 import { LinkButton } from '../../components/General'
-import { UserHeaders } from '../../components/UserList'
+import { UserHeaders, UserItems } from '../../components/UserList'
 import API from "../../utils/API"
 
 class UserList extends Component {
@@ -27,7 +27,9 @@ class UserList extends Component {
     userRows = () => {
         if (this.state.users){
             return (this.state.users.map((user, index) => (
-                console.log(user)
+                <UserItems
+                user={user}
+                key={index} />
             )))
         }
     }

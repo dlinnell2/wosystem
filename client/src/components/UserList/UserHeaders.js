@@ -15,7 +15,7 @@ const UserHeaders = props => {
                 <Col>First Name</Col>
                 <Col>Email</Col>
                 <Col>Location</Col>
-                <Col>User</Col>
+                <Col>Role</Col>
             </Row>
     )
 }
