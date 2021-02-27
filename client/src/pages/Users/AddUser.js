@@ -137,6 +137,7 @@ class AddUser extends Component {
                         </Col>
                     </Form.Row>
                     <Button variant="success" onClick={this.addUser}>Add</Button>
+                    <LinkButton variant="primary" to="/users">Return to List</LinkButton>
                 </Form>
 
                 <UserLocations

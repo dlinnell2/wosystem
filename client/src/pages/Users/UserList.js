@@ -31,6 +31,8 @@ class UserList extends Component {
                 user={user}
                 key={index} />
             )))
+        } else {
+            return <h4>Getting users...</h4>
         }
     }
 
