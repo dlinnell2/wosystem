@@ -18,22 +18,25 @@ module.exports = {
     }, */
 
     addNew: function (req, res) {
-        let { lastName, firstName, email, pass, location, role } = req.body;
+        console.log(req.body)
+        let { lastName, firstName, email, password, location, role } = req.body;
 
         db.User.findOne({ email: email })
             .then(user => {
                 if (user) {
                     return res.status(422).json({ errors: [{ user: "email already exists" }] });
                 } else {
-                    const user = new User({
+        
+                    const user = new db.User({
                         firstName: firstName,
                         lastName: lastName,
                         email: email,
-                        pass: pass,
+                        password: password,
                         location: location,
                         role: role
                     });
                     bcrypt.genSalt(10, function (err, salt) {
+                        if (err) throw err;
                         bcrypt.hash(password, salt, function (err, hash) {
                             if (err) throw err;
                             user.password = hash;
@@ -53,8 +56,9 @@ module.exports = {
                     });
                 }
             }).catch(err => {
+                console.log(err)
                 res.status(500).json({
-                    errors: [{ error: 'Something went wrong' }]
+                    errors: err
                 });
             })
     },
