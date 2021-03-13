@@ -6,8 +6,12 @@ router.route('/register')
     .post(userController.addNew)
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/loginFail' }), function (req, res) {
-    res.status(200);;
+    res.send('logged in');;
 });
+
+router.get('/loggedin', function (req,res) {
+    console.log(req.user)
+})
 
 
 module.exports = router;
