@@ -3,11 +3,17 @@ const path = require('path');
 const mongoose = require("mongoose");
 const app = express();
 const routes = require("./routes");
+const passport = require('passport');
+const passportLocatSetup = require('./config/passportLocal');
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(routes);
+
 
 app.get('api/hello', (req, res) => {
   console.log('request received')
