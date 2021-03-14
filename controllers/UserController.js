@@ -18,7 +18,6 @@ module.exports = {
     }, */
 
     addNew: function (req, res) {
-        console.log(req.body)
         let { lastName, firstName, email, password, location, role } = req.body;
 
         db.User.findOne({ email: email })
