@@ -15,7 +15,6 @@ export default {
 
     editOne: (type, id, data) => 
     {
-        console.log(data)
         return axios.put(`/api/${type}/` + id, data)
     },
 

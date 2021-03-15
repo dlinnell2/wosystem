@@ -20,11 +20,9 @@ passport.use(new Strategy({ passReqToCallback: true }, function (req, username, 
             bcrypt.compare(password, user.password, function (err, passwordEval) {
                 if (err) console.error;
                 if (passwordEval) {
-                    console.log('password eval was correct');
                     done(null, user);
                     // res.redirect('/landing');
                 } else {
-                    console.log('password eval was incorrect');
                     // res.redirect('/');
                     done(null, user);
                 }
