@@ -21,9 +21,11 @@ export const initialState = {
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
         case "CHECK_LOGIN":
-            return {
-                ...initialState,
-            };
+            checkForUser().then(() => {
+                return {
+                    ...initialState,
+                };
+            });
         case "LOGIN_SUCCES":
             return {
                 userDetails: action.payload

@@ -1,6 +1,3 @@
-import React from 'react'
-import AuthAPI from '../../utils/AuthAPI'
-
-export const login = dispatch => {
-    
+export const checkForUser = dispatch => {
+    dispatch({type:"CHECK_LOGIN"})
 }
