@@ -1,4 +1,4 @@
-import { WODetail, AddWO, WOList, AddAsset, AssetDetail, AssetList, LocationList, UserList, AddUser } from "../pages";
+import { WODetail, AddWO, WOList, AddAsset, AssetDetail, AssetList, LocationList, UserList, AddUser, Login } from "../pages";
 
 export default {
     orders: {
@@ -60,5 +60,8 @@ export default {
                 component: UserList
             }
         }
+    },
+    login: {
+        path: '/login',
     }
 }

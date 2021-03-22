@@ -5,19 +5,23 @@ import routes from "./routeConfig"
 const Routing = props => (
 
     <Switch>
-        {Object.values(routes).map((route, i) =>
-            <Route path={route.path} key={i}>
-                <Switch>
-                    {Object.values(route.children).map((child, i) =>
-                        <Route path={`${route.path}${child.path}`} key={i} render={props => (
-                            <child.component {...props} />
-                        )} />
-                    )}
-                </Switch>
-            </Route>
-
-
-        )}
+        {Object.values(routes).map((route, i) => {
+            if (route.children) {
+                return (
+                    <Route path={route.path} key={i}>
+                        <Switch>
+                            {Object.values(route.children).map((child, i) =>
+                                <Route path={`${route.path}${child.path}`} key={i} render={props => (
+                                    <child.component {...props} />
+                                )} />
+                            )}
+                        </Switch>
+                    </Route>
+                )
+            } else {
+                return <Route path={route.path} key={i} />
+            }
+        })}
         <Route path='/'>
             <Redirect to='/orders' />
         </Route>

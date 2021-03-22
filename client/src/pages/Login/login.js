@@ -1,4 +1,4 @@
-import React, { useEffect } from ' react';
+import React, { useEffect } from 'react';
 import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Context'
 
 const Login = props => {
@@ -6,9 +6,11 @@ const Login = props => {
 
     useEffect(() => { userCheck() }, [])
 
-    const userCheck = async () =>{
-        let response = await checkForUser(dispatch);
+    const userCheck = () =>{
+        console.log('inside async function')
+        let response = checkForUser(dispatch);
         console.log(response)
+        console.log('login')
     }
 
     return (
@@ -17,3 +19,5 @@ const Login = props => {
         </div>
     )
 }
+
+export default Login

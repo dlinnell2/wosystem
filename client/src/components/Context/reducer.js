@@ -3,16 +3,17 @@ import AuthAPI from '../../utils/AuthAPI';
 
 let user = {};
 
-useEffect(() => { checkForUser() }, []);
-
-const checkForUser = () => {
+let checkForUser = () => {
+    console.log('checking user in reducer file')
     AuthAPI.checkForUser()
         .then(res => {
             if (res) {
                 user = res;
+            } else {
+                user = {}
             }
         })
-}
+};
 
 export const initialState = {
     userDetails: user,
