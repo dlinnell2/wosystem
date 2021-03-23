@@ -63,5 +63,6 @@ export default {
     },
     login: {
         path: '/login',
+        component: Login
     }
 }

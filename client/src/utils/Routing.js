@@ -19,7 +19,9 @@ const Routing = props => (
                     </Route>
                 )
             } else {
-                return <Route path={route.path} key={i} />
+                return <Route path={route.path} key={i} render={props => (
+                    <route.component {...props} />
+                )} />
             }
         })}
         <Route path='/'>

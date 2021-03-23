@@ -4,14 +4,12 @@ import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Co
 const Login = props => {
     const dispatch = useAuthDispatch();
 
-    useEffect(() => { userCheck() }, [])
-
-    const userCheck = () =>{
-        console.log('inside async function')
-        let response = checkForUser(dispatch);
-        console.log(response)
-        console.log('login')
-    }
+    useEffect(() => {
+        const userCheck = async () => {
+            let response = await checkForUser(dispatch);
+            console.log(response)
+        }; userCheck()
+    }, [])
 
     return (
         <div>

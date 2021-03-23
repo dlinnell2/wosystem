@@ -10,6 +10,7 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/loginF
 });
 
 router.get('/loggedin', function (req,res) {
+    console.log(req)
     if(req.user){
         res.send(req.user);
     } else {

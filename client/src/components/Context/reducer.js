@@ -3,17 +3,19 @@ import AuthAPI from '../../utils/AuthAPI';
 
 let user = {};
 
-let checkForUser = () => {
-    console.log('checking user in reducer file')
+let checkUser = new Promise ( (resolve, reject) => {
     AuthAPI.checkForUser()
         .then(res => {
-            if (res) {
-                user = res;
+            console.log(res)
+            if (res.data) {
+                user = res.data;
+                resolve();
             } else {
                 user = {}
+                resolve();
             }
         })
-};
+});
 
 export const initialState = {
     userDetails: user,
@@ -22,7 +24,7 @@ export const initialState = {
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
         case "CHECK_LOGIN":
-            checkForUser().then(() => {
+            checkUser.then(() => {
                 return {
                     ...initialState,
                 };
