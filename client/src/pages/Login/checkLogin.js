@@ -5,11 +5,18 @@ const CheckLogin = props => {
     const dispatch = useAuthDispatch();
 
     useEffect(() => {
-        const userCheck = async () => {
-            let response = await checkForUser(dispatch);
-            console.log(response)
-        }; userCheck()
-    }, [])
+        let didCancel = false;
+      
+        async function userCheck() {
+          const response = await checkForUser(dispatch);
+          if (!didCancel) { // Ignore if we started fetching something else
+            console.log(response);
+          }
+        }  
+      
+        userCheck();
+        return () => { didCancel = true; }; // Remember if we start fetching something else
+      }, []);
 
     return (
         <div>
