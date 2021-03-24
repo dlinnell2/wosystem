@@ -1,39 +1,21 @@
 import React, { useEffect } from 'react';
-import AuthAPI from '../../utils/AuthAPI';
-
-let user = {};
-
-const checkUser = new Promise ( (resolve, reject) => {
-    AuthAPI.checkForUser()
-        .then(res => {
-            console.log(res)
-            if (res.data) {
-                user = res.data;
-                resolve();
-            } else {
-                user = {}
-                resolve();
-            }
-        })
-});
 
 export const initialState = {
-    userDetails: user,
+    userDetails: {},
 };
 
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
-        case "CHECK_LOGIN":
-            checkUser.then(() => {
-                return {
-                    ...initialState,
-                };
-            });
-        case "LOGIN_SUCCES":
+        case "LOGIN_SUCCESS":
+            console.log(action.payload)
             return {
                 userDetails: action.payload
             };
         case "LOGOUT":
+            return {
+                userDetails: {}
+            }
+        case "NO_USER":
             return {
                 userDetails: {}
             }
