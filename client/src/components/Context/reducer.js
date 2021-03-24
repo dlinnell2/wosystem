@@ -2,14 +2,18 @@ import React, { useEffect } from 'react';
 
 export const initialState = {
     userDetails: {},
+    userPresent: false,
 };
 
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
         case "LOGIN_SUCCESS":
-            console.log(action.payload)
+            const newState = {...initialState};
+            newState.userDetails=action.payload;
+            newState.userPresent=true;
+            console.log(newState)
             return {
-                userDetails: action.payload
+                newState
             };
         case "LOGOUT":
             return {
