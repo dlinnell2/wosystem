@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const passport = require('passport')
-const userController = require('../../controllers/UserController')
+const passport = require('passport');
+const cors = require('cors')
+const userController = require('../../controllers/UserController');
 
 router.route('/register')
     .post(userController.addNew)
@@ -9,8 +10,9 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/loginF
     res.send('logged in');;
 });
 
-router.get('/loggedin', function (req,res) {
-    console.log(req)
+router.get('/loggedin', cors(), function (req,res) {
+    console.log(req.headers);
+    console.log(req.cookies);
     if(req.user){
         res.send(req.user);
     } else {

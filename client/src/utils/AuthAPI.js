@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
     checkForUser: () => {
-        return axios.get('/auth/loggedin')
+        return axios.get('/auth/loggedin', {withCredentials: true})
     },
 
     login: (data) => {

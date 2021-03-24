@@ -3,7 +3,7 @@ import AuthAPI from '../../utils/AuthAPI';
 
 let user = {};
 
-let checkUser = new Promise ( (resolve, reject) => {
+const checkUser = new Promise ( (resolve, reject) => {
     AuthAPI.checkForUser()
         .then(res => {
             console.log(res)

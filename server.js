@@ -5,6 +5,7 @@ const app = express();
 const routes = require("./routes");
 const passport = require('passport');
 const passportLocatSetup = require('./config/passportLocal');
+const cors = require('cors')
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
@@ -13,6 +14,11 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: false, save
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
+app.use(cors({
+  methods:['GET','POST'],
+  credentials: true,
+  origin: 'localhost:3000' 
+}))
 
 
 app.get('api/hello', (req, res) => {

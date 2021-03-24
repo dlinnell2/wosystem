@@ -1,15 +1,23 @@
 import React, { useEffect } from 'react';
-import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Context'
+import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Context';
+import AuthAPI from '../../utils/AuthAPI'
 
 const Login = props => {
     const dispatch = useAuthDispatch();
 
-    useEffect(() => {
-        const userCheck = async () => {
-            let response = await checkForUser(dispatch);
-            console.log(response)
-        }; userCheck()
-    }, [])
+    const userData = {
+        "password": "testpassword",
+        "username": "test@test.com"
+    }
+
+    useEffect(() => { sendLogin(userData) }, [])
+
+    const sendLogin = data => {
+        AuthAPI.login(data)
+        .then(res => {
+            console.log(res)
+        })
+    }
 
     return (
         <div>
