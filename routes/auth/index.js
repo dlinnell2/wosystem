@@ -7,7 +7,7 @@ router.route('/register')
     .post(userController.addNew)
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/loginFail' }), function (req, res) {
-    res.send('logged in');;
+    res.redirect('/auth/loggedin');;
 });
 
 router.get('/loggedin', cors(), function (req,res) {

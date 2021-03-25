@@ -3,24 +3,18 @@ import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Co
 
 const CheckLogin = props => {
     const dispatch = useAuthDispatch();
+    const userDetails = useAuthState();
 
-    useEffect(() => {
-        let didCancel = false;
-      
-        async function userCheck() {
-          const response = await checkForUser(dispatch);
-          if (!didCancel) { // Ignore if we started fetching something else
-            console.log(response);
-          }
-        }  
-      
-        userCheck();
-        return () => { didCancel = true; }; // Remember if we start fetching something else
-      }, []);
+    useEffect(() => { 
+        checkForUser(dispatch)
+
+        console.log(userDetails)
+    
+    }, []);
 
     return (
         <div>
-            <h2>Check Login page</h2>
+            <h2>Check Login page {userDetails.firstName}</h2>
         </div>
     )
 }
