@@ -1,6 +1,11 @@
 import AuthAPI from '../../utils/AuthAPI';
 
-export async function checkForUser(dispatch) {
-    let response = await AuthAPI.checkForUser();
-    response.data ? dispatch({ type: "LOGIN_SUCCESS", payload: response.data }) : dispatch({ type: "NO_USER" });
+export async function loginUser(dispatch, data) {
+    let response = await AuthAPI.login(data);
+    let user = response.data;
+
+    if (user) {
+        dispatch({type:"LOGIN_SUCCESS", payload:user});
+        return user
+    }
 }

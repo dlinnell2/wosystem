@@ -1,16 +1,9 @@
 import React, { useEffect } from 'react';
-import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Context'
+import { loginUser, useAuthState, useAuthDispatch } from '../../components/Context'
 
 const CheckLogin = props => {
     const dispatch = useAuthDispatch();
     const userDetails = useAuthState();
-
-    useEffect(() => { 
-        checkForUser(dispatch)
-
-        console.log(userDetails)
-    
-    }, []);
 
     return (
         <div>

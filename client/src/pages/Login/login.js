@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
-import { checkForUser, useAuthState, useAuthDispatch } from '../../components/Context';
+import { loginUser, useAuthState, useAuthDispatch } from '../../components/Context';
 import AuthAPI from '../../utils/AuthAPI'
 
 const Login = props => {
     const dispatch = useAuthDispatch();
+    const user = useAuthState().userDetails;
+
+    console.log(user)
 
     const userData = {
         "password": "testpassword",
@@ -12,16 +15,14 @@ const Login = props => {
 
     useEffect(() => { sendLogin(userData) }, [])
 
-    const sendLogin = data => {
-        AuthAPI.login(data)
-        .then(res => {
-            console.log(res)
-        })
+    const sendLogin = async data => {
+        let response = await loginUser(dispatch, userData)
+        console.log(response)
     }
 
     return (
         <div>
-            <h2>Login page</h2>
+            <h2>Login page for {user.firstName}</h2>
         </div>
     )
 }
