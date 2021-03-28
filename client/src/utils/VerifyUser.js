@@ -1,20 +1,27 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom'
-import { checkForUser } from '../components/Context'
+import { Routing } from './index'
+import { Navigation } from '../components/General'
+import Container from 'react-bootstrap/Container'
+import { useAuthState } from '../components/Context'
 
 export const VerifyUser = ({ children }) => {
 
-    const verify = async () => {
-        let user = await checkForUser();
+    const userDetails = useAuthState().data;
 
-        if (user) {
-            console.log(user)
-        } else {
-            <Redirect to={{pathname:'/login'}} />
-        }
-    }
-
+    const evaluateUser = () => (
+        userDetails ? (
+            <>
+                <Navigation />
+                <Container fluid>
+                    <Routing />
+                </Container>
+            </>
+        ) : (
+                <Redirect to={{ pathname: '/login' }} />
+            )
+    )
     return (
-        <>{children}</>
+        evaluateUser()
     )
 }
