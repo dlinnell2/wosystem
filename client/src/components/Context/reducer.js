@@ -1,7 +1,20 @@
 import React, { useEffect } from 'react';
+import AuthAPI from '../../utils/AuthAPI';
+
+let user = {}
+
+const checkForUser = async () => {
+    let response = await AuthAPI.checkForUser();
+    if (response){
+        console.log(response);
+        user = response.data;
+    }
+}
+
+checkForUser();
 
 export const initialState = {
-    userDetails: {}
+    userDetails: user
 };
 
 export const AuthReducer = (initialState, action) => {
