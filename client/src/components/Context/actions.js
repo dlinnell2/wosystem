@@ -6,6 +6,19 @@ export async function loginUser(dispatch, data) {
 
     if (user) {
         dispatch({type:"LOGIN_SUCCESS", payload:user});
-        return user
+        return user;
     }
+}
+
+export async function checkForUser(dispatch) {
+    let response = await AuthAPI.checkForUser();
+    let user = response.data;
+
+    if (user) {
+        dispatch({type:"LOGIN_SUCCESS", payload:user});
+        return user;
+    } else {
+        return null;
+    }
+
 }
