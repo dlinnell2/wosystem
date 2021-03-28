@@ -1,9 +1,8 @@
-user login flow between f and b
-- register and login both hit b
-- f calls loggedin on immediate start to check
-- login on f then sends immediate get to loggedin to b
-- f stores result of loggedin to context
-- all routing based on user level handled by f and context
-- b is hit for logout to clear both
-
-begin to build context for f to receive info from b upon successful login
+app wrapped by component checking if logged in
+- if so, send to one of three routes based on role
+    - manager - all views
+    - technician - list of assigned to technician
+    - requester - list of orders submitted
+- all can sumbit orders
+- if not user, redirect to login page
+- build login page with basic form
