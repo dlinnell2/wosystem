@@ -1,27 +1,23 @@
-import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom'
-import { Routing } from './index'
-import { Navigation } from '../components/General'
-import Container from 'react-bootstrap/Container'
+import React from 'react';
 import { useAuthState } from '../components/Context'
+import { Login } from '../pages'
+import { Route } from 'react-router-dom';
 
 export const VerifyUser = ({ children }) => {
+    const { userDetails } = useAuthState();
+    console.log(userDetails)
 
-    const userDetails = useAuthState().data;
-
-    const evaluateUser = () => (
-        userDetails ? (
+    if (Object.keys(userDetails).length > 0) {
+        return (
             <>
-                <Navigation />
-                <Container fluid>
-                    <Routing />
-                </Container>
+                {children}
             </>
-        ) : (
-                <Redirect to={{ pathname: '/login' }} />
-            )
-    )
-    return (
-        evaluateUser()
-    )
+        )
+    } else {
+        return (
+            <Route path='/login' render={props => (
+                <Login {...props} />
+            )} />
+        )
+    }
 }

@@ -6,14 +6,20 @@ export default {
         children: {
             add: {
                 path: '/add',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: AddWO
             },
             detail: {
                 path: '/detail/:id',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: WODetail
             },
             list: {
                 path: '/',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: WOList
             }
         }
@@ -23,14 +29,20 @@ export default {
         children: {
             add: {
                 path: '/add',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: AddAsset
             },
             detail: {
                 path: '/detail/:id',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: AssetDetail
             },
             list: {
                 path: '/',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: AssetList
             }
         }
@@ -40,10 +52,14 @@ export default {
         children: {
             list: {
                 path: '/:id',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: LocationList
             },
             listTopLevel: {
                 path: '/',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: LocationList
             }
         }
@@ -53,16 +69,16 @@ export default {
         children: {
             add: {
                 path: '/add',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: AddUser
             },
             list: {
                 path: '/',
+                private: true,
+                permissions: ["Manager", "Technician", "Requester"],
                 component: UserList
             }
         }
-    },
-    login: {
-        path: '/login',
-        component: Login
     }
 }

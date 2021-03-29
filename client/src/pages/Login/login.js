@@ -6,14 +6,12 @@ const Login = props => {
     const dispatch = useAuthDispatch();
     const user = useAuthState().userDetails;
 
-    console.log(user)
-
     const userData = {
         "password": "testpassword",
         "username": "test@test.com"
     }
 
-    useEffect(() => { sendLogin(userData) }, [])
+    //useEffect(() => { sendLogin(userData) }, [])
 
     const sendLogin = async data => {
         let response = await loginUser(dispatch, userData)
