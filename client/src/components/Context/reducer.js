@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import AuthAPI from '../../utils/AuthAPI';
 
-let checkForUser = async () => {
-    let response = await AuthAPI.checkForUser();
-    if (response){
-        console.log(response);
-        user = response.data;
-    }
+const checkUser = () => {
+    AuthAPI.checkForUser().then(res => res);
 }
 
-checkForUser();
+const user = checkUser()
 
 export const initialState = {
     userDetails: user
