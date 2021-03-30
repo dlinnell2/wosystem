@@ -11,7 +11,7 @@ const Login = props => {
         "username": "test@test.com"
     }
 
-    //useEffect(() => { sendLogin(userData) }, [])
+    useEffect(() => { sendLogin(userData) }, [])
 
     const sendLogin = async data => {
         let response = await loginUser(dispatch, userData)

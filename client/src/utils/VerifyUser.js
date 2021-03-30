@@ -1,23 +1,31 @@
 import React from 'react';
 import { useAuthState } from '../components/Context'
 import { Login } from '../pages'
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { UserPages } from '../components/UserPages'
 
 export const VerifyUser = ({ children }) => {
     const { userDetails } = useAuthState();
     console.log(userDetails)
 
-    if (Object.keys(userDetails).length > 0) {
-        return (
-            <>
-                {children}
-            </>
-        )
-    } else {
-        return (
-            <Route path='/login' render={props => (
+    return (
+        <Switch>
+           <Route
+            path={'/login'}
+            render = {props => 
                 <Login {...props} />
-            )} />
-        )
-    }
+            }
+            />
+            <Route
+            path={'/*'}
+            render={props => 
+                /* Object.keys(userDetails).length > 1 ?(
+                    <UserPages {...props} />
+                ) : (
+                    <Redirect to={{pathname: '/login'}} />
+                ) */
+                <UserPages {...props} />
+            } />
+        </Switch>
+    )
 }
