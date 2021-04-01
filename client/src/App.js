@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { AuthProvider } from './components/Context';
-import { VerifyUser } from './utils/VerifyUser'
+import { Routing } from './utils';
+import { Navigation } from './components/General';
+import Container from 'react-bootstrap/Container';
 const history = createBrowserHistory();
 
 class App extends Component {
@@ -13,7 +15,10 @@ class App extends Component {
     return (
       <AuthProvider>
         <Router history={history}>
-          <VerifyUser />
+          <Navigation />
+          <Container fluid>
+            <Routing />
+          </Container>
         </Router>
       </AuthProvider>
     );

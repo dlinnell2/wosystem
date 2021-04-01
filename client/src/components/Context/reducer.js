@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import AuthAPI from '../../utils/AuthAPI';
 
-let user = {}
+let user = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : "";
 
-const checkUser = () => {
-    console.log('request')
-    AuthAPI.checkForUser().then(res => user = res)
-    console.log(user);
-}
-
-checkUser();
+  console.log(user);
 
 export const initialState = {
     userDetails: user

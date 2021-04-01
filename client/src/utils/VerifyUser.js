@@ -8,5 +8,10 @@ export const VerifyUser = props => {
     const { userDetails } = useAuthState();
     console.log(userDetails);
 
-    return userDetails ? (<UserPages {...props} />) : (<Redirect to={{pathname:'/login'}} />)
+    return (
+        <Switch>
+            <Route path={'/login'} render={props => <Login {...props} />} />
+            <Route path={'/*'} render={props => <UserPages {...props} />} />
+        </Switch>
+        )
 }
