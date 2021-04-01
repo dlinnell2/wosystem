@@ -16,7 +16,7 @@ const Routing = props => {
                             <Switch>
                                 {Object.values(route.children).map((child, i) =>
                                     <Route path={`${route.path}${child.path}`} key={i} render={props => 
-                                        user ? (
+                                        user.userDetails ? (
                                         <child.component {...props} />
                                     ) : (
                                     <Redirect to={{pathname:'/login'}} />
