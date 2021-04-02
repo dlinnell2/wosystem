@@ -20,6 +20,8 @@ class AddUser extends Component {
             locationId: ''
         },
         role: '',
+        password: '',
+        confirmPassword: '',
         show: false
     }
 
@@ -106,6 +108,26 @@ class AddUser extends Component {
                     <Form.Row>
                         <Form.Group as={Col}>
                             <Form.Control
+                                placeholder="Password"
+                                type="password"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                            />
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                            <Form.Control
+                                placeholder="Confirm Password"
+                                type="password"
+                                name="confirmPassword"
+                                value={this.state.Password}
+                                onChange={this.handleInputChange}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col}>
+                            <Form.Control
                                 placeholder="Location"
                                 name="location"
                                 value={this.state.location.name}
@@ -136,8 +158,10 @@ class AddUser extends Component {
                             </InputGroup>
                         </Col>
                     </Form.Row>
-                    <Button variant="success" onClick={this.addUser}>Add</Button>
-                    <LinkButton variant="primary" to="/users">Return to List</LinkButton>
+                    <Row>
+                    <Col lg={1}><Button variant="success" onClick={this.addUser}>Add</Button></Col>
+                    <Col lg={2}><LinkButton variant="primary" to="/users">Return to List</LinkButton></Col>
+                    </Row>
                 </Form>
 
                 <UserLocations
