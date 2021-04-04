@@ -22,14 +22,30 @@ class AddUser extends Component {
         role: '',
         password: '',
         confirmPassword: '',
+        passwordMatch: true,
         show: false
     }
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        });
+
+        if (name === 'password' || 'confirmPassword') {
+            (name === 'confirmPassword' && this.state.password === value) ? (
+                this.setState({
+                    [name]:value,
+                    passwordMatch: true
+                })
+            ) : (
+                this.setState({
+                    [name]:value,
+                    passwordMatch: false
+                })
+            )
+        } else {
+            this.setState({
+                [name]: value
+            });
+        }
     }
 
     selectLocation = data => {
@@ -56,6 +72,7 @@ class AddUser extends Component {
     addUser = () => {
         let data = { ...this.state }
         delete data.show
+        delete data.confirmPassword
 
         API.add('users', data)
             .then((res) => {
@@ -68,6 +85,8 @@ class AddUser extends Component {
                         locationId: ''
                     },
                     role: '',
+                    password: '',
+                    confirmPassword: ''
                 })
             })
     }
@@ -120,9 +139,12 @@ class AddUser extends Component {
                                 placeholder="Confirm Password"
                                 type="password"
                                 name="confirmPassword"
-                                value={this.state.Password}
+                                value={this.state.confirmPassword}
                                 onChange={this.handleInputChange}
                             />
+                            {this.state.passwordMatch ? ('') : (
+                                <Form.Text>Passwords do not match!</Form.Text>
+                            )}
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
@@ -153,14 +175,15 @@ class AddUser extends Component {
                                     variant={'primary'}
                                     title='Select Role'>
                                     <Dropdown.Item onClick={() => this.selectRole('Manager')}>Manager</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => this.selectRole('Technician')}>Manager</Dropdown.Item>
                                     <Dropdown.Item onClick={() => this.selectRole('Requester')}>Requester</Dropdown.Item>
                                 </DropdownButton>
                             </InputGroup>
                         </Col>
                     </Form.Row>
                     <Row>
-                    <Col lg={1}><Button variant="success" onClick={this.addUser}>Add</Button></Col>
-                    <Col lg={2}><LinkButton variant="primary" to="/users">Return to List</LinkButton></Col>
+                        <Col lg={1}><Button variant="success" onClick={this.addUser}>Add</Button></Col>
+                        <Col lg={2}><LinkButton variant="primary" to="/users">Return to List</LinkButton></Col>
                     </Row>
                 </Form>
 
