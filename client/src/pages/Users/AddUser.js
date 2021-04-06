@@ -30,8 +30,7 @@ class AddUser extends Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-
-        if (name === 'password' || 'confirmPassword') {
+        if (name === 'password' || name === 'confirmPassword') {
             (name === 'confirmPassword' && this.state.password === value) ? (
                 this.setState({
                     [name]: value,
@@ -53,7 +52,7 @@ class AddUser extends Component {
     selectLocation = data => {
         this.setState({
             location: data,
-            show: false
+            showLocations: false
         })
     }
 
