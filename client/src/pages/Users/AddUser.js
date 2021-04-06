@@ -23,7 +23,7 @@ class AddUser extends Component {
         password: '',
         confirmPassword: '',
         passwordMatch: true,
-        show: false,
+        showLocations: false,
         showPassword: false,
         passwordType: 'password'
     }
@@ -64,17 +64,23 @@ class AddUser extends Component {
     }
 
     toggleModal = () => {
-        let newShow = !this.state.show
+        let newShow = !this.state.showLocations
 
         this.setState({
-            show: newShow
+            showLocations: newShow
         })
     }
 
     addUser = () => {
-        let data = { ...this.state }
-        delete data.show
-        delete data.confirmPassword
+
+        let data = {  
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            location: this.state.location,
+            role: this.state.role,
+            password: this.state.password
+        }
 
         API.add('users', data)
             .then((res) => {
@@ -177,7 +183,7 @@ class AddUser extends Component {
                                 readOnly
                             />
                         </Form.Group>
-                        <Col>
+                        <Col lg={2}>
                             <Button
                                 variant="primary"
                                 onClick={this.toggleModal}
@@ -196,7 +202,7 @@ class AddUser extends Component {
                                     variant={'primary'}
                                     title='Select Role'>
                                     <Dropdown.Item onClick={() => this.selectRole('Manager')}>Manager</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => this.selectRole('Technician')}>Manager</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => this.selectRole('Technician')}>Technician</Dropdown.Item>
                                     <Dropdown.Item onClick={() => this.selectRole('Requester')}>Requester</Dropdown.Item>
                                 </DropdownButton>
                             </InputGroup>
@@ -209,7 +215,7 @@ class AddUser extends Component {
                 </Form>
 
                 <UserLocations
-                    show={this.state.show}
+                    show={this.state.showLocations}
                     toggleModal={this.toggleModal}
                     selectLocation={this.selectLocation} />
             </>
