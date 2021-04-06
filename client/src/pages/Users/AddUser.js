@@ -23,7 +23,9 @@ class AddUser extends Component {
         password: '',
         confirmPassword: '',
         passwordMatch: true,
-        show: false
+        show: false,
+        showPassword: false,
+        passwordType: 'password'
     }
 
     handleInputChange = (e) => {
@@ -32,15 +34,15 @@ class AddUser extends Component {
         if (name === 'password' || 'confirmPassword') {
             (name === 'confirmPassword' && this.state.password === value) ? (
                 this.setState({
-                    [name]:value,
+                    [name]: value,
                     passwordMatch: true
                 })
             ) : (
-                this.setState({
-                    [name]:value,
-                    passwordMatch: false
-                })
-            )
+                    this.setState({
+                        [name]: value,
+                        passwordMatch: false
+                    })
+                )
         } else {
             this.setState({
                 [name]: value
@@ -91,6 +93,18 @@ class AddUser extends Component {
             })
     }
 
+    handleShowPasswordChange = () => {
+        let newShow = !this.state.showPassword
+
+        newShow ? this.setState({
+            showPassword: newShow,
+            passwordType: 'text'
+        }) : this.setState({
+            showPassword: newShow,
+            passwordType: 'password'
+        })
+    }
+
     render() {
         return (
             <>
@@ -128,7 +142,7 @@ class AddUser extends Component {
                         <Form.Group as={Col}>
                             <Form.Control
                                 placeholder="Password"
-                                type="password"
+                                type={this.state.passwordType}
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
@@ -137,7 +151,7 @@ class AddUser extends Component {
                         <Form.Group as={Col}>
                             <Form.Control
                                 placeholder="Confirm Password"
-                                type="password"
+                                type={this.state.passwordType}
                                 name="confirmPassword"
                                 value={this.state.confirmPassword}
                                 onChange={this.handleInputChange}
@@ -146,6 +160,13 @@ class AddUser extends Component {
                                 <Form.Text>Passwords do not match!</Form.Text>
                             )}
                         </Form.Group>
+                        <Col lg={2}>
+                            <Form.Check
+                                type='checkbox'
+                                label='Show Password'
+                                checked={this.state.showPassword} 
+                                onChange={this.handleShowPasswordChange}/>
+                        </Col>
                     </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col}>
